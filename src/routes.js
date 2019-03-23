@@ -1,5 +1,5 @@
 import Home from "./views/Home.vue";
-import Promos from "@/components/Promociones"
+import Promos from "@/components/Home/Promociones"
 
 export const routes = [
     {

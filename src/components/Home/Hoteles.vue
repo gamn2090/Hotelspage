@@ -17,7 +17,6 @@
                 <button @click="addHotel">Add</button>
             </div>
             <div class="row">
-                <!-- mira we... un secreto, no lo compartas :v -->
                 <div v-for="hotelData in hotels" :key="hotelData.key" class="col-md-6 col-lg-4 mb-5">
                     <router-link :to="{ name: 'show-promos', params: { key: hotelData.key } }">
                         <div class="hotel-room text-center">

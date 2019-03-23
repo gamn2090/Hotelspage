@@ -7,17 +7,18 @@
                 </div>
             </div>
             <!-- inicio el for -->
-            <div v-for="promoData in promos" :key="promoData.key" class="nonloop-block-15 owl-carousel">
-                <div class="media-with-text p-md-5">
+            <div class="nonloop-block-15 owl-carousel">
+                <div v-for="promosData in promos" :key="promosData.key" class="media-with-text p-md-5">
                     <div class="img-border-sm mb-4">
                         <a href="#!" class="image-play">
-                            <img :src="promoData.image || '../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
+                            <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
                         </a>
                     </div>
-                    <h2 class="heading mb-0"><a href="#!">{{promoData.name}}</a></h2>
-                    <span class="mb-3 d-block post-date">{{promoData.createdAt}}</span>
-                    <p>{{promoData.description}}</p>
-                </div>                
+                    <h2 class="heading mb-0"><a href="#!">{{promosData.name}}</a></h2>
+                    <span class="mb-3 d-block post-date">{{promosData.createdAt}}</span>
+                    <p>{{promosData.description}}</p>
+                </div> 
+                      
             </div>
             <!-- fin del for -->            
         </div>
@@ -50,8 +51,6 @@ export default {
         promo: null,
         description: null,
         promos: [],
-        promosOnChildAdded: null,
-        promosOnChildRemoved: null,
         promosRef: db.child("promos")
       }
     },
@@ -82,26 +81,21 @@ export default {
             }
             alert("Promoción Agregada con éxito.")
         },
-        getPromos() {
-           this.promosOnChildAdded = this.promosRef.on("child_added", snapshot => {
-               const data = snapshot.val()
-               const key = snapshot.key
-               data.key = key
-               this.promos.push(data)
-           })
-
-           this.promosOnChildRemoved = this.promosRef.on("child_removed", snapshot => {
-               const index = this.promos.findIndex(e => e.key == snapshot.key)
-               this.promos.splice(index, 1)
-           })
+        async getPromos() {
+           try {
+                this.promos = (
+                    await db
+                    .child("promos")
+                    .once("value")
+                ).val()
+                console.log()
+            } catch (ex) {
+                return console.error(ex)
+            }          
         },
     },  
     created() {
         this.getPromos()
-    },
-    beforeDestroy() {
-        this.promosRef.off("child_added", this.promosOnChildAdded)
-        this.promosRef.off("child_removed", this.promosOnChildRemoved)
     }
 }
 </script>

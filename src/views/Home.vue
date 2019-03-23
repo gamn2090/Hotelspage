@@ -3,7 +3,7 @@
     <Navbar></Navbar>
     <Banner></Banner>
     <Hoteles></Hoteles>
-    <!--<Promociones></Promociones> -->
+    <Promociones></Promociones>
     <Nosotros></Nosotros>
     <Caracteristicas></Caracteristicas>
     <parallax></parallax>
@@ -15,17 +15,17 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
-import Banner from "@/components/Banner.vue";
-import Hoteles from "@/components/Hoteles";
-import Promociones from "@/components/Promociones";
-import Nosotros from "@/components/Nosotros";
-import Caracteristicas from "@/components/Caracteristicas";
-import Parallax from "@/components/Parallax";
-import Fotos from "@/components/Fotos";
-import Opiniones from "@/components/Opiniones";
-import Maps from "@/components/Maps";
-import MyFooter from "@/components/MyFooter";
+import Navbar from "@/components/Home/Navbar.vue";
+import Banner from "@/components/Home/Banner.vue";
+import Hoteles from "@/components/Home/Hoteles";
+import Promociones from "@/components/Home/Promociones";
+import Nosotros from "@/components/Home/Nosotros";
+import Caracteristicas from "@/components/Home/Caracteristicas";
+import Parallax from "@/components/Home/Parallax";
+import Fotos from "@/components/Home/Fotos";
+import Opiniones from "@/components/Home/Opiniones";
+import Maps from "@/components/Home/Maps";
+import MyFooter from "@/components/Home/MyFooter";
 
 export default {
   name: "home",

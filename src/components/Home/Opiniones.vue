@@ -10,7 +10,7 @@
                 <div class="p-4">
                     <div class="d-flex block-testimony">
                         <div class="person mr-3">
-                            <img src="../../public/assets/images/person_1.jpg" alt="Image" class="img-fluid rounded">
+                            <img src="../../../public/assets/images/person_1.jpg" alt="Image" class="img-fluid rounded">
                         </div>
                         <div>
                             <h2 class="h5">Katie Johnson</h2>
@@ -21,7 +21,7 @@
                 <div class="p-4">
                     <div class="d-flex block-testimony">
                         <div class="person mr-3">
-                            <img src="../../public/assets/images/person_2.jpg" alt="Image" class="img-fluid rounded">
+                            <img src="../../../public/assets/images/person_2.jpg" alt="Image" class="img-fluid rounded">
                         </div>
                         <div>
                             <h2 class="h5">Jane Mars</h2>
@@ -32,7 +32,7 @@
                 <div class="p-4">
                     <div class="d-flex block-testimony">
                         <div class="person mr-3">
-                            <img src="../../public/assets/images/person_3.jpg" alt="Image" class="img-fluid rounded">
+                            <img src="../../../public/assets/images/person_3.jpg" alt="Image" class="img-fluid rounded">
                         </div>
                         <div>
                             <h2 class="h5">Shane Holmes</h2>
@@ -43,7 +43,7 @@
                 <div class="p-4">
                     <div class="d-flex block-testimony">
                         <div class="person mr-3">
-                            <img src="../../public/assets/images/person_4.jpg" alt="Image" class="img-fluid rounded">
+                            <img src="../../../public/assets/images/person_4.jpg" alt="Image" class="img-fluid rounded">
                         </div>
                         <div>
                             <h2 class="h5">Mark Johnson</h2>
