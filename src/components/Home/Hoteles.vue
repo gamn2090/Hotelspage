@@ -6,7 +6,7 @@
                     <h2 class="mb-5">Nuestros hoteles</h2>
                 </div>
             </div>
-            <div>
+            <!-- <div>
                 <label for="">
                     Hotel
                 </label>
@@ -15,7 +15,7 @@
                 <label for="image">Imagen</label>
                 <input type="file" @change="getFiles()" ref="files">
                 <button @click="addHotel">Add</button>
-            </div>
+            </div> -->
             <div class="row">
                 <div v-for="hotelData in hotels" :key="hotelData.key" class="col-md-6 col-lg-4 mb-5">
                     <router-link :to="{ name: 'show-promos', params: { key: hotelData.key } }">

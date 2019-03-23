@@ -22,7 +22,7 @@
             </div>
             <!-- fin del for -->            
         </div>
-        <div>
+        <!-- <div>
             <label for="">
                 Promocion
             </label>
@@ -35,7 +35,7 @@
             <label for="image">Imagen</label>
             <input type="file" @change="getFiles()" ref="files">
             <button @click="addPromo">Add</button>
-        </div>
+        </div> -->
     </div>
 </template>
 

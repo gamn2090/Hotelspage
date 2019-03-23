@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-7 text-center" data-aos="fade">
-                        <h1 class="mb-2">Bienvenido a Hoteles el Hotel</h1>
+                        <h1 class="mb-2">Bienvenido a Hoteles el Tambo</h1>
                         <h2 class="caption">Disfrute del Perú</h2>
                     </div>
                 </div>
