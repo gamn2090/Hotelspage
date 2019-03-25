@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 //importas firebase
 import './firebase'
 
-import $ from "jquery"
+import "jquery"
 
 import { routes } from './routes'
 

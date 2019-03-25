@@ -27,6 +27,9 @@
 <script>
 import { db, storage } from '@/firebase.js'
 import moment from "moment"
+//importo el owl carousel
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel";
 
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';

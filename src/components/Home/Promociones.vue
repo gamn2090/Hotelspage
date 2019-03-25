@@ -43,9 +43,6 @@
 import { db, storage } from '@/firebase.js'
 import moment from "moment"
 
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
-
 export default {
     name: "Promociones",
     data () {
