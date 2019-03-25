@@ -3,7 +3,7 @@
     <Navbar></Navbar>
     <Banner></Banner>
     <Hoteles></Hoteles>
-    <Promociones></Promociones>
+    <Promociones></Promociones> 
     <Nosotros></Nosotros>
     <Caracteristicas></Caracteristicas>
     <parallax></parallax>

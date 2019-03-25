@@ -1,6 +1,6 @@
 <template>
     <span>
-        <div class="py-5 upcoming-events" style="background-image: url('../../../public/assets/images/img_8.jpg'); background-attachment: fixed; height:300px; background-size: cover">
+        <div class="py-5 upcoming-events" style="background-image: url('./assets/images/img_8.jpg'); background-attachment: fixed; height:300px; background-size: cover">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -10,7 +10,7 @@
                         <span class="caption"></span>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>        
     </span>
 </template>

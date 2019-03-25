@@ -8,10 +8,10 @@
                             <span class="icon-wrap">
                                 <span class="icon icon-play"></span>
                             </span>
-                            <img src="../../../public/assets/images/img_2.jpg" alt="" class="img-fluid">
+                            <img src="assets/images/img_2.jpg" alt="" class="img-fluid">
                         </a>
                     </div>
-                    <img src="../../../public/assets/images/img_1.jpg" alt="Image" class="img-fluid image-absolute">
+                    <img src="assets/images/img_1.jpg" alt="Image" class="img-fluid image-absolute">
                 </div>
                 <div class="col-md-5 ml-auto">
                     <div class="section-heading text-left">

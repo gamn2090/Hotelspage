@@ -4,11 +4,14 @@ import VueRouter from 'vue-router'
 //importas firebase
 import './firebase'
 
+import $ from "jquery"
+
 import { routes } from './routes'
 
 import "babel-polyfill"
 
 Vue.use(VueRouter)
+Vue.use($)
 
 const router = new VueRouter({
   mode: "history",

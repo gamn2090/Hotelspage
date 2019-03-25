@@ -78,8 +78,9 @@ export default {
             }          
         },
     },  
-    created() {
-        this.getFotos()
+    async created() {
+        await this.getFotos()
+        $('.image-popup').magnificPopup({ type: 'image', closeOnContentClick: true, closeBtnInside: false, fixedContentPos: true, mainClass: 'mfp-no-margins mfp-with-zoom', gallery: { enabled: true, navigateByImgClick: true, preload: [0, 1] }, image: { verticalFit: true }, zoom: { enabled: true, duration: 300 } }); $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({ disableOn: 700, type: 'iframe', mainClass: 'mfp-fade', removalDelay: 160, preloader: false, fixedContentPos: false });
     }
 }
 </script>
