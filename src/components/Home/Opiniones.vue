@@ -27,6 +27,9 @@
 <script>
 import { db, storage } from '@/firebase.js'
 import moment from "moment"
+//importo el owl carousel
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel";
 
 export default {
     name: "Opiniones",
@@ -81,7 +84,6 @@ export default {
     },  
     async created() {   
         await this.getOpinions()
-
         if ($('.nonloop-block-14').length > 0) { $('.nonloop-block-14').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, autoplay: true, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1 }, 1000: { margin: 20, stagePadding: 0, items: 2 } } }); }
         // Se ejecuta cuando vue dice "llaman a este componente, prepáralo..."
     }
