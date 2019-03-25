@@ -29,6 +29,9 @@
 import { db, storage } from '@/firebase.js'
 import moment from "moment"
 
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
+
 export default {
     name: "Fotos",
     data () {
@@ -72,15 +75,19 @@ export default {
                     .child("fotos")
                     .once("value")
                 ).val()
-                console.log()
+                console.log('tengo las fotos')
             } catch (ex) {
                 return console.error(ex)
             }          
         },
     },  
     async created() {
-        await this.getFotos()
-        $('.image-popup').magnificPopup({ type: 'image', closeOnContentClick: true, closeBtnInside: false, fixedContentPos: true, mainClass: 'mfp-no-margins mfp-with-zoom', gallery: { enabled: true, navigateByImgClick: true, preload: [0, 1] }, image: { verticalFit: true }, zoom: { enabled: true, duration: 300 } }); $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({ disableOn: 700, type: 'iframe', mainClass: 'mfp-fade', removalDelay: 160, preloader: false, fixedContentPos: false });
+        console.log('pido que se carguen las fotos')
+        await this.getFotos()       
+        console.log('fotos cargadas')
+    }, async updated () {        
+         $('.image-popup').magnificPopup({ type: 'image', closeOnContentClick: true, closeBtnInside: false, fixedContentPos: true, mainClass: 'mfp-no-margins mfp-with-zoom', gallery: { enabled: true, navigateByImgClick: true, preload: [0, 1] }, image: { verticalFit: true }, zoom: { enabled: true, duration: 300 } }); $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({ disableOn: 700, type: 'iframe', mainClass: 'mfp-fade', removalDelay: 160, preloader: false, fixedContentPos: false });
+         console.log('aplicadas las clases')
     }
 }
 </script>

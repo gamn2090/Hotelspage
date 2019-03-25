@@ -40,6 +40,8 @@ export default {
       return {
         
       }
+    }, mounted () {
+        if ($('.slide-one-item').length > 0) { $('.slide-one-item').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, margin: 0, autoplay: true, pauseOnHover: false, animateOut: 'fadeOut', animateIn: 'fadeIn', nav: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'] }); }
     }
 };
 </script>
