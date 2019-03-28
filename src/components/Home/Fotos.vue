@@ -7,9 +7,14 @@
                     </div>
                 </div>
                 <div class="row no-gutters">
-                    <div v-for="fotosData in fotos" :key="fotosData.key" class="col-md-6 col-lg-3">
-                        <a :href="fotosData.image || '../../../public/assets/images/img_1.jpg'" class="image-popup img-opacity"><img style="width:232.5; height:154.89 !important" :src="fotosData.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid"></a>
-                    </div>                    
+                    <!-- 
+                        <a href="../../../public/assets/images/img_1.jpg" class="image-popup img-opacity"><img style="width:232.5; height:154.89 !important" src="../../../public/assets/images/img_1.jpg" alt="Image" class="img-fluid"></a>
+                    </div> -->
+                    <div v-for="(fotosData, i) in fotos" :key="i" @click="index = i" class="col-md-6 col-lg-3">
+                        <img style="width:232.5; height:154.89 !important" :src="fotosData.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
+                    </div>
+                    <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
+
                 </div>                
             </div>
             <!--<div>
@@ -32,8 +37,7 @@ import moment from "moment"
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel";
 
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
+import VueGallerySlideshow from 'vue-gallery-slideshow';
 
 export default {
     name: "Fotos",
@@ -42,8 +46,13 @@ export default {
         files: [],
         foto: null,
         fotos: [],
+        images: [],
+        index : null,
         fotosRef: db.child("fotos")
       }
+    },
+    components: {
+        VueGallerySlideshow
     },
     methods:{
         getFiles() {
@@ -76,9 +85,14 @@ export default {
                 this.fotos = (
                     await db
                     .child("fotos")
-                    .once("value")
+                    .limitToLast(12)
+                    .once("value")                    
                 ).val()
-                console.log('tengo las fotos')
+
+                for (let elem in this.fotos) {
+                    this.images.push(this.fotos[elem].image);                    
+                }              
+                //console.log(this.images) 
             } catch (ex) {
                 return console.error(ex)
             }          
@@ -88,14 +102,13 @@ export default {
         console.log('pido que se carguen las fotos')
         await this.getFotos()       
         console.log('fotos cargadas')
-    }, 
-    async updated () {        
-         await $('.image-popup').magnificPopup({ type: 'image', closeOnContentClick: true, closeBtnInside: false, fixedContentPos: true, mainClass: 'mfp-no-margins mfp-with-zoom', gallery: { enabled: true, navigateByImgClick: true, preload: [0, 1] }, image: { verticalFit: true }, zoom: { enabled: true, duration: 300 } }); $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({ disableOn: 700, type: 'iframe', mainClass: 'mfp-fade', removalDelay: 160, preloader: false, fixedContentPos: false });
-         console.log('aplicadas las clases')
     }
 }
 </script>
 
 <style scoped>
-    
+    .image{
+        width: 232.5 !important;
+        height: 154.89 !important;
+    }
 </style>
