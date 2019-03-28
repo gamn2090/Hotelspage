@@ -22,14 +22,16 @@
                                         <div class="d-inline-block d-lg-none  ml-md-0 mr-auto py-3"><a href="#!" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
                                         <ul class="site-menu js-clone-nav d-none d-lg-block">
                                             <li class="active">
-                                                <a href="#!">Inicio</a>
+                                                <router-link :to="'/'" >Inicio</router-link>
                                             </li>
                                             <li class="has-children">
                                                 <a href="#!">Hoteles</a>
                                                 <ul class="dropdown arrow-top">
-                                                    <li><a href="#!">El HOTEL Uno</a></li>
-                                                    <li><a href="#!">El HOTEL Dos</a></li>
-                                                    <li><a href="#!">El HOTEL Tres</a></li>    
+                                                    <li v-for="hotelData in hotels" :key="hotelData.key">
+                                                        <router-link :to="{ name: 'hotel', params: { key: hotelData.key } }">
+                                                            {{hotelData.name}}
+                                                        </router-link>
+                                                    </li>                                                        
                                                 </ul>
                                             </li>
                                             <li><a href="#!">Promociones</a></li>
@@ -48,12 +50,45 @@
 </template>
 
 <script>
+import { db, storage } from '@/firebase.js'
+import moment from "moment"
+
 export default {
     name: "Navbar",
     data () {
       return {
-        
+        files: [],
+        hotel: null,
+        hotels: [],
+        hotelsOnChildAdded: null,
+        hotelsOnChildRemoved: null,
+        hotelsRef: db.child("tambohotels")
       }
+    },
+    methods:{
+        getFiles() {
+            this.files = this.$refs.files.files
+        },
+        getHotels() {
+           this.hotelsOnChildAdded = this.hotelsRef.on("child_added", snapshot => {
+               const data = snapshot.val()
+               const key = snapshot.key
+               data.key = key
+               this.hotels.push(data)
+           })
+
+           this.hotelsOnChildRemoved = this.hotelsRef.on("child_removed", snapshot => {
+               const index = this.hotels.findIndex(e => e.key == snapshot.key)
+               this.hotels.splice(index, 1)
+           })
+        }
+    },  
+    created() {
+        this.getHotels()
+    },
+    beforeDestroy() {
+        this.hotelsRef.off("child_added", this.hotelsOnChildAdded)
+        this.hotelsRef.off("child_removed", this.hotelsOnChildRemoved)
     }
 }
 </script>

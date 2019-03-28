@@ -1,15 +1,20 @@
-import Home from "./views/Home.vue";
-import Promos from "@/components/Home/Promociones"
+import Home from "@/views/Home.vue";
+import Hotel from "@/views/Hotel.vue"
 
 export const routes = [
     {
+        path: '*',
+        redirect: "/"
+    },
+    {
         path: "/",
         component: Home
-    }, {
-        path: "/promociones/:key",
-        component: Promos,
-        name: "show-promos"
+    },
+    {
+        path: "/Hoteles/:key",
+        component: Hotel,
+        name: "hotel"
     }
-]
+];
 
 

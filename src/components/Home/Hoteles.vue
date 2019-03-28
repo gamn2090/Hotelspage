@@ -18,7 +18,7 @@
             </div> -->
             <div class="row">
                 <div v-for="hotelData in hotels" :key="hotelData.key" class="col-md-6 col-lg-4 mb-5">
-                    <router-link :to="{ name: 'show-promos', params: { key: hotelData.key } }">
+                    <router-link :to="{ name: 'hotel', params: { key: hotelData.key } }">
                         <div class="hotel-room text-center">
                             <a href="#!" class="d-block mb-0 thumbnail">
                                 <img style="height:215px; width:300px" :src="hotelData.image || '../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
