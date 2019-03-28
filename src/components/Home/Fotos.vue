@@ -6,14 +6,11 @@
                         <h2 class="mb-5">Algunas de nuestras fotos</h2>
                     </div>
                 </div>
-                <div class="row no-gutters">
-                    <!-- 
-                        <a href="../../../public/assets/images/img_1.jpg" class="image-popup img-opacity"><img style="width:232.5; height:154.89 !important" src="../../../public/assets/images/img_1.jpg" alt="Image" class="img-fluid"></a>
-                    </div> -->
-                    <div v-for="(fotosData, i) in fotos" :key="i" @click="index = i" class="col-md-6 col-lg-3">
-                        <img style="width:232.5; height:154.89 !important" :src="fotosData.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
+                <div class="row no-gutters">                   
+                    <div v-for="(fotosData, i) in fotos" :key="i" @click="index = 0" class="col-md-6 col-lg-3">
+                        <img style="cursor:pointer;width:232.5; height:154.89 !important" :src="fotosData.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
                     </div>
-                    <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
+                    <gallery :images="images" :index="index" @close="index = null"></gallery>                    
 
                 </div>                
             </div>
@@ -37,7 +34,7 @@ import moment from "moment"
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel";
 
-import VueGallerySlideshow from 'vue-gallery-slideshow';
+import VueGallery from 'vue-gallery';
 
 export default {
     name: "Fotos",
@@ -52,7 +49,7 @@ export default {
       }
     },
     components: {
-        VueGallerySlideshow
+        'gallery': VueGallery
     },
     methods:{
         getFiles() {
@@ -89,7 +86,7 @@ export default {
                     .once("value")                    
                 ).val()
 
-                for (let elem in this.fotos) {
+                for (var elem in this.fotos) {
                     this.images.push(this.fotos[elem].image);                    
                 }              
                 //console.log(this.images) 
