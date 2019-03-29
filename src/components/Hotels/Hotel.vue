@@ -1,6 +1,6 @@
 <template>
-    <span>
-        <div class="py-5 upcoming-events" :style="{ 'background-image': 'url(' + hotel.image + ')', 'background-attachment': 'fixed', 'height':'300px', 'background-size': 'cover','filter': 'brightness(50%)' }">
+    <span >        
+        <div class="py-5 upcoming-events title" :style="{ 'background-image': 'url(' + hotel.image + ')', 'background-attachment': 'fixed', 'height':'100vh', 'background-size': 'cover', 'background-position': 'center center', 'position':'relative', 'filter': 'brightness(0.50)' }">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -10,14 +10,13 @@
                         <span class="caption"></span>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>        
     </span>
 </template>
 
 <script>
-import { db, storage } from '@/firebase.js'
-import moment from "moment"
+import { db } from '@/firebase.js'
 
 export default {
     name: "Hotel",
@@ -41,19 +40,20 @@ export default {
                     if(elem == this.$route.params.key)
                         this.hotel = data[elem];                    
                 }           
-                console.log(this.hotel) 
             } catch (ex) {
                 return console.error(ex)
             }          
         },
     },
     async created () {
-        //console.log( this.$route.params.key);
         await this.getHotelData()    
     }  
 }
 </script>
 
 <style scoped>
-    
+    .overlay{
+        position: absolute;
+        background-color: rgba(0,0,0,0.5);
+    }
 </style>

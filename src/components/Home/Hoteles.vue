@@ -25,6 +25,8 @@
                             </a>
                             <div class="hotel-room-body">
                                 <h3 class="heading mb-0"><a href="#!">{{hotelData.name}}</a></h3>
+                                <span class="mb-3 d-block post-date">{{hotelData.direccion}}</span>
+                                <p style="color: grey">{{hotelData.descripcion}}</p>
                             </div>
                         </div>
                     </router-link>               

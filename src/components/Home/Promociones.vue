@@ -15,7 +15,7 @@
                         </a>
                     </div>
                     <h2 class="heading mb-0"><a href="#!">{{promosData.name}}</a></h2>
-                    <span class="mb-3 d-block post-date">{{promosData.createdAt}}</span>
+                    <span class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFinal}}</span>
                     <p>{{promosData.description}}</p>
                 </div> 
                       

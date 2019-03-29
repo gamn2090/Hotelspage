@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
             <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-            <h2 class="mb-5">Características de los Hotel</h2>
+            <h2 class="mb-5">Características del Hotel</h2>
             </div>
             </div>
             <div class="row">

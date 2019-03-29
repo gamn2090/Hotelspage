@@ -14,7 +14,7 @@
                     <div class="py-1">
                         <div class="row align-items-center">
                             <div class="col-2">
-                                <h2 class="mb-0 site-logo"><a href="#!">El Tambo Perú</a></h2>
+                                <h2 class="mb-0 site-logo"><a href="#!">El hotel</a></h2>
                             </div>
                             <div class="col-10">
                                 <nav class="site-navigation text-right" role="navigation">
@@ -34,9 +34,19 @@
                                                     </li>                                                        
                                                 </ul>
                                             </li>
-                                            <li><a href="#!">Promociones</a></li>
-                                            <li><a href="#!">Conócenos</a></li>
-                                            <li><a href="#!">Contactanos</a></li>
+                                            <li v-if="this.$route.params.key">
+                                                <router-link :to="{ name: 'promociones', params: { key: this.$route.params.key } }">
+                                                    Promociones
+                                                </router-link>
+                                            </li>                                            
+
+                                            <li v-if="this.$route.params.key">
+                                                <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key } }">
+                                                    Galería
+                                                </router-link>
+                                            </li>                                            
+
+                                            <li><a href="#!">Contáctanos</a></li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -58,7 +68,6 @@ export default {
     data () {
       return {
         files: [],
-        hotel: null,
         hotels: [],
         hotelsOnChildAdded: null,
         hotelsOnChildRemoved: null,
@@ -85,6 +94,7 @@ export default {
     },  
     created() {
         this.getHotels()
+        console.log('estoy en el navbar '+this.$route.params.key)
     },
     beforeDestroy() {
         this.hotelsRef.off("child_added", this.hotelsOnChildAdded)

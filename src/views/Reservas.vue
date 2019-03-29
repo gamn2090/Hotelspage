@@ -1,4 +1,7 @@
 <template>
+    <h1>hola soy vaqrtan y gustavop pudo hacer lo que sho no XC</h1>
+</template>
+<template>
   <span>    
     <hoteles></hoteles>    
     <promociones></promociones>    
@@ -20,12 +23,7 @@ import MyMaps from "@/components/Hotels/Map";
 export default {
   name: "hotel",
   components: {    
-    Hoteles,
-    Promociones,
-    Habitaciones,
-    Caracteristicas,
-    Fotos,
-    MyMaps
+    Hoteles    
   }
 };
 </script>
