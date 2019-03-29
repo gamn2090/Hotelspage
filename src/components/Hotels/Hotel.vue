@@ -49,8 +49,7 @@ export default {
     },
     async created () {
         //console.log( this.$route.params.key);
-        await this.getHotelData()     
-
+        await this.getHotelData()    
     }  
 }
 </script>

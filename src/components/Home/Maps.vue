@@ -11,7 +11,7 @@
                 zoomControl: true,
                 mapTypeControl: true,
                 scaleControl: false,
-                streetViewControl: false,
+                streetViewControl: true,
                 rotateControl: false,
                 fullscreenControl: true,
                 disableDefaultUi: true

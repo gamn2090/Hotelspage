@@ -6,7 +6,7 @@
                     <h2 class="mb-5">Nuestros hoteles</h2>
                 </div>
             </div>
-            <!-- <div>
+            <!--<div>
                 <label for="">
                     Hotel
                 </label>

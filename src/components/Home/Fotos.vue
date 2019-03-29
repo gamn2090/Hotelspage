@@ -94,10 +94,8 @@ export default {
             }          
         },
     },  
-    async created() {
-        console.log('pido que se carguen las fotos')
+    async created() {        
         await this.getFotos()       
-        console.log('fotos cargadas')
     }
 }
 </script>
