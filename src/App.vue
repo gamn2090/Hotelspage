@@ -2,7 +2,7 @@
   <div id="app">
     <navbar></navbar>
     <router-view/>
-
+    
     <my-footer></my-footer>
 
   </div>
@@ -10,8 +10,8 @@
 
 <script>
 import Home from '@/views/Home';
-import Navbar from '@/components/Home/Navbar';
 import MyFooter from '@/components/Home/MyFooter';
+import Navbar from '@/components/Home/Navbar';
 
 export default {
   name: 'App',

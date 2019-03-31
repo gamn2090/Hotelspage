@@ -52,7 +52,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="text-center p-4 item">
                         <span class="flaticon-cab display-3 mb-3 d-block text-primary"></span>
-                        <h2 class="h5">Recojida en Aeropuerto</h2>
+                        <h2 class="h5">Recogida en Aeropuerto</h2>
                     </div>
                 </div>
             </div>

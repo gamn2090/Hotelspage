@@ -32,7 +32,7 @@ export const routes = [
         },
         {
             //ruta para vista única de promociones
-            path: "/Reservas/:key",
+            path: "/Reservas",
             component: Reservas,
             name: "reservas"
         },
