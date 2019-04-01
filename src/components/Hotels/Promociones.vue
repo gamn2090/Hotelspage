@@ -13,7 +13,7 @@
                                 <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
                             </a>                        
                         </div>                
-                        <router-link :to="{ name: 'hotel', params: { key: promosData.key } }" >
+                        <router-link :to="{ name: 'reservas', params: { key: promosData.key } }" >
                             <h2 class="heading mb-0">{{promosData.name}}</h2>
                         </router-link>
                         
@@ -53,9 +53,11 @@ export default {
       }    
     },
     methods: {
-        async getPromos() {
+        getFiles() {
+            this.files = this.$refs.files.files
+        },
+        getPromos() {
            try {
-
                 this.promosOnChildAdded = this.promosRef.on("child_added", snapshot => {
                     const data = snapshot.val()
                     const key = snapshot.key
@@ -70,7 +72,7 @@ export default {
 
                 for (let elem in this.todasPromos) {
                     if(this.todasPromos[elem].hotel == this.$route.params.key)
-                        this.promos.push(this.todasPromos[elem]);  
+                        this.promos.push(this.todasPromos[elem]);
                         
                     console.log(this.promos)
                 }    
@@ -79,11 +81,15 @@ export default {
             }          
         },
     },  
-    created() {
-        this.getPromos()       
+    async created() {
+        await this.getPromos()       
     },
     updated () {        
         if ($('.nonloop-block-15').length > 0) { $('.nonloop-block-15').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, autoplay: true, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } }); }
+    },
+    beforeDestroy() {
+        this.promosRef.off("child_added", this.promosOnChildAdded)
+        this.promosRef.off("child_removed", this.promosOnChildRemoved)
     }
 }
 </script>
