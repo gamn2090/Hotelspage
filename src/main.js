@@ -28,7 +28,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   let usuario = auth.currentUser;
-  console.log(usuario);
+  //console.log(usuario);
   let autorizacion = to.matched.some(record => record.meta.autentificado);
 
   if (autorizacion && !usuario) {

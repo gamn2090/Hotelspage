@@ -1,5 +1,5 @@
 <template>
-    <span >        
+    <span v-if="hotel">        
         <div class="py-5 upcoming-events title" :style="{ 'background-image': 'url(' + hotel.image + ')', 'background-attachment': 'fixed', 'height':'100vh', 'background-size': 'cover', 'background-position': 'center center', 'position':'relative', 'filter': 'brightness(0.50)' }">
             <div class="container">
                 <div class="row align-items-center">
@@ -19,35 +19,17 @@
 import { db } from '@/firebase.js'
 
 export default {
+    props: {
+        hotel: {
+            required: true
+        }
+    },
     name: "Hotel",
     data () {
       return {
-        hotel : null,
-        fotos : [],
-        promociones : []
-      }    
-    },
-    methods: {
-        async getHotelData() {
-           try {
-                let data = (
-                    await db
-                    .child("tambohotels")
-                    .once("value")                    
-                ).val()
-
-                for (let elem in data) {
-                    if(elem == this.$route.params.key)
-                        this.hotel = data[elem];                    
-                }           
-            } catch (ex) {
-                return console.error(ex)
-            }          
-        },
-    },
-    async created () {
-        await this.getHotelData()    
-    }  
+        
+      }   
+    }
 }
 </script>
 

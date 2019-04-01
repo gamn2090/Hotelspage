@@ -42,16 +42,13 @@ export default {
         },       
         async getFotos() {
            try {
-                let Data = (
+                this.fotos = (
                     await db
                     .child("fotos")
+                    .orderByChild('hotel')
+                    .equalTo(this.$route.params.key)
                     .once("value")                    
-                ).val()
-                for (var elem in Data) {
-                    if(Data[elem].hotel == this.$route.params.key){
-                        this.fotos.push(Data[elem]);
-                    }                                                           
-                }    
+                ).val()              
                 
                 for (var foto in this.fotos) {
                     this.images.push(this.fotos[foto].image);                    

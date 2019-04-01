@@ -26,13 +26,13 @@ export const routes = [
         },        
         {
             //ruta para vista única de hoteles
-            path: "/Hoteles/:key",
+            path: "/Hoteles/:key",            
             component: Hotel,
             name: "hotel"
         },
         {
             //ruta para vista única de promociones
-            path: "/Reservas",
+            path: "/Reservas/:key",
             component: Reservas,
             name: "reservas"
         },

@@ -6,27 +6,26 @@
                     <h2>Nuestras promociones exclusivas web</h2>
                 </div>
             </div>
-            <div v-if="promos !== null" class="nonloop-block-15 owl-carousel">
-                <div v-for="promosData in promos" :key="promosData.key" class="media-with-text p-md-5">                    
+            <div v-if="todasPromos !== null" class="nonloop-block-15 owl-carousel">
+                <div v-for="promosData in todasPromos" :key="promosData.key" class="media-with-text p-md-5">                     <router-link :to="{ name: 'reservas', params: { key: promosData.key } }" >
                         <div class="img-border-sm mb-4">                        
                             <a href="#!" class="image-play">
                                 <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
                             </a>                        
-                        </div>                
-                        <router-link :to="{ name: 'reservas', params: { key: promosData.key } }" >
-                            <h2 class="heading mb-0">{{promosData.name}}</h2>
-                        </router-link>
+                        </div> 
+                    </router-link>
+                    <h2 class="heading mb-0">{{promosData.name}}</h2>
                         
-                        <p v-if="promosData.descuento && promosData.descuento !== 0" class="mb-3 d-block post-date">
-                            Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} 
-                        </p>
-                        <p v-else class="mb-3 d-block post-date">
-                            Desde USD {{ promosData.precioDol }} 
-                        </p>
+                    <p v-if="promosData.descuento && promosData.descuento !== 0" class="mb-3 d-block post-date">
+                        Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} 
+                    </p>
+                    <p v-else class="mb-3 d-block post-date">
+                        Desde USD {{ promosData.precioDol }} 
+                    </p>
 
-                        <span v-if="promosData.fechaFinal" class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFinal}}</span>
-                        <span v-else class="mb-3 d-block post-date">Por siempre</span>
-                        <p>{{promosData.description}}</p>
+                    <span v-if="promosData.fechaFinal" class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFinal}}</span>
+                    <span v-else class="mb-3 d-block post-date">Por siempre</span>
+                    <p>{{promosData.description}}</p>
                 </div>                       
             </div>
             <div v-else>
@@ -38,59 +37,21 @@
 </template>
 
 <script>
-import { db, storage } from '@/firebase.js'
-
 export default {
+    props: {
+        todasPromos: {
+            required: true
+        }
+    },
     name: "Promociones",
     data () {
       return {
-        files: [],
-        promos: [],
-        todasPromos: [],
-        promosOnChildAdded: null,
-        promosOnChildRemoved: null,
-        promosRef: db.child("promos")
+        
       }    
-    },
-    methods: {
-        getFiles() {
-            this.files = this.$refs.files.files
-        },
-        getPromos() {
-           try {
-                this.promosOnChildAdded = this.promosRef.on("child_added", snapshot => {
-                    const data = snapshot.val()
-                    const key = snapshot.key
-                    data.key = key
-                    this.todasPromos.push(data)                                       
-                })
-
-                this.promosOnChildRemoved = this.promosRef.on("child_removed", snapshot => {
-                    const index = this.promos.findIndex(e => e.key == snapshot.key)
-                    this.promos.splice(index, 1)
-                })               
-
-                for (let elem in this.todasPromos) {
-                    if(this.todasPromos[elem].hotel == this.$route.params.key)
-                        this.promos.push(this.todasPromos[elem]);
-                        
-                    console.log(this.promos)
-                }    
-            } catch (ex) {
-                return console.error(ex)
-            }          
-        },
-    },  
-    async created() {
-        await this.getPromos()       
     },
     updated () {        
         if ($('.nonloop-block-15').length > 0) { $('.nonloop-block-15').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, autoplay: true, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } }); }
     },
-    beforeDestroy() {
-        this.promosRef.off("child_added", this.promosOnChildAdded)
-        this.promosRef.off("child_removed", this.promosOnChildRemoved)
-    }
 }
 </script>
 

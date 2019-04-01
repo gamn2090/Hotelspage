@@ -14,7 +14,7 @@
                     <div class="py-1">
                         <div class="row align-items-center">
                             <div class="col-2">
-                                <h2 class="mb-0 site-logo"><a href="#!">El hotel</a></h2>
+                                <h2 class="mb-0 site-logo"> <router-link :to="'/'" >El hotel</router-link></h2>
                             </div>
                             <div class="col-10">
                                 <nav class="site-navigation text-right" role="navigation">
@@ -28,17 +28,12 @@
                                                 <a href="#!">Hoteles</a>
                                                 <ul class="dropdown arrow-top">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
-                                                        <router-link :to="{ name: 'hotel', params: { key: hotelData.key } }">
+                                                        <router-link exact :to="{ name: 'hotel', params: { key: hotelData.key } }">
                                                             {{hotelData.name}}
                                                         </router-link>
                                                     </li>                                                        
                                                 </ul>
-                                            </li>
-                                            <li v-if="this.$route.params.key">
-                                                <router-link :to="{ name: 'promociones', params: { key: this.$route.params.key } }">
-                                                    Promociones
-                                                </router-link>
-                                            </li>                                            
+                                            </li>   
 
                                             <li v-if="this.$route.params.key">
                                                 <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key } }">
@@ -94,7 +89,7 @@ export default {
     },  
     created() {
         this.getHotels()
-        console.log('estoy en el navbar '+this.$route.params.key)
+        //console.log('estoy en el navbar '+this.$route.params.key)
     },
     beforeDestroy() {
         this.hotelsRef.off("child_added", this.hotelsOnChildAdded)

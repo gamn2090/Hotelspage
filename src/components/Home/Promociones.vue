@@ -86,6 +86,8 @@ export default {
                 this.promos = (
                     await db
                     .child("promos")
+                    .orderByChild('mainPromo')
+                    .equalTo(true)
                     .once("value")
                 ).val()
             } catch (ex) {

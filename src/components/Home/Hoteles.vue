@@ -91,7 +91,7 @@ export default {
                const key = snapshot.key
                data.key = key
                this.hotels.push(data)
-               console.log(this.hotels)
+               //console.log(this.hotels)
            })
 
            this.hotelsOnChildRemoved = this.hotelsRef.on("child_removed", snapshot => {

@@ -46,7 +46,7 @@
             <div class="row pt-5 mt-5 text-center">
                 <div class="col-md-12">
                     <p>
-                        Copyright &copy; 2019 El Tambo Perú Todos los derechos reservados | Powered by <strong><a>ChevereTech</a></strong>
+                        Copyright &copy; 2019 El hotel Todos los derechos reservados | Powered by <strong><a>ChevereTech</a></strong>
                         &copy;
                     </p>
                 </div>

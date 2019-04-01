@@ -23,57 +23,29 @@
 </template>
 
 <script>
-import { db } from '@/firebase.js'
-//importo el owl carousel
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel";
 
 import VueGallery from 'vue-gallery';
 
 export default {
+    props: {
+        fotos: {
+            required: true
+        }, 
+        images: {
+            required: true
+        },
+        index: {
+            required: true
+        }
+    },
+    components:{
+        'gallery': VueGallery
+    },
     name: "Fotos",
     data () {
       return {
-        fotos: [],
-        images: [],
-        index : null,
+        
       }
-    },
-    components: {
-        'gallery': VueGallery
-    },
-    methods:{
-        getFiles() {
-            this.files = this.$refs.files.files
-        },       
-        async getFotos() {
-           try {
-                let Data = (
-                    await db
-                    .child("fotos")
-                    .once("value")                    
-                ).val()
-                let i = 0;
-                for (var elem in Data) {
-                    if(Data[elem].hotel == this.$route.params.key){
-                        this.fotos.push(Data[elem]);
-                        i++                        
-                    }
-                    if(i > 7)
-                        break                                            
-                }    
-                
-                for (var foto in this.fotos) {
-                    this.images.push(this.fotos[foto].image);                    
-                }   
-                //console.log(this.images) 
-            } catch (ex) {
-                return console.error(ex)
-            }          
-        },
-    },  
-    async created() {        
-        await this.getFotos()       
     }
 }
 </script>
