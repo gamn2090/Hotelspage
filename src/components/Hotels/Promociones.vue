@@ -6,7 +6,7 @@
                     <h2>Nuestras promociones exclusivas web</h2>
                 </div>
             </div>
-            <div v-if="todasPromos !== null" class="nonloop-block-15 owl-carousel">
+            <div v-if="this.todasPromos.lenght !== 0" class="nonloop-block-15 owl-carousel">
                 <div v-for="promosData in todasPromos" :key="promosData.key" class="media-with-text p-md-5">                     <router-link :to="{ name: 'reservas', params: { key: promosData.key } }" >
                         <div class="img-border-sm mb-4">                        
                             <a href="#!" class="image-play">
@@ -47,11 +47,15 @@ export default {
     data () {
       return {
         
-      }    
+      }        
     },
     updated () {        
-        if ($('.nonloop-block-15').length > 0) { $('.nonloop-block-15').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, autoplay: true, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } }); }
-    },
+        if (this.todasPromos.length > 2) { $('.nonloop-block-15').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, autoplay: true, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } }); }
+        else {
+            $('.nonloop-block-15').owlCarousel({ center: true, items: 1, loop: false, stagePadding: 0, autoplay: false, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } });
+        }
+        console.log(this.todasPromos.length)
+    }
 }
 </script>
 
