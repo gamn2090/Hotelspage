@@ -27,39 +27,17 @@
 </template>
 
 <script>
-import { db, storage } from '@/firebase.js'
-
 export default {
+     props: {
+        habs: {
+            required: true
+        }
+    },
     name: "Habitaciones",
     data () {
-      return {
-        files: [],
-        habs: [],
-        habsRef: db.child("habitaciones")
+      return {       
+        
       }    
-    },
-    methods: {
-        async getHabs() {
-           try {
-                let todasHabs = (
-                    await db
-                    .child("habitaciones")
-                    .once("value")
-                ).val()
-
-                for (let elem in todasHabs) {
-                    if(todasHabs[elem].hotel == this.$route.params.key)
-                        this.habs.push(todasHabs[elem]);  
-                        
-                    console.log(todasHabs.hotel)
-                }    
-            } catch (ex) {
-                return console.error(ex)
-            }          
-        },
-    },  
-    async created() {
-        await this.getHabs()       
     },
     updated () {        
         if ($('.nonloop-block-15').length > 0) { $('.nonloop-block-15').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, autoplay: true, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } }); }

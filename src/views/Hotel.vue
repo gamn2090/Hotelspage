@@ -2,7 +2,7 @@
   <span>    
     <hoteles :hotel="hotel"></hoteles>    
     <promociones :todasPromos="todasPromos"></promociones>    
-    <habitaciones></habitaciones>    
+    <habitaciones :habs="habs"></habitaciones>    
     <caracteristicas></caracteristicas>    
     <fotos :fotos="fotos" :images="images" :index="index"></fotos>    
     <my-maps></my-maps>    
@@ -53,6 +53,9 @@ export default {
         fotos: [],
         images: [],
         index : null,
+        /*data para habitaciones */
+        habs: [],
+        habsRef: db.child("habitaciones")
       }    
     },
     methods: {
@@ -92,8 +95,7 @@ export default {
                     const index = this.promos.findIndex(e => e.key == snapshot.key)
                     this.promos.splice(index, 1)
                 }) 
-        },                    
-        
+        },                            
         /*funciones de la galería (fotos) */
         async getFotos() {
            try {
@@ -118,6 +120,21 @@ export default {
             } catch (ex) {
                 return console.error(ex)
             } 
+        },
+        /*funciones para habitaciones */
+        async getHabs() {
+           try {
+                this.habs = (
+                    await db
+                    .child("habitaciones")
+                    .orderByChild('hotel')
+                    .equalTo(this.$route.params.key)
+                    .once("value")
+                ).val()                                          
+                    
+            } catch (ex) {
+                return console.error(ex)
+            }          
         },
     },
     async created () {
