@@ -1,7 +1,4 @@
 <template>
-    <h1>hola soy vaqrtan y gustavop pudo hacer lo que sho no XC</h1>
-</template>
-<template>
   <span>    
     <hoteles></hoteles>    
     <habitaciones></habitaciones>   
@@ -10,15 +7,42 @@
 </template>
 
 <script>
-import Hoteles from "@/components/Hotels/Hotel";
-import Habitaciones from "@/components/Hotels/Habitaciones";
+import Hoteles from "@/components/Home/Banner";
+import Habitaciones from "@/components/Reservas/Details";
 
 export default {
   name: "hotel",
+  data () {
+      return {
+        promo : null,
+      }
+  },
   components: {    
     Hoteles,
     Habitaciones    
-  }
+  },  
+  methods: {        
+        /*funciones de las promociones */
+        getFiles() {
+            this.files = this.$refs.files.files
+        },
+        async getPromos() {           
+            try {
+                let data = (
+                    await db
+                    .child("promos")
+                    .once("value")                    
+                ).val()
+
+                for (let elem in data) {
+                    if(elem == this.$route.params.key)
+                        this.promos = data[elem];                    
+                }           
+            } catch (ex) {
+                return console.error(ex)
+            }
+        },
+    },
 };
 </script>
 
