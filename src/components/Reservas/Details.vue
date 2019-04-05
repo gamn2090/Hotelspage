@@ -3,8 +3,8 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
-            <span class="caption mb-3">Suites Hotel &amp; Resort</span>
-            <h1 v-if="this.promo" class="mb-4">{{this.promo.name}}</h1>
+            <span class="caption mb-3 sub-heading">Hotel Hotel</span>
+            <h1 v-if="this.promo" class="mb-4 sub-heading">{{this.promo.name}}</h1>
           </div>
         </div>
       </div>
@@ -22,6 +22,8 @@
               <div class="section-heading text-left">
                 <h2 class="mb-5">Detalles</h2>
               </div>
+              <p v-if="this.promo && this.promo.descuento > 0"  class="mb-4">{{this.promo.precioDol - (this.promo.precioDol * this.promo.descuento/100)}}</p>
+              <p v-else if="this.promo" class="mb-4">{{this.promo.precioDol}}</p>
               <p v-if="this.promo"  class="mb-4">{{this.promo.description}}</p>              
             </div>
           </div>
@@ -31,8 +33,8 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
-            <span class="caption mb-3">Hablenos</span>
-            <h1 class="mb-4">Pongase en contácto</h1>
+            <span class="caption mb-3 sub-heading">Hablenos</span>
+            <h1 class="mb-4 sub-heading">Pongase en contácto</h1>
           </div>
         </div>
       </div>
@@ -147,5 +149,7 @@ export default {
 </script>
 
 <style scoped>
-    
+    .sub-heading{
+      color: black !important;
+    }
 </style>

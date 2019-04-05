@@ -17,6 +17,7 @@
     "npm": "^6.9.0",
     "owl.carousel": "^2.3.4",
     "vue": "^2.5.11",
+    "vue-displacement-slideshow": "^1.1.0",
     "vue-gallery": "^2.0.0",
     "vue-image-lightbox": "^6.1.2",
     "vue-lazyload": "^1.2.6",

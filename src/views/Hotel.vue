@@ -1,7 +1,7 @@
 <template>
   <span>    
     <hoteles :hotel="hotel"></hoteles>    
-    <promociones :todasPromos="todasPromos"></promociones>    
+    <promociones :todasPromos="todasPromos" :hotel="hotel"></promociones>    
     <habitaciones :habs="habs"></habitaciones>    
     <caracteristicas></caracteristicas>    
     <fotos :fotos="fotos" :images="images" :index="index"></fotos>    
@@ -70,7 +70,10 @@ export default {
 
                 for (let elem in data) {
                     if(elem == this.$route.params.key)
-                        this.hotel = data[elem];                    
+                    {
+                        data.key = this.$route.params.key;
+                        this.hotel = data[elem];                   
+                    }
                 }           
             } catch (ex) {
                 return console.error(ex)

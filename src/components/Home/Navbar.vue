@@ -41,7 +41,11 @@
                                                 </router-link>
                                             </li>                                            
 
-                                            <li><a href="#!">Contáctanos</a></li>
+                                            <li>
+                                                <router-link :to="'/contactanos'">
+                                                    Contáctanos
+                                                </router-link>
+                                            </li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -69,7 +73,7 @@ export default {
         hotelsRef: db.child("tambohotels")
       }
     },
-    methods:{
+    methods:{        
         getFiles() {
             this.files = this.$refs.files.files
         },
@@ -96,6 +100,7 @@ export default {
         this.hotelsRef.off("child_removed", this.hotelsOnChildRemoved)
     }
 }
+
 </script>
 
 <style scoped>
