@@ -68,13 +68,8 @@ export default {
                     .once("value")                    
                 ).val()
 
-                for (let elem in data) {
-                    if(elem == this.$route.params.key)
-                    {
-                        data.key = this.$route.params.key;
-                        this.hotel = data[elem];                   
-                    }
-                }           
+                this.hotel = this.$route.params.key;                   
+                           
             } catch (ex) {
                 return console.error(ex)
             }          

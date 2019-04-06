@@ -35,8 +35,8 @@
                                                 </ul>
                                             </li>   
 
-                                            <li v-if="this.$route.params.key">
-                                                <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key } }">
+                                            <li v-if="this.$route.params.key || this.$route.params.hotel">
+                                                <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key || this.$route.params.hotel } }">
                                                     Galería
                                                 </router-link>
                                             </li>                                            

@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
-            <span class="caption mb-3 sub-heading">Hotel Hotel</span>
+            <span class="caption mb-3 sub-heading">{{this.hotel.name}}</span>
             <h1 v-if="this.promo" class="mb-4 sub-heading">{{this.promo.name}}</h1>
           </div>
         </div>
@@ -100,8 +100,8 @@ export default {
     name: "Promociones",
     data () {
       return {
-        promo : null,
-        hotel : null
+        promo : [],
+        hotel : []
       }
     },
     methods: {
@@ -115,8 +115,10 @@ export default {
                 ).val()
 
                 for (let elem in data) {
-                    if(elem == this.$route.params.key)
-                        this.promo = data[elem];                    
+                    if(elem == this.$route.params.promo)
+                    {    
+                      this.promo = data[elem];                    
+                    }
                 }  
             } catch (ex) {
                 return console.error(ex)
@@ -131,8 +133,11 @@ export default {
                 ).val()
 
                 for (let elem in data) {
-                    if(elem == this.promo.hotel)
-                        this.hotel = data[elem];                    
+                    if(elem == this.$route.params.hotel)
+                    {    
+                      this.hotel = data[elem]; 
+                    }
+
                 }        
                 
                 console.log
