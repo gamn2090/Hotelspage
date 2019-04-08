@@ -1,45 +1,39 @@
-<template>
-    <span>
-        <div class="header">
-            <center><img src="../../../public/assets/images/admin_icon.png" alt="adminicon" id="image">
-            <br>Welcome To Admin Panel....!</center>
-        </div>
-        <div class="main-content">
-            <div class="sidebar">
-                <ul class="sidebar-links">
-                    <li class="collapsible">Hotel</li>
-                    <div class="content-collapsible">
-                    <ul>
-                        <li>Create</li>
-                        <li>Update</li>
-                        <li>Delete</li>
-                    </ul>
-                    </div>
-                    <li class="collapsible">Promociones</li>
-                    <div class="content-collapsible">
-                    <ul>
-                        <li>Create</li>
-                        <li>Update</li>
-                        <li>Delete</li>
-                    </ul>
-                    </div>
-                    <li class="collapsible">Habitaciones</li>
-                    <div class="content-collapsible">
-                    <ul>
-                        <li>Create</li>
-                        <li>Update</li>
-                        <li>Delete</li>
-                    </ul>
-                    </div>
-                    <li>Delete User</li>
-                    <li><a class="form" href="#!" @click="logout">Logout</a></li>
+<template>        
+    <div class="main-content">
+        <div class="sidebar">
+            <ul class="sidebar-links">
+                <li class="collapsible">Hotel</li>
+                <div class="content-collapsible">
+                <ul>
+                    <li>Create</li>
+                    <li>Update</li>
+                    <li>Delete</li>
                 </ul>
-            </div>
-            <div class="content">
-                <center><h3>Hello Admin!</h3></center>
-            </div>
+                </div>
+                <li class="collapsible">Promociones</li>
+                <div class="content-collapsible">
+                <ul>
+                    <li>Create</li>
+                    <li>Update</li>
+                    <li>Delete</li>
+                </ul>
+                </div>
+                <li class="collapsible">Habitaciones</li>
+                <div class="content-collapsible">
+                <ul>
+                    <li>Create</li>
+                    <li>Update</li>
+                    <li>Delete</li>
+                </ul>
+                </div>
+                <li>Delete User</li>
+                <li><a class="form" href="#!" @click="logout">Logout</a></li>
+            </ul>
         </div>
-    </span>
+        <div class="content">
+            <center><h3>Hello Admin!</h3></center>
+        </div>
+    </div>
 </template>
 
 <script>
