@@ -1,12 +1,16 @@
 <template>
   <span>    
+    <navbar></navbar>    
     <hoteles></hoteles>    
     <habitaciones></habitaciones>   
+    <my-footer></my-footer>   
       
   </span>
 </template>
 
 <script>
+import MyFooter from '@/components/Home/MyFooter';
+import Navbar from '@/components/Home/Navbar';
 import Hoteles from "@/components/Home/Banner";
 import Habitaciones from "@/components/Reservas/Details";
 
@@ -19,7 +23,9 @@ export default {
   },
   components: {    
     Hoteles,
-    Habitaciones    
+    Habitaciones,
+    MyFooter,
+    Navbar    
   },  
   methods: {        
         /*funciones de las promociones */

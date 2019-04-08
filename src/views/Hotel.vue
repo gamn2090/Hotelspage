@@ -1,11 +1,13 @@
 <template>
   <span>    
-    <hoteles :hotel="hotel"></hoteles>    
+    <navbar></navbar>    
+    <banner></banner>    
     <promociones :todasPromos="todasPromos" :hotel="hotel"></promociones>    
     <habitaciones :habs="habs"></habitaciones>    
     <caracteristicas></caracteristicas>    
     <fotos :fotos="fotos" :images="images" :index="index"></fotos>    
     <my-maps></my-maps>    
+    <my-footer></my-footer>    
   </span>
 </template>
 
@@ -15,7 +17,9 @@ import { db } from '@/firebase.js'
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel";
 
-import Hoteles from "@/components/Hotels/Hotel";
+import MyFooter from '@/components/Home/MyFooter';
+import Navbar from '@/components/Home/Navbar';
+import Banner from "@/components/Home/Banner";
 import Promociones from "@/components/Hotels/Promociones";
 import Habitaciones from "@/components/Hotels/Habitaciones";
 import Caracteristicas from "@/components/Hotels/Caracteristicas";
@@ -25,12 +29,14 @@ import MyMaps from "@/components/Hotels/Map";
 export default {
   name: "hotel",
   components: {    
-    Hoteles,
+    Banner,
     Promociones,
     Habitaciones,
     Caracteristicas,
     Fotos,
-    MyMaps
+    MyMaps,
+    MyFooter,
+    Navbar
   },
   data () {
       return {

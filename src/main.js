@@ -46,8 +46,13 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-new Vue({
-  el: '#app',
-  router,
-  render: h => h(App)
-})
+auth.onAuthStateChanged(function(user){
+
+  new Vue({
+    el: '#app',
+    router,
+    render: h => h(App)
+  })
+
+});
+
