@@ -1,10 +1,14 @@
+
+
+
 <template>
   <span>    
-      <my-header></my-header>
-      <div class="main-content">
+    <my-header></my-header>
+    <div class="main-content">
         <my-sidebar></my-sidebar>
-        <router-view></router-view> 
-      </div> 
+            <router-view></router-view>
+    </div>
+
   </span>
 </template>
 
@@ -20,9 +24,31 @@ export default {
     MyHeader,
     MySidebar
   }
+    
 };
 </script>
 
 <style scoped> 
 
+ .header{
+        width: 100%;
+        height: 120px;
+        background-color: black;
+        color: white;
+    }
+    #image{
+        height: 80px;
+        background-color: white;
+        border-radius: 50px;
+    }
+    .main-content{
+        display: flex;
+    }    
+    .content{
+        flex: 3;
+        height: calc(100vh - 120px);
+        background-color: #34495e;
+        font-size: 20px;
+        font-weight: bold;
+    }
 </style>
