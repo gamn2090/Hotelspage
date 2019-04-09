@@ -62,6 +62,11 @@ export const routes = [
            },
            children: [
             {
+              path: '/',
+              redirect: "profile",
+              component: Profile
+            },
+            {
               path: 'profile',
               component: Profile
             },
