@@ -1,7 +1,12 @@
 <template>
     <div class="sidebar">
         <ul class="sidebar-links">
-            <li class="collapsible">Hotel</li>
+           
+            <li class="collapsible">
+                <router-link to="/Dashboard/profile">
+                    <a>Hotel</a>
+                </router-link>
+            </li>
             <div class="content-collapsible">
             <ul>
                 <li>Create</li>
@@ -9,7 +14,11 @@
                 <li>Delete</li>
             </ul>
             </div>
-            <li class="collapsible">Promociones</li>
+            <li class="collapsible">
+                <router-link to="/Dashboard/content">
+                    <a>Promociones</a>
+                </router-link>
+            </li>
             <div class="content-collapsible">
             <ul>
                 <li>Create</li>
@@ -65,5 +74,32 @@ export default {
 </script>
 
 <style lang="">
-    
+    .sidebar{
+        flex: 1;
+        height: calc(100vh - 120px);
+        background-color: #2c3e50;
+    }
+.sidebar-links li{
+        padding: 10px;
+        border-bottom: 2px solid grey;
+        list-style-type: none;
+    }
+    .sidebar-links li:hover{
+        background-color: blue;
+        color:white;
+    }
+    .active, .collapsible:hover {
+    background-color: #ccc;
+    }
+    .content-collapsible {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #2c3e50;
+    }
+    .form{
+        color:black;
+        text-decoration: none;
+    }
 </style>
