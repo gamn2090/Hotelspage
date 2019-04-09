@@ -56,6 +56,21 @@ export const routes = [
            component: Dashboard,
            meta: {
              autentificado: true
-           }
+           },
+           children: [
+             {
+               path: '/',
+               redirect: "profile",
+               component: Profile
+             },
+             {
+               path: 'profile',
+               component: Profile
+             },
+             {
+                path: 'content',
+                component: Content
+             }
+           ]
          }
        ];
