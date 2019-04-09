@@ -1,7 +1,12 @@
 <template>
     <div class="sidebar">
         <ul class="sidebar-links">
-            <li class="collapsible">Hotel</li>
+           
+            <li class="collapsible">
+                <router-link to="/Dashboard/profile">
+                    <a>Hotel</a>
+                </router-link>
+            </li>
             <div class="content-collapsible">
             <ul>
                 <li>Create</li>
@@ -9,7 +14,11 @@
                 <li>Delete</li>
             </ul>
             </div>
-            <li class="collapsible">Promociones</li>
+            <li class="collapsible">
+                <router-link to="/Dashboard/content">
+                    <a>Promociones</a>
+                </router-link>
+            </li>
             <div class="content-collapsible">
             <ul>
                 <li>Create</li>

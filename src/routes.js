@@ -6,6 +6,9 @@ import Dashboard from "@/views/Dashboard.vue";
 import Galeria from "@/views/Galeria.vue";
 import Contactanos from "@/views/Contactanos.vue";
 
+import Profile from "@/components/Admin/profile.vue";
+import Content from "@/components/Admin/Content.vue";
+
 
 export const routes = [
          {
@@ -56,6 +59,16 @@ export const routes = [
            component: Dashboard,
            meta: {
              autentificado: true
-           }
+           },
+           children: [
+            {
+              path: 'profile',
+              component: Profile
+            },
+            {
+              path: 'content',
+              component: Content
+            }
+          ]
          }
        ];
