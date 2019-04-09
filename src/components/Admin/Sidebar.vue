@@ -74,5 +74,32 @@ export default {
 </script>
 
 <style lang="">
-    
+    .sidebar{
+        flex: 1;
+        height: calc(100vh - 120px);
+        background-color: #2c3e50;
+    }
+.sidebar-links li{
+        padding: 10px;
+        border-bottom: 2px solid grey;
+        list-style-type: none;
+    }
+    .sidebar-links li:hover{
+        background-color: blue;
+        color:white;
+    }
+    .active, .collapsible:hover {
+    background-color: #ccc;
+    }
+    .content-collapsible {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #2c3e50;
+    }
+    .form{
+        color:black;
+        text-decoration: none;
+    }
 </style>

@@ -65,13 +65,13 @@ import moment from "moment"
 export default {
     name: "Navbar",
     data () {
-      return {
-        files: [],
-        hotels: [],
-        hotelsOnChildAdded: null,
-        hotelsOnChildRemoved: null,
-        hotelsRef: db.child("tambohotels")
-      }
+        return {
+            files: [],
+            hotels: [],
+            hotelsOnChildAdded: null,
+            hotelsOnChildRemoved: null,
+            hotelsRef: db.child("tambohotels")
+        }
     },
     methods:{        
         getFiles() {
@@ -93,7 +93,6 @@ export default {
     },  
     created() {
         this.getHotels()
-        //console.log('estoy en el navbar '+this.$route.params.key)
     },
     beforeDestroy() {
         this.hotelsRef.off("child_added", this.hotelsOnChildAdded)
