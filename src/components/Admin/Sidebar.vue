@@ -8,12 +8,12 @@
             <div class="content-collapsible">
             <ul>
                 <li>
-                    <router-link to="/Dashboard/profile">
+                    <router-link to="/Dashboard/hotel/create">
                         Create
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/Dashboard/content">
+                    <router-link to="/Dashboard/hotel/update">
                         Update
                     </router-link>
                 </li>
