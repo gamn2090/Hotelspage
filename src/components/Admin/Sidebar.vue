@@ -17,7 +17,11 @@
                         Update
                     </router-link>
                 </li>
-                <li>Delete</li>
+                <li>
+                    <router-link to="/Dashboard/hotel/delete">
+                        Delete
+                    </router-link>
+                </li>
             </ul>
             </div>
             <li class="collapsible">
@@ -25,20 +29,63 @@
             </li>
             <div class="content-collapsible">
             <ul>
-                <li>Create</li>
-                <li>Update</li>
-                <li>Delete</li>
+                <li>
+                    <router-link to="/Dashboard/promociones/create">
+                        Create
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/promociones/update">
+                        Update
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/promociones/delete">
+                        Delete
+                    </router-link>
+                </li>
             </ul>
             </div>
             <li class="collapsible">Habitaciones</li>
             <div class="content-collapsible">
             <ul>
-                <li>Create</li>
-                <li>Update</li>
-                <li>Delete</li>
+                <li>
+                    <router-link to="/Dashboard/habitaciones/create">
+                        Create
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/habitaciones/update">
+                        Update
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/habitaciones/delete">
+                        Delete
+                    </router-link>
+                </li>
             </ul>
             </div>
-            <li>Delete User</li>
+            <li class="collapsible">Fotos</li>
+            <div class="content-collapsible">
+            <ul>
+                <li>
+                    <router-link to="/Dashboard/fotos/create">
+                        Create
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/fotos/update">
+                        Update
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/fotos/delete">
+                        Delete
+                    </router-link>
+                </li>
+            </ul>
+            </div>
             <li><a class="form" href="#!" @click="logout">Logout</a></li>
         </ul>
     </div>
