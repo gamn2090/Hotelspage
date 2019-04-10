@@ -3,21 +3,25 @@
         <ul class="sidebar-links">
            
             <li class="collapsible">
-                <router-link to="/Dashboard/profile">
-                    <a>Hotel</a>
-                </router-link>
+                Hotel
             </li>
             <div class="content-collapsible">
             <ul>
-                <li>Create</li>
-                <li>Update</li>
+                <li>
+                    <router-link to="/Dashboard/profile">
+                        Create
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/content">
+                        Update
+                    </router-link>
+                </li>
                 <li>Delete</li>
             </ul>
             </div>
             <li class="collapsible">
-                <router-link to="/Dashboard/content">
-                    <a>Promociones</a>
-                </router-link>
+                Promociones
             </li>
             <div class="content-collapsible">
             <ul>
@@ -54,7 +58,7 @@ export default {
             auth.signOut().then(() => this.$router.replace('Login'))
         }
     },
-    created () {
+    mounted () {
         var coll = document.getElementsByClassName("collapsible");
         var i;
 
