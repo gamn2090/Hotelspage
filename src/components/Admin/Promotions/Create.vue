@@ -9,7 +9,7 @@
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold">Nombre de la Promoción</label>
-                            <input type="text" class="form-control" v-model="promo" placeholder="nombre hotel">
+                            <input type="text" class="form-control" v-model="promo" placeholder="Promocion">
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen de la promocion</label><br>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <label class="font-weight-bold">Hotel al que pertencece</label>
+                            <label class="font-weight-bold">Hotel al que pertencece</label><br>
                             <select id="hotel" v-model="hotelSelected">
                                 <option selected disabled value="">Seleccione un Hotel</option>
                                 <option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</option>
@@ -37,13 +37,17 @@
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descuento</label>
                             <input type="number" v-model="descuento" class="form-control" placeholder="10">
-                        </div>
+                        </div>                        
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Precio en Dolares</label>
                             <input type="text" v-model="precioDol" class="form-control" placeholder="75">
-                        </div>                                              
+                        </div> 
+                        <div class="col-md-6">
+                            <label class="font-weight-bold">Descripción</label>
+                            <textarea v-model="descripcion" name="message" cols="30" rows="2" class="form-control" placeholder="Describa su hotel"></textarea>
+                        </div>                                             
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
@@ -69,6 +73,7 @@ export default {
         promo: null,
         precioDol: null,
         descuento: null,
+        descripcion: null,
         fechaInicio: null,
         fechaFin: null,
         hotelSelected : null,
@@ -95,7 +100,12 @@ export default {
                 const now = moment()
                 const update = {
                     name: this.promo,
-                    description: this.description,
+                    precioDol: this.precioDol,
+                    fechaInicio: this.fechaInicio,
+                    fechaFin: this.fechaFin,
+                    descuento: this.descuento,
+                    hotel: this.hotelSelected,
+                    description: this.descripcion,
                     image: url,
                     createdAt: now.format("DD/MM/YYYY"),
                     createdAtUnix: now.unix() 
@@ -113,15 +123,9 @@ export default {
                     .child("tambohotels")                    
                     .once("value")                     
                 ).val()
-                
-                for (const key in this.hotels) 
-                { 
-                    console.log(key) 
-                }
             } catch (ex) {
                 return console.error(ex)
-            }
-            
+            }            
         }
     }, 
     async created () {
