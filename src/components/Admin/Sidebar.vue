@@ -127,7 +127,7 @@ export default {
 <style lang="">
     .sidebar{
         flex: 1;
-        height: calc(100vh - 120px);
+        min-height: calc(100vh - 120px);
         background-color: #2c3e50;
     }
 .sidebar-links li{

@@ -52,39 +52,7 @@ export default {
         hotelsRef: db.child("tambohotels")
       }
     },
-    methods:{
-        getFiles() {
-            this.files = this.$refs.files.files
-        },
-        // Un sugerencia que te doy es que cuando uses las funciones de firebase que devuelven promesas, uses async/await, es cosa de gente praah
-        // Las que devuelven promesas son: set, update, once...
-        // Te encontrarás el caso donde necesitarás primero tener el key para poder guardar luego...
-        // Cuando necesites actualizar varios nodos al tiempo, siempre pasa...
-        async addHotel() {
-            // puedes hacer esto...
-            const key = this.hotelsRef.push().key
-            try {
-                // DINDOOOOOOOO Ahora si a ver...
-                const file = this.$refs.files.files[0]
-                const url = await (
-                    await storage.ref("tambohoteles")
-                        .child(key)
-                        .put(file)
-                ).ref.getDownloadURL()
-                const now = moment()
-                const update = {
-                    name: this.hotel,
-                    image: url,
-                    createdAt: now.format("DD/MM/YYYY"),
-                    createdAtUnix: now.unix() 
-                }
-                await this.hotelsRef.child(key).set(update)
-                // Y así puedes handlear el error como te de la puta gana we hee hee ayuwoki
-            } catch (ex) {
-                return console.error(ex)
-            }
-            alert("Agregado con éxito.")
-        },
+    methods:{               
         getHotels() {
            this.hotelsOnChildAdded = this.hotelsRef.on("child_added", snapshot => {
                const data = snapshot.val()
