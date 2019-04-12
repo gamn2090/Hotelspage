@@ -13,7 +13,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen de la promocion</label><br>
-                            <input type="file" @change="getFiles()" ref="files">
+                            <input class="" type="file" @change="getFiles()" ref="files">
                         </div>
                     </div>                    
                     <div class="row form-group">
@@ -29,8 +29,8 @@
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <select id="hotel" v-model="hotelSelected">
-                                <option selected disabled value="">Seleccione un Hotel</option>
+                            <select class="form-control" id="hotel" v-model="hotelSelected">
+                                <option :selected="true" disabled value="">Seleccione un Hotel</option>
                                 <option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</option>
                             </select> 
                         </div>
@@ -42,16 +42,23 @@
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Precio en Dolares</label>
-                            <input type="text" v-model="precioDol" class="form-control" placeholder="75">
+                            <input type="number" v-model="precioDol" class="form-control" placeholder="75">
                         </div> 
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descripción</label>
-                            <textarea v-model="descripcion" name="message" cols="30" rows="2" class="form-control" placeholder="Describa su hotel"></textarea>
+                            <textarea v-model="descripcion" name="message" cols="30" rows="2" class="form-control" placeholder="Describa su promoción"></textarea>
                         </div>                                             
                     </div>
                     <div class="row form-group">
-                        <div class="col-md-12">
-                            <input  @click="addPromo" value="crear" class="btn btn-primary pill px-4 py-2">
+                        <div class="col-md-6">
+                            <label class="font-weight-bold">¿Desea que esta promoción aparezca en el inicio?</label>
+                            <select class="form-control" id="principal" v-model="mainPromo">
+                                <option :selected="true" value=true>Si</option>
+                                <option value=false>No</option>                                
+                            </select> 
+                        </div>
+                        <div class="col-md-6">
+                            <input style="margin-top: 10%;" @click="addPromo" value="crear" class="btn btn-primary pill px-4 py-2">
                         </div>
                     </div>
                 </div>                
@@ -75,6 +82,7 @@ export default {
         descuento: null,
         descripcion: null,
         fechaInicio: null,
+        mainPromo:null,
         fechaFin: null,
         hotelSelected : null,
         promos: [],
@@ -106,11 +114,13 @@ export default {
                     descuento: this.descuento,
                     hotel: this.hotelSelected,
                     description: this.descripcion,
+                    mainPromo: this.mainPromo,
                     image: url,
                     createdAt: now.format("DD/MM/YYYY"),
                     createdAtUnix: now.unix() 
                 }
-                await this.promosRef.child(key).set(update)
+                await this.promosRef.child(key).set(update)                               
+
             } catch (ex) {
                 return console.error(ex)
             }

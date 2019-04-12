@@ -1,6 +1,7 @@
 import Home from "@/views/Home.vue";
 import Hotel from "@/views/Hotel.vue";
 import Reservas from "@/views/Reservas.vue";
+import Habitacion from "@/views/Habitacion.vue";
 import Login from "@/views/Login.vue"
 import Dashboard from "@/views/Dashboard.vue";
 import Galeria from "@/views/Galeria.vue";
@@ -66,8 +67,14 @@ export const routes = [
            path: "/Galeria/:key",
            component: Galeria,
            name: "galeria"
-         } /*=========================================RUTAS DE ADMIN==========================================*/,
+         },
          {
+           //ruta para vista única de promociones
+           path: "/Habitacion/:hotel/:hab",
+           component: Habitacion,
+           name: "habitacion"
+         },
+         /*=========================================RUTAS DE ADMIN==========================================*/ {
            //dashboard del administrador **protegido**
            path: "/dashboard",
            name: "Dashboard",

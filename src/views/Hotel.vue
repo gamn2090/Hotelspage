@@ -3,7 +3,7 @@
     <navbar></navbar>    
     <banner></banner>    
     <promociones :todasPromos="todasPromos" :hotel="hotel"></promociones>    
-    <habitaciones :habs="habs"></habitaciones>    
+    <habitaciones :habs="habs" :hotel="hotel"></habitaciones>    
     <caracteristicas></caracteristicas>    
     <fotos :fotos="fotos" :images="images" :index="index"></fotos>    
     <my-maps></my-maps>    
@@ -130,7 +130,7 @@ export default {
            try {
                 this.habs = (
                     await db
-                    .child("habitaciones")
+                    .child("rooms")
                     .orderByChild('hotel')
                     .equalTo(this.$route.params.key)
                     .once("value")
@@ -144,6 +144,7 @@ export default {
     async created () {
         await this.getHotelData(),
         await this.getPromos(),
+        await this.getHabs(),
         await this.getFotos()
     },
     beforeDestroy() {

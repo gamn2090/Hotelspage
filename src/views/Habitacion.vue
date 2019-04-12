@@ -15,7 +15,7 @@ import Banner from "@/components/Home/Banner";
 import Detalle from "@/components/Reservas/Details";
 
 export default {
-  name: "Reservas",
+  name: "Habitacion",
   data () {
       return {
         promo : null,

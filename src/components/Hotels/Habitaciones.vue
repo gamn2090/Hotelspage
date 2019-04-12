@@ -6,21 +6,21 @@
                     <h2>Descubra nuestras habitaciones</h2>
                 </div>
             </div>
-            <div v-if="habs !== null" class="nonloop-block-15 owl-carousel">
-                <div v-for="habsData in habs" :key="habsData.key" class="media-with-text p-md-5">
-                    <div class="img-border-sm mb-4">
-                        <a href="#!" class="image-play">
-                            <img :src="habsData.image || '../../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                    <h2 class="heading mb-0"><a href="#!">{{habsData.tipo}}</a></h2>
-                    <span class="mb-3 d-block post-date">{{habsData.cantidad}}</span>                    
-                    <p>{{habsData.descripcion}}</p>
+            <div class="contenido-flex">
+                <div v-for="(habsData, key) in habs" :key="key" class="media-with-text p-md-5 flex-item">
+                    <router-link :to="{ name: 'habitacion', params: { hotel: hotel, hab: key } }" >
+                        <div class="img-border-sm mb-4 zoom">
+                            <div class="image-play">
+                                <img :src="habsData.image || '../../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </router-link>
+                        <h2 class="heading mb-0"><a href="#!">{{habsData.nombre}}</a></h2>
+                        <span class="mb-3 d-block post-date">Desde USD {{habsData.precio}}</span>                    
+                        <span class="mb-3 d-block post-date">{{habsData.cantidad}}</span>                    
+                        <p>{{habsData.descripcion}}</p>
                 </div>                       
-            </div>
-            <div v-else>
-                <h2>Por los momentos no hay promociones en este hotel</h2>
-            </div>
+            </div>            
         </div>
         
     </div>
@@ -31,6 +31,9 @@ export default {
      props: {
         habs: {
             required: true
+        },
+        hotel: {
+            required: true
         }
     },
     name: "Habitaciones",
@@ -38,13 +41,36 @@ export default {
       return {       
         
       }    
-    },
-    updated () {        
-        if ($('.nonloop-block-15').length > 0) { $('.nonloop-block-15').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, autoplay: true, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } }); }
+    }, 
+    mounted () {
+        for (const key in this.habs) { console.log(this.habs[key]) }
+            
     }
 }
 </script>
 
 <style scoped>
-    
+    .contenido-flex{
+        display:flex;
+    }
+    .flex-item{
+        max-width: calc(100%/3);
+        min-width: calc(100%/3);  
+    }
+    .zoom{
+        transition: transform 1s; /* Animation */
+    }
+    .zoom:hover {
+        transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+    @media only screen and (max-width: 1000px) {
+        .flex-item {
+            max-width: 50%;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        .flex-item {
+            max-width: 100%;
+        }
+    }
 </style>

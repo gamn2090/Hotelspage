@@ -4,7 +4,7 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
             <span class="caption mb-3 sub-heading">{{this.hotel.name}}</span>
-            <h1 v-if="this.promo" class="mb-4 sub-heading">{{this.promo.name}}</h1>
+            <h1 v-if="this.room" class="mb-4 sub-heading">{{this.room.nombre}}</h1>
           </div>
         </div>
       </div>
@@ -14,7 +14,7 @@
             <div class="col-md-6 mb-5 mb-md-0">
               <div class="img-border">
                 <a href="#!" class="popup-vimeo image-play">                  
-                  <img v-if="this.promo"  :src="this.promo.image" alt="" class="img-fluid">
+                  <img v-if="this.room"  :src="this.room.image" alt="" class="img-fluid">
                 </a>
               </div>
             </div>
@@ -22,9 +22,8 @@
               <div class="section-heading text-left">
                 <h2 class="mb-5">Detalles</h2>
               </div>
-              <p v-if="this.promo && this.promo.descuento > 0"  class="mb-4">{{this.promo.precioDol - (this.promo.precioDol * this.promo.descuento/100)}}</p>
-              <p v-else if="this.promo" class="mb-4">{{this.promo.precioDol}}</p>
-              <p v-if="this.promo"  class="mb-4">{{this.promo.description}}</p>              
+              <p class="mb-4">{{this.room.precio}}</p>
+              <p v-if="this.room"  class="mb-4">{{this.room.descripcion}}</p>              
             </div>
           </div>
         </div>
@@ -97,29 +96,30 @@
 import { db } from '@/firebase.js'
 
 export default {
-    name: "Promocion",
+    name: "habitacion",
     data () {
       return {
-        promo : [],
+        room : [],
         hotel : []
       }
     },
     methods: {
         /*funciones de los hoteles */
-        async getPromoData() {
+        async getRoomData() {
            try {
                 let data = (
                     await db
-                    .child("promos")
+                    .child("rooms")
                     .once("value")                    
                 ).val()
 
                 for (let elem in data) {
-                    if(elem == this.$route.params.promo)
+                    if(elem == this.$route.params.hab)
                     {    
-                      this.promo = data[elem];                    
+                      this.room = data[elem];                    
                     }
                 }  
+            console.log(this.room)
             } catch (ex) {
                 return console.error(ex)
             }          
@@ -147,7 +147,7 @@ export default {
         },
     },
     async created () {
-        await this.getPromoData(),
+        await this.getRoomData(),
         await this.getHotelData()
     }
 }
