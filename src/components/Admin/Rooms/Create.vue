@@ -19,7 +19,7 @@
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Cantidad de camas</label>
-                            <input type="nuber" class="form-control" v-model="camas" placeholder="2">
+                            <input type="number" class="form-control" v-model="camas" placeholder="2">
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
