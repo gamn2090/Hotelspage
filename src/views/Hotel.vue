@@ -13,9 +13,6 @@
 
 <script>
 import { db } from '@/firebase.js'
-//importo el owl carousel
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel";
 
 import MyFooter from '@/components/Home/MyFooter';
 import Navbar from '@/components/Home/Navbar';
@@ -142,8 +139,8 @@ export default {
         },
     },
     async created () {
-        await this.getHotelData(),
         await this.getPromos(),
+        await this.getHotelData(),
         await this.getHabs(),
         await this.getFotos()
     },
@@ -153,7 +150,17 @@ export default {
     },    
     watch : {
         $route (to, from){
-            location.reload()
+            this.hotel = null,
+            this.files = [],
+            this.todasPromos = [],
+            this.fotos = [],
+            this.images = [],
+            this.habs =[],
+            this.getPromos(),  
+            this.getHotelData(),
+            this.getHabs(),                
+            this.getFotos()
+    
     }
 } 
       

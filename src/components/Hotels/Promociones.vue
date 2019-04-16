@@ -6,11 +6,14 @@
                     <h2>Nuestras promociones exclusivas web</h2>
                 </div>
             </div>
-            <div v-if="this.todasPromos.lenght !== 0" class="nonloop-block-15 owl-carousel">
-                <div v-for="promosData in todasPromos" :key="promosData.key" class="media-with-text p-md-5">                     <router-link :to="{ name: 'reservas', params: { hotel: hotel, promo: promosData.key } }" >
+            <Carousel :autoplay="true"
+                      :per-page="3"
+                      :loop="true"
+                      :autoplayTimeout="2000"  >
+                <Slide v-for="promosData in todasPromos" :key="promosData.key" class="media-with-text p-md-5 flex-item">                     <router-link :to="{ name: 'reservas', params: { hotel: hotel, promo: promosData.key } }" >
                         <div class="img-border-sm mb-4">                        
                             <div href="#!" class="image-play">
-                                <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
+                                <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" :alt="promosData.name" class="img-fluid">
                             </div>                        
                         </div> 
                     </router-link>
@@ -26,17 +29,16 @@
                     <span v-if="promosData.fechaFinal" class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFinal}}</span>
                     <span v-else class="mb-3 d-block post-date">Por siempre</span>
                     <p>{{promosData.description}}</p>
-                </div>                       
-            </div>
-            <div v-else>
-                <h2>Por los momentos no hay promociones en este hotel</h2>
-            </div>
+                </Slide>                       
+            </Carousel>            
         </div>
         
     </div>
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel';
+
 export default {
     props: {
         todasPromos: {
@@ -46,22 +48,33 @@ export default {
             required: true
         }
     },
+    components: {
+        Carousel,
+        Slide
+    },
     name: "Promociones",
     data () {
       return {
         
       }        
-    },
-    updated () {
-        if (this.todasPromos.length > 1) { 
-            $('.nonloop-block-15').owlCarousel({ center: false, items: 1, loop: true, stagePadding: 0, autoplay: true, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } }); }
-        else {
-            $('.nonloop-block-15').owlCarousel({ center: true, items: 1, loop: false, stagePadding: 0, autoplay: false, margin: 20, nav: true, dots: true, navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'], responsive: { 600: { margin: 20, stagePadding: 0, items: 1, nav: false, dots: true }, 1000: { margin: 20, stagePadding: 0, items: 2, nav: true, dots: true }, 1200: { margin: 20, stagePadding: 0, items: 3, nav: true, dots: true } } });
-        }
     }
 }
 </script>
 
 <style scoped>
-    
+    .img-fluid{
+        max-width: 250px !important;
+        max-height: 250px !important;
+        min-height: 150px !important;
+    }
+    .flex-item{
+        text-align: center;
+    }
+    @media only screen and (max-width: 600px) {
+        .img-fluid{
+            max-width: 150px !important;
+            max-height: 150px !important;
+            min-height: 100px !important;
+        }
+    }
 </style>

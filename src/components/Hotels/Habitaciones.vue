@@ -6,8 +6,11 @@
                     <h2>Descubra nuestras habitaciones</h2>
                 </div>
             </div>
-            <div class="contenido-flex">
-                <div v-for="(habsData, key) in habs" :key="key" class="media-with-text p-md-5 flex-item">
+            <Carousel :autoplay="true"
+                      :per-page="3"
+                      :loop="true"
+                      :autoplayTimeout="2000" >
+                <Slider v-for="(habsData, key) in habs" :key="key" class="media-with-text p-md-5 flex-item">
                     <router-link :to="{ name: 'habitacion', params: { hotel: hotel, hab: key } }" >
                         <div class="img-border-sm mb-4 zoom">
                             <div class="image-play">
@@ -19,14 +22,17 @@
                         <span class="mb-3 d-block post-date">Desde USD {{habsData.precio}}</span>                    
                         <span class="mb-3 d-block post-date">{{habsData.cantidad}}</span>                    
                         <p>{{habsData.descripcion}}</p>
-                </div>                       
-            </div>            
+                </Slider>                       
+            </Carousel>            
         </div>
         
     </div>
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel';
+
+
 export default {
      props: {
         habs: {
@@ -35,6 +41,10 @@ export default {
         hotel: {
             required: true
         }
+    },
+    components: {
+        Carousel,
+        Slide
     },
     name: "Habitaciones",
     data () {
@@ -50,27 +60,25 @@ export default {
 </script>
 
 <style scoped>
-    .contenido-flex{
-        display:flex;
+    .img-fluid{
+        max-width: 200px !important;
+        max-height: 300px !important;
+        min-height: 150px !important;
+    }
+    @media only screen and (max-width: 600px) {
+        .img-fluid{
+            max-width: 150px !important;
+            max-height: 150px !important;
+            min-height: 100px !important;
+        }
     }
     .flex-item{
-        max-width: calc(100%/3);
-        min-width: calc(100%/3);  
+        text-align: center;
     }
     .zoom{
         transition: transform 1s; /* Animation */
     }
     .zoom:hover {
         transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    }
-    @media only screen and (max-width: 1000px) {
-        .flex-item {
-            max-width: 50%;
-        }
-    }
-    @media only screen and (max-width: 600px) {
-        .flex-item {
-            max-width: 100%;
-        }
     }
 </style>
