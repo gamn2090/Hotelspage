@@ -137,10 +137,7 @@ export default {
                     {    
                       this.hotel = data[elem]; 
                     }
-
-                }        
-                
-                console.log
+                }                        
             } catch (ex) {
                 return console.error(ex)
             }          

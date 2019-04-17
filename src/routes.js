@@ -18,7 +18,6 @@ import UpdatePromotions from "@/components/Admin/Promotions/Update.vue";
 import DeletePromotions from "@/components/Admin/Promotions/Delete.vue";
 /* pictures */
 import CreatePictures from "@/components/Admin/Pictures/Create.vue";
-import UpdatePictures from "@/components/Admin/Pictures/Update.vue";
 import DeletePictures from "@/components/Admin/Pictures/Delete.vue";
 /* rooms */
 import CreateRooms from "@/components/Admin/Rooms/Create.vue";
@@ -135,10 +134,6 @@ export const routes = [
              {
                path: "fotos/create",
                component: CreatePictures
-             },
-             {
-               path: "fotos/update",
-               component: UpdatePictures
              },
              {
                path: "fotos/delete",

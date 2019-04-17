@@ -6,17 +6,12 @@
                         <h2 class="mb-5">Vea nuestro establecimiento</h2>
                     </div>
                 </div>
-                <div v-if="images.lenght > 0" class="row no-gutters">  
+                <div class="row no-gutters">  
                     <gallery :images="images" :index="index" @close="index = null"></gallery>                 
                     <div v-for="(fotosData, i) in fotos" :key="i" @click="index = i" class="col-md-6 col-lg-3">
                         <img style="cursor:pointer;width:232.5; height:154.89 !important" :src="fotosData.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
                     </div>                       
-                </div> 
-                <div v-else>
-                    <div class="col-md-6 mx-auto text-center mb-5">
-                        <h2 class="mb-5">No hay imagenes de este hotel por el momento</h2>
-                    </div>
-                </div>                       
+                </div>                                       
             </div>            
         </div>    
 </template>
