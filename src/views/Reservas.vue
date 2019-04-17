@@ -1,7 +1,7 @@
 <template>
   <span>    
     <navbar></navbar>    
-    <banner></banner>    
+    <banner :routeName="routeName"></banner>    
     <detalle></detalle>   
     <my-footer></my-footer>   
       
@@ -19,6 +19,7 @@ export default {
   data () {
       return {
         promo : null,
+        routeName: 'REALICE SU RESERVA'
       }
   },
   components: {    

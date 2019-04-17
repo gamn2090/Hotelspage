@@ -21,21 +21,7 @@
                       
             </div>
             <!-- fin del for -->            
-        </div>
-        <!--<div>
-            <label for="">
-                Promocion
-            </label>
-            <input type="text" v-model="promo">
-            <label for="">
-                Descripcion
-            </label>
-            <input type="text" v-model="description">
-            <br><br>
-            <label for="image">Imagen</label>
-            <input type="file" @change="getFiles()" ref="files">
-            <button @click="addPromo">Add</button>
-        </div>-->
+        </div>       
     </div>
 </template>
 

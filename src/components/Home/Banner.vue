@@ -1,7 +1,8 @@
 <template>
     <span>
         <div class="CanvasText">
-            <h1 class="stroke">BIENVENIDO A HOTELES HOTEL</h1>
+            <h1 v-if="routeName" class="stroke">{{ routeName }}</h1>
+            <h1 v-else class="stroke">BIENVENIDO A HOTELES HOTEL</h1>            
         </div>
         <vue-displacement-slideshow
             :images="images"
@@ -16,9 +17,7 @@
 </template>
 
 <script>
-//importo el owl carousel
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel";
+
 import VueDisplacementSlideshow from "vue-displacement-slideshow";
 
 export default {
@@ -28,15 +27,20 @@ export default {
         
       }
     },
+     props: {
+        routeName: {
+            required: false
+        }        
+    },
     components: {
         VueDisplacementSlideshow,
     },
     computed: {
         images() {
             return [
-                require("../../../public/assets/images/hero_1.jpg"),
-                require("../../../public/assets/images/hero_2.jpg"),
-                require("../../../public/assets/images/hero_3.jpg")
+                require("./../../../public/assets/images/hero_1.jpg"),
+                require("./../../../public/assets/images/hero_2.jpg"),
+                require("./../../../public/assets/images/hero_3.jpg")
             ];
         }
     },

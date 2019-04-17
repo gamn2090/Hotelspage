@@ -1,7 +1,7 @@
 <template>
   <span>    
     <navbar></navbar>    
-    <banner></banner>    
+    <banner :routeName="routeName"></banner>    
     <detalle></detalle>   
     <my-footer></my-footer>   
       
@@ -12,13 +12,14 @@
 import MyFooter from '@/components/Home/MyFooter';
 import Navbar from '@/components/Home/Navbar';
 import Banner from "@/components/Home/Banner";
-import Detalle from "@/components/Reservas/Details";
+import Detalle from "@/components/Habitaciones/Details";
 
 export default {
   name: "Habitacion",
   data () {
       return {
         promo : null,
+        routeName: 'DETALLE DE HABITACIÓN'
       }
   },
   components: {    

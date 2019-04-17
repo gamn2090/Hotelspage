@@ -10,7 +10,7 @@
                       :per-page="3"
                       :loop="true"
                       :autoplayTimeout="2000" >
-                <Slider v-for="(habsData, key) in habs" :key="key" class="media-with-text p-md-5 flex-item">
+                <Slide v-for="(habsData, key) in habs" :key="key" class="media-with-text p-md-5 flex-item">
                     <router-link :to="{ name: 'habitacion', params: { hotel: hotel, hab: key } }" >
                         <div class="img-border-sm mb-4 zoom">
                             <div class="image-play">
@@ -22,7 +22,7 @@
                         <span class="mb-3 d-block post-date">Desde USD {{habsData.precio}}</span>                    
                         <span class="mb-3 d-block post-date">{{habsData.cantidad}}</span>                    
                         <p>{{habsData.descripcion}}</p>
-                </Slider>                       
+                </Slide>                       
             </Carousel>            
         </div>
         
@@ -52,9 +52,8 @@ export default {
         
       }    
     }, 
-    mounted () {
-        for (const key in this.habs) { console.log(this.habs[key]) }
-            
+    created () {
+        for (const key in this.habs) { console.log(key) }            
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <span>    
     <navbar></navbar>    
-    <banner></banner>    
+    <banner :routeName="routeName"></banner>    
     <promociones :todasPromos="todasPromos" :hotel="hotel"></promociones>    
     <habitaciones :habs="habs" :hotel="hotel"></habitaciones>    
     <caracteristicas></caracteristicas>    
@@ -39,6 +39,7 @@ export default {
       return {
         /*data para los hoteles */
         hotel : null,
+        routeName: 'DETALLES DEL HOTEL',
         /*data para el map*/ 
         center: {lat: -12.1259781, lng: -77.0328962},
         markers: [{

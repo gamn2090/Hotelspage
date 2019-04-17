@@ -16,12 +16,7 @@
                     <router-link to="/Dashboard/hotel/update">
                         Update
                     </router-link>
-                </li>
-                <li>
-                    <router-link to="/Dashboard/hotel/delete">
-                        Delete
-                    </router-link>
-                </li>
+                </li>                
             </ul>
             </div>
             <li class="collapsible">
@@ -73,12 +68,7 @@
                     <router-link to="/Dashboard/fotos/create">
                         Create
                     </router-link>
-                </li>
-                <li>
-                    <router-link to="/Dashboard/fotos/update">
-                        Update
-                    </router-link>
-                </li>
+                </li>                
                 <li>
                     <router-link to="/Dashboard/fotos/delete">
                         Delete
@@ -86,7 +76,7 @@
                 </li>
             </ul>
             </div>
-            <li><a class="form" href="#!" @click="logout">Logout</a></li>
+            <li><div class="form" @click="logout">Logout</div></li>
         </ul>
     </div>
 </template>
@@ -130,7 +120,7 @@ export default {
         min-height: calc(100vh - 120px);
         background-color: #2c3e50;
     }
-.sidebar-links li{
+    .sidebar-links li{
         padding: 10px;
         border-bottom: 2px solid grey;
         list-style-type: none;
@@ -138,6 +128,7 @@ export default {
     .sidebar-links li:hover{
         background-color: blue;
         color:white;
+        cursor: pointer;
     }
     .active, .collapsible:hover {
     background-color: #ccc;

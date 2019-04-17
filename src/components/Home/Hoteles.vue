@@ -5,17 +5,7 @@
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
                     <h2 class="mb-5">Nuestros hoteles</h2>
                 </div>
-            </div>
-            <!--<div>
-                <label for="">
-                    Hotel
-                </label>
-                <input type="text" v-model="hotel">
-                <br><br>
-                <label for="image">Imagen</label>
-                <input type="file" @change="getFiles()" ref="files">
-                <button @click="addHotel">Add</button>
-            </div> -->
+            </div>            
             <div class="row">
                 <div v-for="hotelData in hotels" :key="hotelData.key" class="col-md-6 col-lg-4 mb-5">
                     <router-link :to="{ name: 'hotel', params: { key: hotelData.key } }">

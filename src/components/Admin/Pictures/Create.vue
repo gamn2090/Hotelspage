@@ -9,11 +9,11 @@
                     <div class="row form-group">                        
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen</label><br>
-                            <input class="" type="file" @change="getFiles()" ref="files">
+                            <input class="btn btn-primary pill px-4 py-2" type="file" @change="getFiles()" ref="files">
                         </div>
                         <div class="col-md-6">
-                            <label class="font-weight-bold">Imagen</label><br>
-                            <input class="form-control" type="text" v-model="name" placeholder="Habitación Matrimonial">
+                            <label class="font-weight-bold">Descripción de la imagen</label><br>
+                            <input class="form-control" type="text" v-model="name" placeholder="Breve descripción">
                         </div>                        
                     </div>                                        
                     <div class="row form-group">

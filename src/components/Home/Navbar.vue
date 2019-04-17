@@ -25,8 +25,8 @@
                                                 <router-link :to="'/'" >Inicio</router-link>
                                             </li>
                                             <li class="has-children">
-                                                <a href="#!">Hoteles</a>
-                                                <ul class="dropdown arrow-top">
+                                                <a href="#!" >Hoteles</a>
+                                                <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link exact :to="{ name: 'hotel', params: { key: hotelData.key } }">
                                                             {{hotelData.name}}
@@ -41,7 +41,7 @@
                                                 </router-link>
                                             </li>                                            
 
-                                            <li>
+                                            <li >
                                                 <router-link :to="'/contactanos'">
                                                     Contáctanos
                                                 </router-link>

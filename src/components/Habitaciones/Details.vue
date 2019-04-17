@@ -22,8 +22,8 @@
               <div class="section-heading text-left">
                 <h2 class="mb-5">Detalles</h2>
               </div>
-              <p class="mb-4">{{this.room.precio}}</p>
-              <p v-if="this.room"  class="mb-4">{{this.room.descripcion}}</p>              
+              <p class="mb-4">Precio: USD {{this.room.precio}}</p>
+              <p v-if="this.room"  class="mb-4">Descripción: {{this.room.descripcion}}</p>              
             </div>
           </div>
         </div>
@@ -77,9 +77,9 @@
               <div class="p-4 mb-3 bg-white">
                 <h3 class="h5 text-black mb-3">Información de contacto</h3>
                 <p class="mb-0 font-weight-bold">Dirección</p>
-                <p v-if="this.hotel"  class="mb-4">{{this.hotel.direccion}}</p>
+                <p v-if="this.hotel.direccion"  class="mb-4">{{this.hotel.direccion}}</p>
                 <p class="mb-0 font-weight-bold">Teléfono</p>
-                <p v-if="this.hotel" class="mb-4"><a href="#">{{this.hotel.phone}}</a></p>
+                <p v-if="this.hotel.phone" class="mb-4"><a href="#">{{this.hotel.phone}}</a></p>
                 <p class="mb-0 font-weight-bold">Correo Electrónico</p>
                 <p v-if="this.hotel" class="mb-0"><a href="#"><span class="__cf_email__" data-cfemail="0871677d7a6d65696164486c6765696166266b6765">{{this.hotel.email}}</span></a></p>
               </div>

@@ -95,7 +95,7 @@ export default {
                     latitud: this.latitud,
                     longitud: this.longitud,
                     descripcion: this.descripcion,
-                    direccion: this.direccion,
+                    direccion: this.direccion,                    
                     createdAtUnix: now.unix() 
                 }
                 await this.hotelsRef.child(key).set(update)

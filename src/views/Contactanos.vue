@@ -1,7 +1,7 @@
 <template>
   <span>
     <navbar></navbar>
-    <banner></banner>           
+    <banner :routeName="routeName"></banner>           
     <my-contacto></my-contacto>    
     <my-footer></my-footer> 
   </span>
@@ -15,6 +15,11 @@ import MyContacto from "@/components/Contactanos/Contactanos";
 
 export default {
   name: "Contactanos",
+  data () {
+      return {
+        routeName: 'CONTÁCTANOS'
+      }
+  },
   components: {    
     Banner,   
     MyContacto,

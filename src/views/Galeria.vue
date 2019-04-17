@@ -1,7 +1,7 @@
 <template>
   <span>    
     <navbar></navbar>
-    <banner></banner>           
+    <banner :routeName="routeName"></banner>           
     <fotos></fotos>
     <my-footer></my-footer>   
   </span>
@@ -15,6 +15,11 @@ import Fotos from "@/components/Galeria/Fotos";
 
 export default {
   name: "hotel",
+  data () {
+      return {
+        routeName: 'GALERÍA'
+      }
+  },
   components: {    
     Banner,   
     Fotos,

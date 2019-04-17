@@ -14,7 +14,7 @@
             <div class="col-md-6 mb-5 mb-md-0">
               <div class="img-border">
                 <a href="#!" class="popup-vimeo image-play">                  
-                  <img v-if="this.promo"  :src="this.promo.image" alt="" class="img-fluid">
+                  <img v-if="this.promo"  :src="this.promo.image" alt="Promo Image" class="img-fluid">
                 </a>
               </div>
             </div>
@@ -22,9 +22,9 @@
               <div class="section-heading text-left">
                 <h2 class="mb-5">Detalles</h2>
               </div>
-              <p v-if="this.promo && this.promo.descuento > 0"  class="mb-4">{{this.promo.precioDol - (this.promo.precioDol * this.promo.descuento/100)}}</p>
-              <p v-else if="this.promo" class="mb-4">{{this.promo.precioDol}}</p>
-              <p v-if="this.promo"  class="mb-4">{{this.promo.description}}</p>              
+              <p v-if="this.promo && this.promo.descuento > 0"  class="mb-4">Precio: USD {{this.promo.precioDol - (this.promo.precioDol * this.promo.descuento/100)}}</p>
+              <p v-else if="this.promo" class="mb-4">Precio: USD {{this.promo.precioDol}}</p>
+              <p v-if="this.promo"  class="mb-4">Descripción: {{this.promo.description}}</p>              
             </div>
           </div>
         </div>
@@ -147,6 +147,7 @@ export default {
         },
     },
     async created () {
+      
         await this.getPromoData(),
         await this.getHotelData()
     }
