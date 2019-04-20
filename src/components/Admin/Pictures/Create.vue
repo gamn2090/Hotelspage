@@ -13,16 +13,16 @@
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descripción de la imagen</label><br>
-                            <input class="form-control" type="text" v-model="name" placeholder="Breve descripción">
+                            <el-input v-model="name" placeholder="Breve descripción"></el-input>
                         </div>                        
                     </div>                                        
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <select class="form-control" id="hotel" v-model="hotelSelected">
-                                <option :selected="true" disabled value="">Seleccione un Hotel</option>
-                                <option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</option>
-                            </select>   
+                            <el-select id="hotel" v-model="hotelSelected">
+                                <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
+                                <el-option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</el-option>
+                            </el-select>   
                         </div>    
                         <div class="col-md-6">
                             <input style="margin-top: 10%;" @click="addPicture" value="Agregar" class="btn btn-primary pill px-4 py-2">

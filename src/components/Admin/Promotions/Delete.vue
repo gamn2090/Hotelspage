@@ -9,15 +9,21 @@
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <select @change="onChange($event)" class="form-control" id="hotel" v-model="hotelSelected">
-                                <option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</option>
-                            </select> 
+                            <el-select @change="onChange($event)" id="hotel" placeholder="Seleccione un hotel" v-model="hotelSelected">
+                                <el-option 
+                                    v-for="(hotel, key) in hotels" 
+                                    :key="key" 
+                                    :value="key" 
+                                    :label="hotel.name">
+                                    {{hotel.name}}
+                                </el-option>
+                            </el-select> 
                         </div>     
                         <div class="col-md-6">
                             <label class="font-weight-bold">Promoción a eliminar</label><br>
-                            <select class="form-control" id="hotel" v-model="promo">
-                                <option v-for="(promo, key) in promos" :key="key" :value="key" :label="promo.name">{{promo.name}}</option>
-                            </select> 
+                            <el-select id="hotel" v-model="promo">
+                                <el-option v-for="(promo, key) in promos" :key="key" :value="key" :label="promo.name">{{promo.name}}</el-option>
+                            </el-select> 
                         </div>                                          
                     </div>
                     
@@ -76,8 +82,8 @@ export default {
             }            
         },
         onChange ( event ) {
-            this.getPromos ( event.target.value )  
-        },
+            this.getPromos ( this.hotelSelected )  
+        }, 
         deletePromo:function(key){
             if(confirm('¿Está seguro que desea eliminar esta promoción'))
             {    

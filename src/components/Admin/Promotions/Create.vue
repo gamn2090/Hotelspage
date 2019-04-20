@@ -9,7 +9,7 @@
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold">Nombre de la Promoción</label>
-                            <input type="text" class="form-control" v-model="promo" placeholder="Promocion">
+                            <el-input type="text" v-model="promo" placeholder="Promocion"></el-input>
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen de la promocion</label><br>
@@ -18,44 +18,60 @@
                     </div>                    
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >Fecha de Inicio</label>
-                            <input type="text" v-model="fechaInicio" class="form-control" placeholder="01/04/2019">
+                            <label class="font-weight-bold" >Fecha de Inicio</label><br>
+                            <el-date-picker
+                            v-model="fechaInicio"
+                            type="date"
+                            placeholder="Elija un día">
+                            </el-date-picker>                            
                         </div>
                         <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >fecha Final</label>
-                            <input type="text" v-model="fechaFin" class="form-control" placeholder="01/05/2019">
+                            <label class="font-weight-bold" >fecha Final</label><br>
+                            <el-date-picker
+                            v-model="fechaFin"
+                            type="date"
+                            placeholder="Elija un día">
+                            </el-date-picker>
                         </div>                        
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <select class="form-control" id="hotel" v-model="hotelSelected">
-                                <option :selected="true" disabled value="">Seleccione un Hotel</option>
-                                <option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</option>
-                            </select> 
+                            <el-select id="hotel" v-model="hotelSelected">
+                                <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
+                                <el-option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</el-option>
+                            </el-select> 
                         </div>
                         <div class="col-md-6">
-                            <label class="font-weight-bold">Descuento</label>
-                            <input type="number" v-model="descuento" class="form-control" placeholder="10">
+                            <label class="font-weight-bold">Descuento</label><br>
+                            <el-input-number v-model="descuento" placeholder="10"></el-input-number>
                         </div>                        
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >Precio en Dolares</label>
-                            <input type="number" v-model="precioDol" class="form-control" placeholder="75">
+                            <label class="font-weight-bold" >Precio en Dolares</label><br>
+                            <el-input-number v-model="precioDol"  placeholder="75"></el-input-number>
                         </div> 
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descripción</label>
-                            <textarea v-model="descripcion" name="message" cols="30" rows="2" class="form-control" placeholder="Describa su promoción"></textarea>
+                            <el-input
+                            type="textarea"
+                            :rows="2" v-model="descripcion" name="message" placeholder="Describa su promoción"></el-input>
                         </div>                                             
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">¿Desea que esta promoción aparezca en el inicio?</label>
-                            <select class="form-control" id="principal" v-model="mainPromo">
-                                <option :selected="true" value=true>Si</option>
-                                <option value=false>No</option>                                
-                            </select> 
+                            <el-select v-model="mainPromo" >
+                                <el-option   
+                                label="Si"                             
+                                value="True">Si
+                                </el-option>
+                                <el-option   
+                                label="No"                             
+                                value="False">
+                                No</el-option>
+                            </el-select>   
                         </div>
                         <div class="col-md-6">
                             <input style="margin-top: 10%;" @click="addPromo" value="crear" class="btn btn-primary pill px-4 py-2">

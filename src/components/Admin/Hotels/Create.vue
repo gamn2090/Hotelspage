@@ -10,7 +10,7 @@
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold">Nombre del hotel</label>
-                            <input type="text" class="form-control" v-model="hotel" placeholder="nombre hotel">
+                            <el-input v-model="hotel" placeholder="nombre hotel"></el-input>
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen del hotel</label><br>
@@ -20,26 +20,26 @@
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Latitud</label>
-                            <input type="text" v-model="latitud" class="form-control" placeholder="-72.225486">
+                            <el-input v-model="latitud" placeholder="-72.225486"></el-input>
                         </div>
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Longitud</label>
-                            <input type="text" v-model="longitud" class="form-control" placeholder="-72.225486">
+                            <el-input v-model="longitud" placeholder="-72.225486"></el-input>
                         </div>                        
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descripción</label>
-                            <textarea v-model="descripcion" name="message" cols="30" rows="2" class="form-control" placeholder="Describa su hotel"></textarea>
+                            <el-input type="textarea" v-model="descripcion" placeholder="Describa su hotel"></el-input>
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Dirección</label>
-                            <textarea v-model="direccion" name="message" cols="30" rows="2" class="form-control" placeholder="Dirección exacta de su hotel"></textarea>
+                            <el-input type="textarea" v-model="direccion" placeholder="Dirección exacta de su hotel"></el-input>
                         </div>
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12">
-                        <input  @click="addHotel" value="crear" class="btn btn-primary pill px-4 py-2">
+                        <input @click="addHotel" value="crear" class="btn btn-primary pill px-4 py-2">
                     </div>
                     </div>
                 </div>                

@@ -9,7 +9,7 @@
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold">Nombre de la habitación</label>
-                            <input type="text" class="form-control" v-model="nombre" placeholder="Habitacion Matrimonial">
+                            <el-input v-model="nombre" placeholder="Habitacion Matrimonial"></el-input>
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen de la habitación</label><br>
@@ -18,31 +18,31 @@
                     </div>                                        
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <label class="font-weight-bold">Cantidad de camas</label>
-                            <input type="number" class="form-control" v-model="camas" placeholder="2">
+                            <label class="font-weight-bold">Cantidad de camas</label><br>
+                            <el-input-number v-model="camas" placeholder="2"></el-input-number>
                         </div>
                         <div class="col-md-6">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <select class="form-control" id="hotel" v-model="hotelSelected">
-                                <option :selected="true" disabled value="">Seleccione un Hotel</option>
-                                <option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</option>
-                            </select>   
+                            <el-select id="hotel" v-model="hotelSelected">
+                                <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
+                                <el-option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</el-option>
+                            </el-select>   
                         </div>                    
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >Cantidad de habitaciones</label>
-                            <input type="number" v-model="habitaciones" class="form-control" placeholder="75">
+                            <label class="font-weight-bold" >Cantidad de habitaciones</label><br>
+                            <el-input-number v-model="habitaciones" placeholder="75"></el-input-number>
                         </div> 
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descripción</label>
-                            <textarea v-model="descripcion" name="message" cols="30" rows="2" class="form-control" placeholder="Describa su habitación"></textarea>
+                            <el-input type="textarea" v-model="descripcion" placeholder="Describa su habitación"></el-input>
                         </div>                                             
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Precio en dolares de la habitación</label><br>
-                            <input type="number" v-model="precioDol" class="form-control" placeholder="75">
+                            <el-input-number v-model="precioDol" placeholder="75"></el-input-number>
                         </div>
                         <div class="col-md-6">
                             <input style="margin-top: 10%;" @click="addRoom" value="crear" class="btn btn-primary pill px-4 py-2">

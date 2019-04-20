@@ -9,9 +9,15 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <select @change="onChange($event)" class="form-control" id="hotel" v-model="hotelSelected">
-                                <option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</option>
-                            </select> 
+                            <el-select @change="onChange($event)" id="hotel" placeholder="Seleccione un hotel" v-model="hotelSelected">
+                                <el-option 
+                                    v-for="(hotel, key) in hotels" 
+                                    :key="key" 
+                                    :value="key" 
+                                    :label="hotel.name">
+                                    {{hotel.name}}
+                                </el-option>
+                            </el-select> 
                         </div>     
                                                              
                     </div>
@@ -74,7 +80,7 @@ export default {
             }            
         },
         onChange ( event ) {
-            this.getFotos ( event.target.value )  
+            this.getFotos ( this.hotelSelected )  
         },
         deleteFoto:function(key){
             if(confirm('¿Está seguro que desea eliminar esta imagen'))

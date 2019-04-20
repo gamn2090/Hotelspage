@@ -9,15 +9,15 @@
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <select @change="onChange($event)" class="form-control" id="hotel" v-model="hotelSelected">
-                                <option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</option>
-                            </select> 
+                            <el-select @change="onChange($event)" id="hotel" v-model="hotelSelected">
+                                <el-option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</el-option>
+                            </el-select> 
                         </div>     
                         <div class="col-md-6">
                             <label class="font-weight-bold">Habitación a eliminar</label><br>
-                            <select class="form-control" id="hotel" v-model="habitacion">
-                                <option v-for="(hab, key) in habs" :key="key" :value="key" :label="hab.name">{{hab.nombre}} - {{hab.precio}}</option>
-                            </select> 
+                            <el-select id="hotel" v-model="habitacion">
+                                <el-option v-for="(hab, key) in habs" :key="key" :value="key" :label="hab.nombre">{{hab.nombre}} - {{hab.precio}}</el-option>
+                            </el-select> 
                         </div>                                          
                     </div>
                     
@@ -76,7 +76,7 @@ export default {
             }            
         },
         onChange ( event ) {
-            this.getHabs ( event.target.value )  
+            this.getHabs ( this.hotelSelected )  
         },
         deleteHab:function(key){
             if(confirm('¿Está seguro que desea eliminar esta habitación'))

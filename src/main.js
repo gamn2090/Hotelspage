@@ -5,6 +5,10 @@ import VueRouter from 'vue-router'
 import './firebase'
 import { auth } from '@/firebase.js'
 
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
+import locale from 'element-ui/lib/locale/lang/es'
+
 import "jquery"
 
 import { routes } from './routes'
@@ -12,6 +16,8 @@ import { routes } from './routes'
 import "babel-polyfill"
 
 import * as VueGoogleMaps from "vue2-google-maps";
+
+Vue.use(Element, {locale})
 
 Vue.use(VueGoogleMaps, {
   load: {
