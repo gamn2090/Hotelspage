@@ -1,7 +1,15 @@
 <template>
     <div class="content">
+        <el-alert
+            style="display:none"
+            title="¡Éxito!"
+            :class="{ active: isActive }"
+            type="success"
+            description="Acción realizada correctamente"
+            show-icon>
+        </el-alert> 
         <center><h3>Crear Hotel</h3></center>
-        <br><br>
+        <br>
         <center>
             <div class="container">
             <div class="row">
@@ -45,7 +53,8 @@
                 </div>                
             </div>
             </div>
-        </center>           
+        </center>  
+                
     </div>
 </template>
 
@@ -56,6 +65,7 @@ import moment from "moment"
 export default {
     data () {
       return {
+        isActive: false,
         files: [],
         hotel: null,
         latitud: null,
@@ -77,10 +87,9 @@ export default {
         // Te encontrarás el caso donde necesitarás primero tener el key para poder guardar luego...
         // Cuando necesites actualizar varios nodos al tiempo, siempre pasa...
         async addHotel() {
-            // puedes hacer esto...
+            
             const key = this.hotelsRef.push().key
             try {
-                // DINDOOOOOOOO Ahora si a ver...
                 const file = this.$refs.files.files[0]
                 const url = await (
                     await storage.ref("tambohoteles")
@@ -103,12 +112,16 @@ export default {
             } catch (ex) {
                 return console.error(ex)
             }
-            alert("Agregado con éxito.")
+            this.isActive = true
+            console.log(this.isActive)
         },
     }
 }
 </script>
 
 <style scoped>
-   
+   .active{
+       background-color: #f0f9eb !important;
+       display: block !important;
+   }
 </style>
