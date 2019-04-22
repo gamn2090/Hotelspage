@@ -76,8 +76,9 @@ export default {
 
             } catch (ex) {
                 return console.error(ex)
+                this.failure();
             }
-            alert("Imagen Agregada con éxito.")
+            this.success();
         },
         async getHotels () {
             try {
@@ -89,7 +90,16 @@ export default {
             } catch (ex) {
                 return console.error(ex)
             }            
-        }
+        },
+        success () {
+            this.$message({
+            message: 'Imagen agregada satisfactoriamente.',
+            type: 'success'
+            });
+        },
+        failure () {
+            this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
+        },
     }, 
     async created () {
         await this.getHotels()

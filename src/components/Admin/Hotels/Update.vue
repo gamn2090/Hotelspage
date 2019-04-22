@@ -87,8 +87,6 @@ export default {
             this.files = this.$refs.files.files
         },                
         async editHotel() {
-            if(confirm('¿Está seguro que desea editar este hotel'))
-            {
                 try {
                     const key = this.hotelSelected;
                     const file = this.$refs.files.files[0]
@@ -122,13 +120,9 @@ export default {
                     // Y así puedes handlear el error como te de la puta gana we hee hee ayuwoki
                 } catch (ex) {
                     return console.error(ex)
+                    this.failure();
                 }
-                alert("Hotel editado con éxito.")
-            }
-            else 
-            {
-                alert("Edición cancelada por el usuario")
-            }
+                this.success();            
             
         }, 
         async getHotels () {
@@ -168,10 +162,18 @@ export default {
             } catch (ex) {
                 return console.error(ex)
             }            
-                //console.log(this.hotels)                      
         },       
         onChange ( event ) {
             this.selectedHotel ( this.hotelSelected )  
+        },
+        success () {
+            this.$message({
+            message: 'Hotel actualizado satisfactoriamente.',
+            type: 'success'
+            });
+        },
+        failure () {
+            this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
         },        
     }, 
     async created () {

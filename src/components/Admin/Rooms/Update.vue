@@ -105,52 +105,46 @@ export default {
             this.files = this.$refs.files.files
         },                
         async editHab() {
-            if(confirm('¿Está seguro que desea eliminar esta habitación'))
-            {
-                try {
-                    const key = this.habSelected;
-                    const file = this.$refs.files.files[0]
-                    let url = null
-                    if(file)
-                    {
-                        url = await (
-                            await storage.ref("rooms")
-                                .child(key)
-                                .put(file)
-                        ).ref.getDownloadURL() 
-                    }
-                    else
-                    {
-                        url = this.oldImage
-                    }              
-                    const now = moment()
-                    const update = {
-                        name: this.habitacion,
-                        precioDol: this.precioDol,
-                        hotel: this.hotelSelected,
-                        description: this.descripcion,
-                        image: url,
-                        createdAt: now.format("DD/MM/YYYY"),
-                        createdAtUnix: now.unix() 
-                    }
-                    await this.habsRef.child(key).set(update)
-                    this.hotels = []
-                    this.habs = []
-                    this.habitacion = null,
-                    this.precioDol = null,
-                    this.hotel = null,
-                    this.description = null,
-                    this.image = null,
-                    await this.getHotels()
-                } catch (ex) {
-                    return console.error(ex)
+            
+            try {
+                const key = this.habSelected;
+                const file = this.$refs.files.files[0]
+                let url = null
+                if(file)
+                {
+                    url = await (
+                        await storage.ref("rooms")
+                            .child(key)
+                            .put(file)
+                    ).ref.getDownloadURL() 
                 }
-                alert("Habitacion actualizada con éxito.")
+                else
+                {
+                    url = this.oldImage
+                }              
+                const now = moment()
+                const update = {
+                    name: this.habitacion,
+                    precioDol: this.precioDol,
+                    hotel: this.hotelSelected,
+                    description: this.descripcion,
+                    image: url,
+                    createdAt: now.format("DD/MM/YYYY"),
+                    createdAtUnix: now.unix() 
+                }
+                await this.habsRef.child(key).set(update)
+                this.hotels = []
+                this.habs = []
+                this.habitacion = null,
+                this.precioDol = null,
+                this.hotel = null,
+                this.description = null,
+                this.image = null,
+                await this.getHotels()
+            } catch (ex) {
+                return console.error(ex)
             }
-            else 
-            {
-                alert("Actualización cancelada por el usuario")
-            }
+            this.success();           
             
         }, 
         async getHabs( hotel ) {
@@ -202,14 +196,22 @@ export default {
             } catch (ex) {
                 return console.error(ex)
             }            
-                //console.log(this.hotels)                      
         },       
         onChange ( event ) {
             this.getHabs ( this.hotelSelected )  
         },  
         loadHab ( event ) {
             this.selectedHab ( this.habSelected )  
-        },          
+        },
+        success () {
+            this.$message({
+            message: 'Habitación actualizada satisfactoriamente.',
+            type: 'success'
+            });
+        },
+        failure () {
+            this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
+        },        
     }, 
     async created () {
         await this.getHotels()

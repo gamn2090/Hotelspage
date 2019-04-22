@@ -104,8 +104,9 @@ export default {
 
             } catch (ex) {
                 return console.error(ex)
+                this.failure();
             }
-            alert("Habitación Agregada con éxito.")
+            this.success();
         },
         async getHotels () {
             try {
@@ -117,7 +118,16 @@ export default {
             } catch (ex) {
                 return console.error(ex)
             }            
-        }
+        },
+        success () {
+            this.$message({
+            message: 'Habitación creada satisfactoriamente.',
+            type: 'success'
+            });
+        },
+        failure () {
+            this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
+        },
     }, 
     async created () {
         await this.getHotels()

@@ -47,6 +47,7 @@
                             <el-date-picker
                             v-model="fechaInicio"
                             type="date"
+                            value-format="dd-MM-yyyy"
                             placeholder="Elija un día">
                             </el-date-picker>
                         </div>
@@ -55,6 +56,7 @@
                             <el-date-picker
                             v-model="fechaFin"
                             type="date"
+                            value-format="dd-MM-yyyy"
                             placeholder="Elija un día">
                             </el-date-picker>
                         </div>                        
@@ -135,63 +137,56 @@ export default {
         getFiles() {
             this.files = this.$refs.files.files
         },                
-        async editPromo() {
-            if(confirm('¿Está seguro que desea actualizar esta promoción'))
-            {
-                try {
-                    const key = this.promoSelected;
-                    const file = this.$refs.files.files[0]
-                    let url = null
-                    if(file)
-                    {
-                        url = await (
-                            await storage.ref("promos")
-                                .child(key)
-                                .put(file)
-                        ).ref.getDownloadURL() 
-                    }
-                    else
-                    {
-                        url = this.oldImage
-                    }              
-                    const now = moment()
-                    const update = {
-                        name: this.promo,
-                        precioDol: this.precioDol,
-                        fechaInicio: this.fechaInicio,
-                        fechaFin: this.fechaFin,
-                        descuento: this.descuento,
-                        hotel: this.hotelSelected,
-                        description: this.descripcion,
-                        mainPromo: this.mainPromo,
-                        image: url,
-                        createdAt: now.format("DD/MM/YYYY"),
-                        createdAtUnix: now.unix() 
-                    }
-                    await this.promosRef.child(key).set(update)
-                    this.hotels = []
-                    this.promos = []
-                    this.promo = null,
-                    this.precioDol = null,
-                    this.fechaInicio = null,
-                    this.fechaFin = null,
-                    this.descuento = null,
-                    this.hotel = null,
-                    this.description = null,
-                    this.mainPromo = null,
-                    this.image = null,
-                    await this.getHotels()
-                    // Y así puedes handlear el error como te de la puta gana we hee hee ayuwoki
-                } catch (ex) {
-                    return console.error(ex)
+        async editPromo() {            
+            try {
+                const key = this.promoSelected;
+                const file = this.$refs.files.files[0]
+                let url = null
+                if(file)
+                {
+                    url = await (
+                        await storage.ref("promos")
+                            .child(key)
+                            .put(file)
+                    ).ref.getDownloadURL() 
                 }
-                alert("Hotel editado con éxito.")
+                else
+                {
+                    url = this.oldImage
+                }              
+                const now = moment()
+                const update = {
+                    name: this.promo,
+                    precioDol: this.precioDol,
+                    fechaInicio: this.fechaInicio,
+                    fechaFin: this.fechaFin,
+                    descuento: this.descuento,
+                    hotel: this.hotelSelected,
+                    description: this.descripcion,
+                    mainPromo: this.mainPromo,
+                    image: url,
+                    createdAt: now.format("DD/MM/YYYY"),
+                    createdAtUnix: now.unix() 
+                }
+                await this.promosRef.child(key).set(update)
+                this.hotels = []
+                this.promos = []
+                this.promo = null,
+                this.precioDol = null,
+                this.fechaInicio = null,
+                this.fechaFin = null,
+                this.descuento = null,
+                this.hotel = null,
+                this.description = null,
+                this.mainPromo = null,
+                this.image = null,
+                await this.getHotels()
+                // Y así puedes handlear el error como te de la puta gana we hee hee ayuwoki
+            } catch (ex) {
+                return console.error(ex)
             }
-            else 
-            {
-                alert("Edición cancelada por el usuario")
-            }
-            
+            this.success();           
+        
         }, 
         async getPromos( hotel ) {
            try {
@@ -251,6 +246,15 @@ export default {
         },  
         loadPromo ( event ) {
             this.selectedPromo ( this.promoSelected )  
+        },
+        success () {
+            this.$message({
+            message: 'Promoción actualizada satisfactoriamente.',
+            type: 'success'
+            });
+        },
+        failure () {
+            this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
         },          
     }, 
     async created () {

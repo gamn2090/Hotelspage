@@ -73,7 +73,7 @@ export default {
                     await db
                     .child("promos")
                     .orderByChild('mainPromo')
-                    .equalTo("true")
+                    .equalTo("True")
                     .once("value")
                 ).val()
             } catch (ex) {
@@ -91,5 +91,5 @@ export default {
 </script>
 
 <style scoped>
-
+    
 </style>

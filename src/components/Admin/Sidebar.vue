@@ -101,7 +101,7 @@ export default {
 
         for (i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
+                this.classList.toggle("activeAdmin");
                 var content = this.nextElementSibling;
                 if (content.style.maxHeight){
                 content.style.maxHeight = null;
@@ -130,7 +130,7 @@ export default {
         color:white;
         cursor: pointer;
     }
-    .active, .collapsible:hover {
+    .activeAdmin, .collapsible:hover {
     background-color: #ccc;
     }
     .content-collapsible {

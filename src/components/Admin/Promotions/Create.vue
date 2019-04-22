@@ -22,6 +22,7 @@
                             <el-date-picker
                             v-model="fechaInicio"
                             type="date"
+                            value-format="dd-MM-yyyy"
                             placeholder="Elija un día">
                             </el-date-picker>                            
                         </div>
@@ -30,6 +31,7 @@
                             <el-date-picker
                             v-model="fechaFin"
                             type="date"
+                            value-format="dd-MM-yyyy"
                             placeholder="Elija un día">
                             </el-date-picker>
                         </div>                        
@@ -139,8 +141,10 @@ export default {
 
             } catch (ex) {
                 return console.error(ex)
+                this.failure();
             }
-            alert("Promoción Agregada con éxito.")
+            console.log(this.fechaInicio+'-'+this.fechaFin)
+            this.success();
         },
         async getHotels () {
             try {
@@ -152,7 +156,16 @@ export default {
             } catch (ex) {
                 return console.error(ex)
             }            
-        }
+        },
+        success () {
+            this.$message({
+            message: 'Promoción creada satisfactoriamente.',
+            type: 'success'
+            });
+        },
+        failure () {
+            this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
+        },
     }, 
     async created () {
         await this.getHotels()

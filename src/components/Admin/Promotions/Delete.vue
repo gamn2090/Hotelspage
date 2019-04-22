@@ -85,17 +85,29 @@ export default {
             this.getPromos ( this.hotelSelected )  
         }, 
         deletePromo:function(key){
-            if(confirm('¿Está seguro que desea eliminar esta promoción'))
-            {    
-                this.promosRef.child(key).remove()
-                this.promos = []
-                alert("Promoción eliminada con éxito.")
-            }
-            else 
-            {
-                alert("Eliminación cancelada por el usuario")
-            }
+
+            this.$confirm('Esto eliminará la promoción de manera permanente, ¿desea continuar?', 'Warning', {
+            confirmButtonText: 'OK',
+            cancelButtonText: 'Cancelar',
+            type: 'warning'
+                }).then(() => {
+                    this.promosRef.child(key).remove()
+                    this.promos = []
+                    this.success();
+                }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: 'Eliminación cancelada por el usuario'
+                });          
+            });  
+            
         },
+        success () {
+            this.$message({
+            message: 'Promoción eliminada satisfactoriamente.',
+            type: 'success'
+            });
+        }
     }, 
     async created () {
         await this.getHotels()

@@ -46,4 +46,7 @@ export default {
 </script>
 
 <style scoped> 
+    .active{
+        background-color: #fff !important;
+    }
 </style>

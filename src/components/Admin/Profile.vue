@@ -1,7 +1,8 @@
 
 <template>        
     <div class="content">
-        <center><h3>Hello profile!</h3></center>
+        <br><br><br><br><br>
+        <center><h3>Bienvenido a la vista de Administrador</h3></center>
     </div>
 </template>
 
@@ -25,7 +26,7 @@ export default {
 
         for (i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
+                this.classList.toggle("activeAdmin");
                 var content = this.nextElementSibling;
                 if (content.style.maxHeight){
                 content.style.maxHeight = null;

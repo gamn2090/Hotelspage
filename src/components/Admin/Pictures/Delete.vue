@@ -83,17 +83,31 @@ export default {
             this.getFotos ( this.hotelSelected )  
         },
         deleteFoto:function(key){
-            if(confirm('¿Está seguro que desea eliminar esta imagen'))
-            {    
-                this.fotosRef.child(key).remove()
-                this.fotos = []
-                alert("Imagen eliminada con éxito.")
-            }
-            else 
-            {
-                alert("Eliminación cancelada por el usuario")
-            }
+            this.$confirm('Esto eliminará la imagen de manera permanente, ¿desea continuar?', 'Warning', {
+            confirmButtonText: 'OK',
+            cancelButtonText: 'Cancelar',
+            type: 'warning'
+                }).then(() => {
+                    this.fotosRef.child(key).remove()
+                    this.fotos = []
+                    this.success();
+                }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: 'Eliminación cancelada por el usuario'
+                });          
+            });           
         },
+        success () {
+            this.$message({
+            message: 'Imagen eliminada satisfactoriamente.',
+            type: 'success'
+            });
+        },
+        failure () {
+            this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
+        }
+        
     }, 
     async created () {
         await this.getHotels()

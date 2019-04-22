@@ -1,13 +1,5 @@
 <template>
-    <div class="content">
-        <el-alert
-            style="display:none"
-            title="¡Éxito!"
-            :class="{ active: isActive }"
-            type="success"
-            description="Acción realizada correctamente"
-            show-icon>
-        </el-alert> 
+    <div class="content">        
         <center><h3>Crear Hotel</h3></center>
         <br>
         <center>
@@ -86,8 +78,7 @@ export default {
         // Las que devuelven promesas son: set, update, once...
         // Te encontrarás el caso donde necesitarás primero tener el key para poder guardar luego...
         // Cuando necesites actualizar varios nodos al tiempo, siempre pasa...
-        async addHotel() {
-            
+        async addHotel() {            
             const key = this.hotelsRef.push().key
             try {
                 const file = this.$refs.files.files[0]
@@ -111,9 +102,18 @@ export default {
                 // Y así puedes handlear el error como te de la puta gana we hee hee ayuwoki
             } catch (ex) {
                 return console.error(ex)
+                this.failure();
             }
-            this.isActive = true
-            console.log(this.isActive)
+            this.success();
+        },
+        success () {
+            this.$message({
+            message: 'Hotel creado satisfactoriamente.',
+            type: 'success'
+            });
+        },
+        failure () {
+            this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
         },
     }
 }
