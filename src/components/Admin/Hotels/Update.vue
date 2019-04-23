@@ -47,6 +47,16 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
+                            <label class="font-weight-bold">Teléfono</label>
+                            <el-input v-model="telefono" placeholder="Coloque su número de teléfono"></el-input>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="font-weight-bold">Correo</label>
+                            <el-input type="email" v-model="correo" placeholder="Dirección de correo electrónica"></el-input>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
                             <label class="font-weight-bold">Imagen del hotel</label><br>
                             <input class="btn btn-primary pill px-4 py-2" type="file" @change="getFiles()" ref="files">
                         </div>
@@ -72,6 +82,8 @@ export default {
         files: [],
         hotel: null,
         oldImage: null,
+        correo: null,
+        telefono: null,
         latitud: null,
         hotelSelected: null,
         longitud: null,
@@ -110,6 +122,8 @@ export default {
                         createdAt: now.format("DD/MM/YYYY"),
                         latitud: this.latitud,
                         longitud: this.longitud,
+                        email: this.correo,
+                        phone: this.telefono,
                         descripcion: this.descripcion,
                         direccion: this.direccion,                    
                         createdAtUnix: now.unix() 

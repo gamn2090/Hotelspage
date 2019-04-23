@@ -38,6 +38,16 @@
                         </div>
                     </div>
                     <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="font-weight-bold">Teléfono</label>
+                            <el-input v-model="telefono" placeholder="Coloque su número de teléfono"></el-input>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="font-weight-bold">Correo</label>
+                            <el-input type="email" v-model="correo" placeholder="Dirección de correo electrónica"></el-input>
+                        </div>
+                    </div>
+                    <div class="row form-group">
                     <div class="col-md-12">
                         <input @click="addHotel" value="crear" class="btn btn-primary pill px-4 py-2">
                     </div>
@@ -61,6 +71,8 @@ export default {
         files: [],
         hotel: null,
         latitud: null,
+        telefono: null,
+        correo: null,
         longitud: null,
         descripcion: null,
         direccion: null,
@@ -94,6 +106,8 @@ export default {
                     createdAt: now.format("DD/MM/YYYY"),
                     latitud: this.latitud,
                     longitud: this.longitud,
+                    email: this.correo,
+                    phone: this.telefono,
                     descripcion: this.descripcion,
                     direccion: this.direccion,                    
                     createdAtUnix: now.unix() 

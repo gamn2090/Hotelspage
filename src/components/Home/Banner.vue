@@ -6,7 +6,7 @@
         </div>
         <vue-displacement-slideshow
             :images="images"
-            :displacement="require('./../../../public/assets/images/displacement.png')"
+            :displacement="require('@/../dist/displacement.png')"
             :intensity="0.2"
             :speedIn="1.4"
             :speedOut="1.4"
@@ -38,9 +38,9 @@ export default {
     computed: {
         images() {
             return [
-                require("./../../../public/assets/images/hero_1.jpg"),
-                require("./../../../public/assets/images/hero_2.jpg"),
-                require("./../../../public/assets/images/hero_3.jpg")
+                require("@/../dist/hero_1.jpg"),
+                require("@/../dist/hero_2.jpg"),
+                require("@/../dist/hero_3.jpg")
             ];
         }
     },

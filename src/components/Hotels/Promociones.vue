@@ -26,7 +26,7 @@
                         Desde USD {{ promosData.precioDol }} 
                     </p>
 
-                    <span v-if="promosData.fechaFinal" class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFinal}}</span>
+                    <span v-if="promosData.fechaFin" class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFin}}</span>
                     <span v-else class="mb-3 d-block post-date">Por siempre</span>
                     <p>{{promosData.description}}</p>
                 </Slide>                       
