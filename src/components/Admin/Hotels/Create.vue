@@ -1,62 +1,59 @@
 <template>
     <div class="content">        
-        <center><h3>Crear Hotel</h3></center>
-        <br>
         <center>
-            <div class="container">
-            <div class="row">
+            <h3 style="display:inline-block">Crear Hotel</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>
+        </center>            
+        <br>
+        <div class="containerAdmin">
+            <el-row :gutter="20">
+                <el-col :xs="22" :md="10" :offset="1">
+                    <label class="font-weight-bold">Nombre del hotel</label>
+                    <el-input v-model="hotel" placeholder="nombre hotel"></el-input>
+                </el-col>
                 
-                <div class="col-md-12">
-                    <div class="row form-group">
-                        <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold">Nombre del hotel</label>
-                            <el-input v-model="hotel" placeholder="nombre hotel"></el-input>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Imagen del hotel</label><br>
-                            <input type="file" @change="getFiles()" ref="files">
-                        </div>
-                    </div>                    
-                    <div class="row form-group">
-                        <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >Latitud</label>
-                            <el-input v-model="latitud" placeholder="-72.225486"></el-input>
-                        </div>
-                        <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >Longitud</label>
-                            <el-input v-model="longitud" placeholder="-72.225486"></el-input>
-                        </div>                        
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Descripción</label>
-                            <el-input type="textarea" v-model="descripcion" placeholder="Describa su hotel"></el-input>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Dirección</label>
-                            <el-input type="textarea" v-model="direccion" placeholder="Dirección exacta de su hotel"></el-input>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Teléfono</label>
-                            <el-input v-model="telefono" placeholder="Coloque su número de teléfono"></el-input>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Correo</label>
-                            <el-input type="email" v-model="correo" placeholder="Dirección de correo electrónica"></el-input>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                    <div class="col-md-12">
-                        <input @click="addHotel" value="crear" class="btn btn-primary pill px-4 py-2">
-                    </div>
-                    </div>
-                </div>                
-            </div>
-            </div>
-        </center>  
-                
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Imagen del hotel</label><br>
+                    <input type="file" @change="getFiles()" ref="files">
+                </el-col>                
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold" >Latitud</label>
+                    <el-input v-model="latitud" placeholder="-72.225486"></el-input>
+                </el-col>
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold" >Longitud</label>
+                    <el-input v-model="longitud" placeholder="-72.225486"></el-input>
+                </el-col>                
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Descripción</label>
+                    <el-input type="textarea" v-model="descripcion" placeholder="Describa su hotel"></el-input>
+                </el-col>
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Dirección</label>
+                    <el-input type="textarea" v-model="direccion" placeholder="Dirección exacta de su hotel"></el-input>
+                </el-col>                
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Teléfono</label>
+                    <el-input v-model="telefono" placeholder="Coloque su número de teléfono"></el-input>
+                </el-col>
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Correo</label>
+                    <el-input type="email" v-model="correo" placeholder="Dirección de correo electrónica"></el-input>
+                </el-col>                
+            </el-row>
+            <br>
+            <el-row :gutter="20">               
+                <el-col :xs="8" :md="12" :offset="8" >
+                    <input @click="addHotel" value="crear" class="btn btn-primary pill px-4 py-2">
+                </el-col>                
+            </el-row>
+        </div>
     </div>
 </template>
 
@@ -67,7 +64,10 @@ import moment from "moment"
 export default {
     data () {
       return {
-        isActive: false,
+        /*variables para la info */
+        messaje: 'Este módulo funciona para crear los hoteles de su cadena. Primero deberá introducir el nombre de su hotel, seleccionar una imagen para que se visualize en la vista para el público, la latitud y longitud, se la dará el Google Maps, colocando la dirección exacta de su hotel en el mismo, luego deberá introducir una pequeña reseña de su hotel, resaltando las bondades del mismo, así mismo deberá introducir la dirección exacta donde está ubicado y por último un teléfono de frontdesk y el correo corporativo del hotel.',
+        title: 'Crear Hotel',
+        /*fin variables para info */
         files: [],
         hotel: null,
         latitud: null,
@@ -129,13 +129,22 @@ export default {
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
         },
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
+            });
+        }
     }
 }
 </script>
 
-<style scoped>
+<style >
    .active{
        background-color: #f0f9eb !important;
        display: block !important;
    }
+   .containerAdmin{
+       margin-bottom: 10%;
+   }
+   
 </style>

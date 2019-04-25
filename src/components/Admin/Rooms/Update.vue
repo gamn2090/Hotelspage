@@ -1,6 +1,9 @@
 <template>
     <div class="content">
-        <center><h3>Editar Habitación</h3></center>
+        <center>
+            <h3 style="display:inline-block">Actualizar Habitación</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>
+        </center>
         <br><br>
         <center>
             <div class="container">
@@ -44,7 +47,7 @@
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Precio en Dolares</label><br>
-                            <el-input-number v-model="precioDol" :min="1" :max="1000"></el-input-number>
+                            <el-input-number v-model="precioDol" :min="0" :max="1000"></el-input-number>
                         </div> 
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descripción</label><br>
@@ -63,10 +66,10 @@
                         </div> 
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Cantidad de habitaciones de este tipo</label><br>
-                            <el-input-number v-model="habitaciones" :min="1" :max="100"></el-input-number>
+                            <el-input-number v-model="habitaciones" :min="0" :max="100"></el-input-number>
                         </div>                       
-                        <div class="col-md-6">
-                            <input style="margin-top: 10%;" @click="editHab" value="crear" class="btn btn-primary pill px-4 py-2">
+                        <div class="col-md-12">
+                            <input style="margin-top: 10%;" @click="editHab" value="Actualizar" class="btn btn-primary pill px-4 py-2">
                         </div>
                     </div>
                 </div>                
@@ -83,6 +86,10 @@ import moment from "moment"
 export default {
     data () {
       return {
+        /*variables para la info */
+        messaje: 'En este módulo de actualización de habitaciones, deberá primero seleccionar el hotel al que pertenece la habitación y posteriormente seleccionar la habitación a actaulizar, al hacer esto, se cargarán los datos de la habitación, deberá entonces proceder a actualizar los valores de los campos necesarios y presionar el botón de "Actualizar".',
+        title: 'Actualizar Habitación',
+        /*fin variables para info */
         files: [],
         nombre: null,
         oldImage: null,
@@ -124,10 +131,12 @@ export default {
                 }              
                 const now = moment()
                 const update = {
-                    name: this.habitacion,
+                    nombre: this.habitacion,
                     precioDol: this.precioDol,
                     hotel: this.hotelSelected,
-                    description: this.descripcion,
+                    camas: this.camas,
+                    cantHabitaciones: this.habitaciones,
+                    descripcion: this.descripcion,
                     image: url,
                     createdAt: now.format("DD/MM/YYYY"),
                     createdAtUnix: now.unix() 
@@ -136,11 +145,15 @@ export default {
                 this.hotels = []
                 this.habs = []
                 this.habitacion = null,
+                this.habSelected = null,
+                this.hotelSelected = null,
+                this.habitaciones = null,
                 this.precioDol = null,
                 this.hotel = null,
-                this.description = null,
+                this.descripcion = null,
                 this.image = null,
                 await this.getHotels()
+
             } catch (ex) {
                 return console.error(ex)
             }
@@ -188,10 +201,10 @@ export default {
                 } 
                 this.oldImage =      this.habEditar.image,
                 this.habitacion =    this.habEditar.nombre
-                this.precioDol =     this.habEditar.precio,
+                this.precioDol =     this.habEditar.precioDol,
                 this.descripcion =   this.habEditar.descripcion,
                 this.camas       =   this.habEditar.camas,
-                this.habitaciones = this.cantHabitaciones
+                this.habitaciones =  this.habEditar.cantHabitaciones
 
             } catch (ex) {
                 return console.error(ex)
@@ -211,7 +224,12 @@ export default {
         },
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
-        },        
+        },   
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
+            });
+        }     
     }, 
     async created () {
         await this.getHotels()

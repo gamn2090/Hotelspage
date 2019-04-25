@@ -1,6 +1,9 @@
 <template>
     <div class="content">
-        <center><h3>Eliminar Imagenes</h3></center> 
+        <center>
+            <h3 style="display:inline-block">Eliminar Imagen</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>
+        </center> 
         <br><br>
         <center>
             <div class="container">
@@ -10,6 +13,7 @@
                         <div class="col-md-12">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
                             <el-select @change="onChange($event)" id="hotel" placeholder="Seleccione un hotel" v-model="hotelSelected">
+                                <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
                                 <el-option 
                                     v-for="(hotel, key) in hotels" 
                                     :key="key" 
@@ -21,20 +25,20 @@
                         </div>     
                                                              
                     </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label class="font-weight-bold">Imagen a eliminar</label><br>
-                            <div class="row no-gutters">  
-                                <div v-for="(foto, key) in fotos" :key="key" @click="deleteFoto(key)" class="col-md-6 col-lg-3">
-                                    <img style="cursor:pointer;width:232.5; height:154.89 !important" :src="foto.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid" :title=foto.name>
-                                </div>                       
-                            </div> 
-                        </div>     
-                    </div>
-                </div>                
+                </div>
             </div>
-            </div>
-        </center>                      
+            <el-row :gutter="10">
+                    <label class="font-weight-bold">Imagen a eliminar</label><br>
+                    <el-col :md="24">
+                        <div class="row no-gutters">  
+                            <div v-for="(foto, key) in fotos" :key="key" @click="deleteFoto(key)" class="col-md-6 col-lg-3">
+                                <img style="cursor:pointer;width:232.5; height:154.89 !important" :src="foto.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid" :title=foto.name>
+                            </div>                       
+                        </div> 
+                    </el-col>                                   
+                </el-row>            
+            </div> 
+        </center>              
     </div>
 </template>
 
@@ -46,6 +50,10 @@ export default {
     name: "Imagenes",
     data () {
       return {
+        /*variables para la info */
+        messaje: 'En este módulo podrá eliminar imagenes de las galerías de los hoteles. Para realizar la acción mencionada, primero deberá seleccionar de que hotel la eliminará, luego de esto aparecerán las fotos de este hotel, al hacer click en cualquiera de estas se eliminará de la galería.',
+        title: 'Eliminar Imagen',
+        /*fin variables para info */
         foto: null,
         hotelSelected : null,
         hotels: [],
@@ -103,9 +111,15 @@ export default {
             message: 'Imagen eliminada satisfactoriamente.',
             type: 'success'
             });
+            this.getFotos ( this.hotelSelected )  
         },
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
+        },
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
+            });
         }
         
     }, 

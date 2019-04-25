@@ -1,74 +1,70 @@
 <template>
     <div class="content">
-        <center><h3>Editar Hotel</h3></center>
-        <br><br>
         <center>
-            <div class="container">
-            <div class="row">
-                
-                <div class="col-md-12">
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <el-select @change="onChange($event)" id="hotel" placeholder="Seleccione un hotel" v-model="hotelSelected">
-                                <el-option 
-                                    v-for="(hotel, key) in hotels" 
-                                    :key="key" 
-                                    :value="key" 
-                                    :label="hotel.name">
-                                    {{hotel.name}}
-                                </el-option>
-                            </el-select> 
-                        </div>  
-                        <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >Nombre del hotel</label>
-                            <el-input type="text" v-model="hotel" placeholder="hotel uno"></el-input>
-                        </div>                        
-                    </div>                    
-                    <div class="row form-group">
-                        <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >Latitud</label>
-                            <el-input v-model="latitud" placeholder="-72.225486"></el-input>
-                        </div>
-                        <div class="col-md-6 mb-3 mb-md-0">
-                            <label class="font-weight-bold" >Longitud</label>
-                            <el-input v-model="longitud" placeholder="-72.225486"></el-input>
-                        </div>                        
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Descripción</label>
-                            <el-input type="textarea" v-model="descripcion" placeholder="Describa su hotel"></el-input>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Dirección</label>
-                            <el-input type="textarea" v-model="direccion" placeholder="Dirección exacta de su hotel"></el-input>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Teléfono</label>
-                            <el-input v-model="telefono" placeholder="Coloque su número de teléfono"></el-input>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Correo</label>
-                            <el-input type="email" v-model="correo" placeholder="Dirección de correo electrónica"></el-input>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <label class="font-weight-bold">Imagen del hotel</label><br>
-                            <input class="btn btn-primary pill px-4 py-2" type="file" @change="getFiles()" ref="files">
-                        </div>
-                        <div class="col-md-6">
-                            <br>
-                            <input @click="editHotel" value="Editar" class="btn btn-primary pill px-4 py-2">
-                        </div>
-                    </div>
-                </div>                
-            </div>
-            </div>
-        </center>           
+            <h3 style="display:inline-block">Editar Hotel</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>        </center>
+        <br><br>
+        <div class="containerAdmin">
+            <el-row :gutter="20">
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Hotel a editar</label><br>
+                    <el-select @change="onChange($event)" id="hotel" placeholder="Seleccione un hotel" v-model="hotelSelected">
+                        <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
+                        <el-option 
+                            v-for="(hotel, key) in hotels" 
+                            :key="key" 
+                            :value="key" 
+                            :label="hotel.name">
+                            {{hotel.name}}
+                        </el-option>
+                    </el-select>
+                </el-col>
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold" >Nombre del hotel</label>
+                    <el-input type="text" v-model="hotel" placeholder="hotel uno"></el-input>
+                </el-col>                
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold" >Latitud</label>
+                    <el-input v-model="latitud" placeholder="-72.225486"></el-input>
+                </el-col>
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold" >Longitud</label>
+                    <el-input v-model="longitud" placeholder="-72.225486"></el-input>
+                </el-col>                
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Descripción</label>
+                    <el-input type="textarea" v-model="descripcion" placeholder="Describa su hotel"></el-input>
+                </el-col>
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Dirección</label>
+                    <el-input type="textarea" v-model="direccion" placeholder="Dirección exacta de su hotel"></el-input>
+                </el-col>                
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Teléfono</label>
+                    <el-input v-model="telefono" placeholder="Coloque su número de teléfono"></el-input>
+                </el-col>
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Correo</label>
+                    <el-input type="email" v-model="correo" placeholder="Dirección de correo electrónica"></el-input>
+                </el-col>                
+            </el-row>                       
+            <el-row :gutter="20">                
+                <el-col :xs="24" :md="10" :offset="1">
+                    <label class="font-weight-bold">Imagen del hotel</label><br>
+                    <input type="file" @change="getFiles()" ref="files">
+                </el-col>        
+                <el-col :xs="24" :md="10" :offset="1">
+                    <br>
+                    <input @click="editHotel" value="Editar" class="btn btn-primary pill px-4 py-2">
+                </el-col>        
+            </el-row> 
+        </div>
     </div>
 </template>
 
@@ -79,6 +75,10 @@ import moment from "moment"
 export default {
     data () {
       return {
+        /*variables para la info */
+        messaje: 'Este módulo le permite actualizar los datos de un hotel creado. primero deberá seleccionar a que hotel le hará los cambios, al hacer esto, se cargarán los datos almacenados actualmente, realiza los cambios necesarios y luego presiona el boton "Actualizar", esto almacenará los datos nuevos y al recargar la página (principal) se verán los cambios. Como dato adicional, cabe destacar que para eliminar un hotel se debe comunicar con soporte técnico, puesto que es un proceso delicado.',
+        title: 'Actualizar Hotel',
+        /*fin variables para info */
         files: [],
         hotel: null,
         oldImage: null,
@@ -171,6 +171,8 @@ export default {
                 this.longitud= this.hotelEditar.longitud,
                 this.descripcion= this.hotelEditar.descripcion,
                 this.direccion= this.hotelEditar.direccion,
+                this.telefono= this.hotelEditar.phone,
+                this.correo= this.hotelEditar.email,
 
                 console.log(this.oldImage)
             } catch (ex) {
@@ -185,10 +187,16 @@ export default {
             message: 'Hotel actualizado satisfactoriamente.',
             type: 'success'
             });
+            this.selectedHotel ( this.hotelSelected )
         },
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
-        },        
+        },
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
+            });
+        }       
     }, 
     async created () {
         await this.getHotels()
@@ -196,6 +204,8 @@ export default {
 }
 </script>
 
-<style scoped>
-   
+<style >
+   .containerAdmin{
+       margin-bottom: 10%;
+   }
 </style>

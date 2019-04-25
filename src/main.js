@@ -1,23 +1,28 @@
+/*Instancias VUE */
 import Vue from 'vue'
 import App from './App.vue'
+/*Importas y usas VueRouter */
 import VueRouter from 'vue-router'
-//importas firebase
+Vue.use(VueRouter);
+
+//importas y usas firebase
 import './firebase'
 import { auth } from '@/firebase.js'
-
+/* importas y usas Element UI */
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/es'
+Vue.use(Element, {locale})
 
+/*importas JQuery */
 import "jquery"
 
+/*importas las rutas */
 import { routes } from './routes'
-
+/*importas babel */
 import "babel-polyfill"
-
+/*importas y usas vueGoogleMaps */
 import * as VueGoogleMaps from "vue2-google-maps";
-
-Vue.use(Element, {locale})
 
 Vue.use(VueGoogleMaps, {
   load: {
@@ -25,8 +30,7 @@ Vue.use(VueGoogleMaps, {
   }
 });
 
-Vue.use(VueRouter)
-
+/*instanciamos las rutas*/
 const router = new VueRouter({
   mode: "history",
   routes: routes,

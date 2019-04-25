@@ -1,6 +1,9 @@
 <template>
     <div class="content">
-        <center><h3>Eliminar habitación</h3></center>
+        <center>
+            <h3 style="display:inline-block">Eliminar Habitación</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>
+        </center>
         <br><br>
         <center>
             <div class="container">
@@ -42,6 +45,10 @@ export default {
     name: "Habitaciones",
     data () {
       return {
+        /*variables para la info */
+        messaje: 'En este módulo de eliminación de habitaciones, deberá primero seleccionar el hotel al que pertenece la habitación y posteriormente seleccionar la habitación a eliminar, presionando el boton "Eliminar" se procederá a eliminar la habitación.',
+        title: 'Eliminar habitación',
+        /*fin variables para info */
         habitacion: null,
         hotelSelected : null,
         hotels: [],
@@ -105,6 +112,11 @@ export default {
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
         },
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
+            });
+        }
     }, 
     async created () {
         await this.getHotels()

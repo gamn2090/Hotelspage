@@ -1,6 +1,9 @@
 <template>
     <div class="content">
-        <center><h3>Crear Habitacion</h3></center>
+        <center>
+            <h3 style="display:inline-block">Crear Habitación</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>
+        </center>
         <br><br>
         <center>
             <div class="container">
@@ -45,7 +48,7 @@
                             <el-input-number v-model="precioDol" placeholder="75"></el-input-number>
                         </div>
                         <div class="col-md-6">
-                            <input style="margin-top: 10%;" @click="addRoom" value="crear" class="btn btn-primary pill px-4 py-2">
+                            <input style="margin-top: 10%;" @click="addRoom" value="Crear" class="btn btn-primary pill px-4 py-2">
                         </div>
                     </div>
                 </div>                
@@ -60,9 +63,13 @@ import { db, storage } from '@/firebase.js'
 import moment from "moment"
 
 export default {
-    name: "Promociones",
+    name: "Habitaciones",
     data () {
       return {
+        /*variables para la info */
+        messaje: 'En este módulo podrá crear habitaciones para su hotel, primero debe ingresar el nombre de la habitación, elegir una imagen que la represente, introducir la cantidad de camas que tendrá, a que hote pertenecerá esta habitación, la cantidad de este tipo de habitaciones que tiene el hotel, una descripción de la misma y el precio en dolares de la misma, ya luego de esto al precionar el botón "Crear" se procederá a almacenar la información.',
+        title: 'Crear Habitación',
+        /*fin variables para info */
         files: [],
         nombre: null,
         camas: null,
@@ -128,6 +135,11 @@ export default {
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
         },
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
+            });
+        }
     }, 
     async created () {
         await this.getHotels()

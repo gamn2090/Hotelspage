@@ -1,16 +1,23 @@
 <template>
     <div class="content">
-        <center><h3>Agregar Foto</h3></center>
+        <center>
+            <h3 style="display:inline-block">Agregar Imagen</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>
+        </center>
         <br><br>
         <center>
             <div class="container">
             <div class="row">                
                 <div class="col-md-12">
-                    <div class="row form-group">                        
+                    <div class="row form-group">    
                         <div class="col-md-6">
-                            <label class="font-weight-bold">Imagen</label><br>
-                            <input class="btn btn-primary pill px-4 py-2" type="file" @change="getFiles()" ref="files">
-                        </div>
+                            <label class="font-weight-bold">Hotel al que pertencece</label><br>
+                            <el-select id="hotel" v-model="hotelSelected">
+                                <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
+                                <el-option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</el-option>
+                            </el-select>   
+                        </div>                      
+                        
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descripción de la imagen</label><br>
                             <el-input v-model="name" placeholder="Breve descripción"></el-input>
@@ -18,12 +25,9 @@
                     </div>                                        
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <label class="font-weight-bold">Hotel al que pertencece</label><br>
-                            <el-select id="hotel" v-model="hotelSelected">
-                                <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
-                                <el-option v-for="(hotel, key) in hotels" :key="key" :value="key" :label="hotel.name">{{hotel.name}}</el-option>
-                            </el-select>   
-                        </div>    
+                            <label class="font-weight-bold">Imagen</label><br>
+                            <input class="btn btn-primary pill px-4 py-2" type="file" @change="getFiles()" ref="files">
+                        </div>
                         <div class="col-md-6">
                             <input style="margin-top: 10%;" @click="addPicture" value="Agregar" class="btn btn-primary pill px-4 py-2">
                         </div>
@@ -43,6 +47,10 @@ export default {
     name: "Promociones",
     data () {
       return {
+        /*variables para la info */
+        messaje: 'En este módulo podrá agregar imagenes a las galerías de los hoteles. Para realizar la acción mencionada, primero deberá seleccionar a que hotel agregará la imagen, posteriormente una pequeña descripción de la imagen y selecciona la imagen como tal, luego presiona "Agregar" y listo.',
+        title: 'Agregar Imagen',
+        /*fin variables para info */
         files: [],
         name: null,
         hotelSelected: null,
@@ -100,6 +108,11 @@ export default {
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
         },
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
+            });
+        }
     }, 
     async created () {
         await this.getHotels()

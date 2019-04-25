@@ -1,6 +1,9 @@
 <template>
     <div class="content">
-        <center><h3>Editar Promoción</h3></center>
+        <center>
+            <h3 style="display:inline-block">Actualizar Promoción</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>
+        </center>
         <br><br>
         <center>
             <div class="container">
@@ -10,6 +13,7 @@
                         <div class="col-md-6">
                             <label class="font-weight-bold">Hotel al que pertencece</label><br>
                             <el-select @change="onChange($event)" id="hotel" placeholder="Seleccione un hotel" v-model="hotelSelected">
+                                <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
                                 <el-option 
                                     v-for="(hotel, key) in hotels" 
                                     :key="key" 
@@ -20,8 +24,9 @@
                             </el-select> 
                         </div> 
                         <div class="col-md-6">
-                            <label class="font-weight-bold">Habitación a editar</label><br>
+                            <label class="font-weight-bold">Promoción a editar</label><br>
                             <el-select @change="loadPromo($event)" v-model="promoSelected" placeholder="Debe Seleccionar un hotel">
+                                <el-option :selected="true" disabled value="">Seleccione un Hotel</el-option>
                                 <el-option
                                 v-for="(item, key) in promos"
                                 :key="key"
@@ -64,7 +69,7 @@
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Precio en Dolares</label><br>
-                            <el-input-number v-model="precioDol" :min="1" :max="1000"></el-input-number>
+                            <el-input-number v-model="precioDol" :min="0" :max="1000"></el-input-number>
                         </div> 
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descripción</label><br>
@@ -79,7 +84,7 @@
                     <div class="row form-group">                       
                         <div class="col-md-6">
                             <label class="font-weight-bold">Descuento</label><br>
-                            <el-input-number v-model="descuento" :min="1" :max="1000"></el-input-number>
+                            <el-input-number v-model="descuento" :min="0" :max="1000"></el-input-number>
                         </div> 
                         <div class="col-md-6">
                         <label class="font-weight-bold">¿Desea que esta promoción aparezca en el inicio?</label>
@@ -114,6 +119,10 @@ import moment from "moment"
 export default {
     data () {
       return {
+        /*variables para la info */
+        messaje: 'En este módulo le será posible actualizar los datos de una promoción ya creada, para comenzar primero necesita seleccionar el hotel al que pertenece y seguidamente la promición a editar, luego de esto se cargarán los datos ya almacenados en la base de datos y usted podrá cambiar los necesarios, posteriormente presiona el boton "Actualizar" y la información será actualizada.',
+        title: 'Actualizar Promoción',
+        /*fin variables para info */
         files: [],
         hotel: null,
         promoSelected: null,
@@ -172,12 +181,12 @@ export default {
                 this.hotels = []
                 this.promos = []
                 this.promo = null,
-                this.precioDol = null,
+                this.precioDol = 0,
                 this.fechaInicio = null,
                 this.fechaFin = null,
-                this.descuento = null,
+                this.descuento = 0,
                 this.hotel = null,
-                this.description = null,
+                this.descripcion = null,
                 this.mainPromo = null,
                 this.image = null,
                 await this.getHotels()
@@ -255,7 +264,12 @@ export default {
         },
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
-        },          
+        },  
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
+            });
+        }        
     }, 
     async created () {
         await this.getHotels()

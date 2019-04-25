@@ -1,6 +1,9 @@
 <template>
     <div class="content">
-        <center><h3>Eliminar Promociones</h3></center> 
+        <center>
+            <h3 style="display:inline-block">Eliminar Promoción</h3>
+            <i @click="showInfo()" class="el-icon-question help-icon"></i>
+        </center>  
         <br><br>
         <center>
             <div class="container">
@@ -48,6 +51,10 @@ export default {
     name: "Promociones",
     data () {
       return {
+        /*variables para la info */
+        messaje: 'En este módulo de eliminación de promociones, deberá primero seleccionar el hotel al que pertenece la promoción y posteriormente seleccionar la promoción a eliminar, presionando el boton "Eliminar" se procederá a eliminar la promoción.',
+        title: 'Eliminar Promoción',
+        /*fin variables para info */
         promo: null,
         hotelSelected : null,
         hotels: [],
@@ -106,6 +113,11 @@ export default {
             this.$message({
             message: 'Promoción eliminada satisfactoriamente.',
             type: 'success'
+            });
+        },
+        showInfo() {
+            this.$alert(this.messaje, this.title, {
+            confirmButtonText: 'OK',          
             });
         }
     }, 
