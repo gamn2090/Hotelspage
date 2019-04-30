@@ -14,21 +14,21 @@
             <Slide class="media-with-text flex-item">
                 <div class="img-border-sm mb-4 zoom">
                     <div class="image-play">
-                        <img src="@/../public/assets/images/hero_1.jpg" alt="" class="img-fluid">
+                        <img src="./assets/images/hero_1.jpg" alt="" class="img-fluid">
                     </div>
                 </div>                
             </Slide> 
             <Slide class="media-with-text flex-item">
                 <div class="img-border-sm mb-4 zoom">
                     <div class="image-play">
-                        <img src="@/../public/assets/images/hero_2.jpg" alt="" class="img-fluid">
+                        <img src="./assets/images/hero_2.jpg" alt="" class="img-fluid">
                     </div>
                 </div>                
             </Slide> 
             <Slide class="media-with-text flex-item">
                 <div class="img-border-sm mb-4 zoom">
                     <div class="image-play">
-                        <img src="@/../public/assets/images/hero_3.jpg" alt="" class="img-fluid">
+                        <img src="./assets/images/hero_3.jpg" alt="" class="img-fluid">
                     </div>
                 </div>                
             </Slide>                       
