@@ -32,7 +32,6 @@
 <script>
 import { Carousel, Slide } from 'vue-carousel';
 
-
 export default {
      props: {
         habs: {

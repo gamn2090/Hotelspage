@@ -5,23 +5,39 @@
             <h1 v-else >BIENVENIDO A HOTELES HOTEL</h1>            
         </div>
         <div class="display-dark">                
-            </div>
-        <vue-displacement-slideshow
-            :images="images"
-            :displacement="require('@/../dist/displacement.png')"
-            :intensity="0.2"
-            :speedIn="1.4"
-            :speedOut="1.4"
-            ease="Expo.easeInOut"
-            ref="slideshow" id="slider-vue">
-            
-        </vue-displacement-slideshow>
+        </div>
+        <Carousel class="Carousel" :autoplay="true"
+                      :per-page="1"
+                      :loop="true"
+                      :autoplayTimeout="5000"
+                      :paginationEnabled="false" >
+            <Slide class="media-with-text flex-item">
+                <div class="img-border-sm mb-4 zoom">
+                    <div class="image-play">
+                        <img src="@/../public/assets/images/hero_1.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>                
+            </Slide> 
+            <Slide class="media-with-text flex-item">
+                <div class="img-border-sm mb-4 zoom">
+                    <div class="image-play">
+                        <img src="@/../public/assets/images/hero_2.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>                
+            </Slide> 
+            <Slide class="media-with-text flex-item">
+                <div class="img-border-sm mb-4 zoom">
+                    <div class="image-play">
+                        <img src="@/../public/assets/images/hero_3.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>                
+            </Slide>                       
+        </Carousel>
     </span>
 </template>
 
 <script>
-
-import VueDisplacementSlideshow from "vue-displacement-slideshow";
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
     name: "Banner",
@@ -36,35 +52,17 @@ export default {
         }        
     },
     components: {
-        VueDisplacementSlideshow,
-    },
-    computed: {
-        images() {
-            return [
-                require("@/../dist/hero_1.jpg"),
-                require("@/../dist/hero_2.jpg"),
-                require("@/../dist/hero_3.jpg")
-            ];
-        }
-    },
-    methods: {
-        init() {
-            //We loop through all our images by calling the 'next' method of our component every 2 seconds
-            setInterval(() => {
-                this.$refs.slideshow.next();
-            }, 3000);
-        }
-    },
-    mounted() {
-        this.init();
+        Carousel,
+        Slide
     }
 };
 </script>
 
 <style>
-    .vue-displacement-slideshow{
-        height:100vh !important;  
-        position: relative !important;            
+    .Carousel{
+        height: 100vh !important;
+        position: relative !important;
+        margin: 0 !important;
     }
     h1{
         color: white !important;
@@ -77,12 +75,7 @@ export default {
         text-align: justify;
         z-index: 20;
         font-family:fantasy;
-    }
-    .stroke{
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: black;
-        font-weight: bolder;
-    }
+    }    
     .display-dark{
         background:#000;
         position:absolute;
