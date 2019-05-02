@@ -11,39 +11,27 @@
                       :loop="true"
                       :autoplayTimeout="5000"
                       :paginationEnabled="false" >
-            <Slide class="media-with-text flex-item">
+            <Slide v-for="(image, i) in fotos" :key="i" class="media-with-text flex-item">
                 <div class="img-border-sm mb-4 zoom">
                     <div class="image-play">
-                        <img src="./assets/images/hero_1.jpg" alt="" class="img-fluid">
+                        <img :src="image.image" alt="" class="img-fluid">
                     </div>
                 </div>                
-            </Slide> 
-            <Slide class="media-with-text flex-item">
-                <div class="img-border-sm mb-4 zoom">
-                    <div class="image-play">
-                        <img src="./assets/images/hero_2.jpg" alt="" class="img-fluid">
-                    </div>
-                </div>                
-            </Slide> 
-            <Slide class="media-with-text flex-item">
-                <div class="img-border-sm mb-4 zoom">
-                    <div class="image-play">
-                        <img src="./assets/images/hero_3.jpg" alt="" class="img-fluid">
-                    </div>
-                </div>                
-            </Slide>                       
+            </Slide>                                 
         </Carousel>
     </span>
 </template>
 
 <script>
+import { db, storage } from '@/firebase.js'
 import { Carousel, Slide } from 'vue-carousel';
 
 export default {
     name: "Banner",
     data () {
       return {
-        
+        fotos : [],
+        images : [],
       }
     },
      props: {
@@ -54,6 +42,25 @@ export default {
     components: {
         Carousel,
         Slide
+    },
+    methods: {
+        async getFotos () {
+            try {
+                  this.fotos = (
+                    await db
+                    .child("banner")                                   
+                    .once("value")                     
+                ).val()
+                
+                console.log(this.images)
+
+            } catch (ex) {
+                return console.error(ex)
+            }            
+        },
+    },
+    created () {
+        this.getFotos();
     }
 };
 </script>
