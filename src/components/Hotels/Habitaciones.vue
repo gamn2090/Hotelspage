@@ -19,7 +19,7 @@
                         </div>
                     </router-link>
                         <h2 class="heading mb-0"><a href="#!">{{habsData.nombre}}</a></h2>
-                        <span class="mb-3 d-block post-date">Desde USD {{habsData.precio}}</span>                    
+                        <span class="mb-3 d-block post-date">Desde USD {{habsData.precioDol}}</span>                    
                         <span class="mb-3 d-block post-date">{{habsData.cantidad}}</span>                    
                         <p>{{habsData.descripcion}}</p>
                 </Slide>                       

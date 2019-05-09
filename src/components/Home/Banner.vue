@@ -31,7 +31,6 @@ export default {
     data () {
       return {
         fotos : [],
-        images : [],
       }
     },
      props: {
@@ -51,9 +50,6 @@ export default {
                     .child("banner")                                   
                     .once("value")                     
                 ).val()
-                
-                console.log(this.images)
-
             } catch (ex) {
                 return console.error(ex)
             }            
