@@ -5,6 +5,9 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
+import { aos } from '../public/assets/js/jquery.stellar.min.js'
+Vue.use(aos);
+
 //importas y usas firebase
 import './firebase'
 import { auth } from '@/firebase.js'
