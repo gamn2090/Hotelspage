@@ -68,4 +68,3 @@ auth.onAuthStateChanged(function(user){
   })
 
 });
-

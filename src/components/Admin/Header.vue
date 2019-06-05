@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <center><img src="./../../../public/assets/images/admin_icon.png" alt="adminicon" id="image">
-        <br>Bievenido al Panel de Administración....!</center>
+        <br>¡Bievenido al Panel de Administración!</center>
     </div>    
 </template>
 

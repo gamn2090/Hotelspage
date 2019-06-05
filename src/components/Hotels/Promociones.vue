@@ -10,7 +10,8 @@
                       :per-page="3"
                       :loop="true"
                       :autoplayTimeout="2000"  >
-                <Slide v-for="promosData in todasPromos" :key="promosData.key" class="media-with-text p-md-5 flex-item">                     <router-link :to="{ name: 'reservas', params: { hotel: hotel, promo: promosData.key } }" >
+                <Slide v-for="promosData in todasPromos" :key="promosData.key" class="media-with-text p-md-5 flex-item">                     
+                    <router-link :to="{ name: 'reservas', params: { hotel: hotel, promo: promosData.key } }" >
                         <div class="img-border-sm mb-4">                        
                             <div href="#!" class="image-play">
                                 <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" :alt="promosData.name" class="img-fluid">

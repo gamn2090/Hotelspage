@@ -26,7 +26,8 @@
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen</label><br>
-                            <input class="btn btn-primary pill px-4 py-2" type="file" @change="getFiles()" ref="files">
+                            <input class="btn btn-primary pill px-4 py-2" type="file" @change="getFiles()" ref="files"><br>
+                            <img height="150" :src="this.hotelImage">  
                         </div>
                         <div class="col-md-6">
                             <input style="margin-top: 10%;" @click="addPicture" value="Agregar" class="btn btn-primary pill px-4 py-2">
@@ -52,6 +53,7 @@ export default {
         title: 'Agregar Imagen',
         /*fin variables para info */
         files: [],
+        hotelImage: null,
         name: null,
         hotelSelected: null,
         hotels: [],
@@ -62,6 +64,11 @@ export default {
     methods: {
         getFiles() {
             this.files = this.$refs.files.files
+            const fileReader = new FileReader()
+            fileReader.addEventListener('load', () => {
+                this.hotelImage = fileReader.result
+            })
+            fileReader.readAsDataURL(this.files[0])
         },    
         async addPicture() {
             const key = this.picturesRef.push().key

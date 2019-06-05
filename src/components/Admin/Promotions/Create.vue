@@ -14,6 +14,7 @@
                     <el-col :xs="24" :md="10" :offset="1">
                         <label class="font-weight-bold">Imagen de la promocion</label><br>
                         <input class="" type="file" @change="getFiles()" ref="files">
+                        <img height="150" :src="this.hotelImage">
                     </el-col>                
                 </el-row>
                 <el-row :gutter="20">
@@ -99,6 +100,7 @@ export default {
         promo: null,
         precioDol: null,
         descuento: null,
+        hotelImage:null,
         descripcion: null,
         fechaInicio: null,
         mainPromo:null,
@@ -114,6 +116,11 @@ export default {
     methods: {
         getFiles() {
             this.files = this.$refs.files.files
+            const fileReader = new FileReader()
+            fileReader.addEventListener('load', () => {
+                this.hotelImage = fileReader.result
+            })
+            fileReader.readAsDataURL(this.files[0])
         },    
         async addPromo() {
             const key = this.promosRef.push().key
@@ -144,7 +151,6 @@ export default {
                 return console.error(ex)
                 this.failure();
             }
-            console.log(this.fechaInicio+'-'+this.fechaFin)
             this.success();
         },
         async getHotels () {

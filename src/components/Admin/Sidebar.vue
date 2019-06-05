@@ -61,6 +61,26 @@
                 </li>
             </ul>
             </div>
+            <li class="collapsible">Características de habs.</li>
+            <div class="content-collapsible">
+            <ul>
+                <li>
+                    <router-link to="/Dashboard/habitacionesCar/create">
+                        Create
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/habitacionesCar/update">
+                        Update
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/Dashboard/habitacionesCar/delete">
+                        Delete
+                    </router-link>
+                </li>
+            </ul>
+            </div>
             <li class="collapsible">Fotos</li>
             <div class="content-collapsible">
             <ul>

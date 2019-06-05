@@ -50,9 +50,7 @@ export default {
                     await db
                     .child("banner")                                   
                     .once("value")                     
-                ).val()
-                
-                console.log(this.images)
+                ).val()                
 
             } catch (ex) {
                 return console.error(ex)

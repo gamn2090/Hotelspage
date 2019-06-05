@@ -58,6 +58,7 @@
                 <el-col :xs="24" :md="10" :offset="1">
                     <label class="font-weight-bold">Imagen del hotel</label><br>
                     <input type="file" @change="getFiles()" ref="files">
+                    <img height="150" :src="this.hotelImage">
                 </el-col>        
                 <el-col :xs="24" :md="10" :offset="1">
                     <br>
@@ -82,6 +83,7 @@ export default {
         files: [],
         hotel: null,
         oldImage: null,
+        hotelImage: null,
         correo: null,
         telefono: null,
         latitud: null,
@@ -97,6 +99,11 @@ export default {
     methods:{ 
         getFiles() {
             this.files = this.$refs.files.files
+            const fileReader = new FileReader()
+            fileReader.addEventListener('load', () => {
+                this.hotelImage = fileReader.result
+            })
+            fileReader.readAsDataURL(this.files[0])
         },                
         async editHotel() {
                 try {
@@ -166,6 +173,7 @@ export default {
                 } 
 
                 this.oldImage = this.hotelEditar.image,
+                this.hotelImage = this.hotelEditar.image,
                 this.hotel = this.hotelEditar.name,
                 this.latitud= this.hotelEditar.latitud,
                 this.longitud= this.hotelEditar.longitud,

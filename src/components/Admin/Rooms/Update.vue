@@ -42,6 +42,7 @@
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen de la habitación</label><br>
                             <input type="file" @change="getFiles()" ref="files">
+                            <img height="150" :src="this.hotelImage">
                         </div>
                     </div>                                                    
                     <div class="row form-group">
@@ -93,6 +94,7 @@ export default {
         files: [],
         nombre: null,
         oldImage: null,
+        hotelImage: null,
         camas: null,
         hotelSelected: null,
         habitaciones: null,
@@ -110,6 +112,11 @@ export default {
     methods:{ 
         getFiles() {
             this.files = this.$refs.files.files
+            const fileReader = new FileReader()
+            fileReader.addEventListener('load', () => {
+                this.hotelImage = fileReader.result
+            })
+            fileReader.readAsDataURL(this.files[0])
         },                
         async editHab() {
             
@@ -199,11 +206,12 @@ export default {
                       this.habEditar = data[elem]; 
                     }
                 } 
-                this.oldImage =      this.habEditar.image,
+                this.oldImage =      this.habEditar.image
+                this.hotelImage =    this.habEditar.image
                 this.habitacion =    this.habEditar.nombre
-                this.precioDol =     this.habEditar.precioDol,
-                this.descripcion =   this.habEditar.descripcion,
-                this.camas       =   this.habEditar.camas,
+                this.precioDol =     this.habEditar.precioDol
+                this.descripcion =   this.habEditar.descripcion
+                this.camas       =   this.habEditar.camas
                 this.habitaciones =  this.habEditar.cantHabitaciones
 
             } catch (ex) {

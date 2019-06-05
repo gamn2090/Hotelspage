@@ -23,6 +23,10 @@ import DeletePictures from "@/components/Admin/Pictures/Delete.vue";
 import CreateRooms from "@/components/Admin/Rooms/Create.vue";
 import UpdateRooms from "@/components/Admin/Rooms/Update.vue";
 import DeleteRooms from "@/components/Admin/Rooms/Delete.vue";
+/* caracteristics */
+import CreateCaracteristics from "@/components/Admin/RoomDetails/Create.vue";
+import UpdateCaracteristics from "@/components/Admin/RoomDetails/Update.vue";
+import DeleteCaracteristics from "@/components/Admin/RoomDetails/Delete.vue";
 
 
 export const routes = [
@@ -129,6 +133,19 @@ export const routes = [
              {
                path: "habitaciones/delete",
                component: DeleteRooms
+             },
+             /*características de habitaciones */
+             {
+               path: "habitacionesCar/create",
+               component: CreateCaracteristics
+             },
+             {
+               path: "habitacionesCar/update",
+               component: UpdateCaracteristics
+             },
+             {
+               path: "habitacionesCar/delete",
+               component: DeleteCaracteristics
              },
              /*fotos */
              {

@@ -15,6 +15,7 @@
                 <el-col :xs="24" :md="10" :offset="1">
                     <label class="font-weight-bold">Imagen del hotel</label><br>
                     <input type="file" @change="getFiles()" ref="files">
+                    <img height="150" :src="this.hotelImage">
                 </el-col>                
             </el-row>
             <el-row :gutter="20">
@@ -71,6 +72,7 @@ export default {
         files: [],
         hotel: null,
         latitud: null,
+        hotelImage: null,
         telefono: null,
         correo: null,
         longitud: null,
@@ -85,6 +87,11 @@ export default {
     methods:{ 
         getFiles() {
             this.files = this.$refs.files.files
+            const fileReader = new FileReader()
+            fileReader.addEventListener('load', () => {
+                this.hotelImage = fileReader.result
+            })
+            fileReader.readAsDataURL(this.files[0])
         },        
         // Un sugerencia que te doy es que cuando uses las funciones de firebase que devuelven promesas, uses async/await, es cosa de gente praah
         // Las que devuelven promesas son: set, update, once...

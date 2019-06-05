@@ -44,6 +44,7 @@
                         <div class="col-md-6">
                             <label class="font-weight-bold">Imagen de la promocion</label><br>
                             <input type="file" @change="getFiles()" ref="files">
+                            <img height="150" :src="this.hotelImage">
                         </div>
                     </div>                    
                     <div class="row form-group">
@@ -127,6 +128,7 @@ export default {
         hotel: null,
         promoSelected: null,
         hotelSelected: null,
+        hotelImage: null,
         /* */
         promo: null,        
         precioDol: null,
@@ -145,6 +147,11 @@ export default {
     methods:{ 
         getFiles() {
             this.files = this.$refs.files.files
+            const fileReader = new FileReader()
+            fileReader.addEventListener('load', () => {
+                this.hotelImage = fileReader.result
+            })
+            fileReader.readAsDataURL(this.files[0])
         },                
         async editPromo() {            
             try {
@@ -236,7 +243,8 @@ export default {
                       this.promoEditar = data[elem]; 
                     }
                 } 
-                this.oldImage =      this.promoEditar.image,
+                this.oldImage =      this.promoEditar.image
+                this.hotelImage =    this.promoEditar.image
                 this.promo =         this.promoEditar.name
                 this.precioDol =     this.promoEditar.precioDol
                 this.descuento =     this.promoEditar.descuento

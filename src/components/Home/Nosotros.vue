@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6 mb-5 mb-md-0">
                     <div class="img-border">
-                        <a href="https://www.youtube.com/watch?v=FsfrsLxt0l8" class="popup-vimeo image-play">
+                        <a target="_blank" href="https://www.youtube.com/watch?v=FsfrsLxt0l8" class="popup-vimeo image-play">
                             <span class="icon-wrap">
                                 <span class="icon icon-play"></span>
                             </span>
@@ -18,7 +18,7 @@
                         <h2 class="mb-5">Acerca de nosotros</h2>
                     </div>
                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nobis magni eaque velit eum, id rem eveniet dolor possimus voluptas..</p>
-                    <p><a href="https://www.youtube.com/watch?v=FsfrsLxt0l8" class="popup-vimeo text-uppercase">Watch Video <span class="icon-arrow-right small"></span></a></p>
+                    <p><a target="_blank" href="https://www.youtube.com/watch?v=FsfrsLxt0l8" class="popup-vimeo text-uppercase">Watch Video <span class="icon-arrow-right small"></span></a></p>
                 </div>
             </div>
         </div>
