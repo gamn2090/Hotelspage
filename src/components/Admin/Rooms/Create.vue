@@ -109,7 +109,7 @@ export default {
                     hotel: this.hotelSelected,
                     cantHabitaciones: this.habitaciones,
                     descripcion: this.descripcion,
-                    precio: this.precioDol,                    
+                    precioDol: this.precioDol,                    
                     image: url,
                     createdAt: now.format("DD/MM/YYYY"),
                     createdAtUnix: now.unix() 

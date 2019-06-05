@@ -31,7 +31,6 @@ export default {
     data () {
       return {
         fotos : [],
-        images : [],
       }
     },
      props: {
@@ -50,8 +49,7 @@ export default {
                     await db
                     .child("banner")                                   
                     .once("value")                     
-                ).val()                
-
+                ).val()
             } catch (ex) {
                 return console.error(ex)
             }            
