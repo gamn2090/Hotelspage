@@ -68,7 +68,7 @@ export default {
         /*variables para la info */
         messaje: 'En este módulo podrá eliminar las Características de las habitaciones que haya creado.',
         /*fin variables para info */
-        caracs: null,
+        caracs: [],
         hotelSelected : null,
         habsSelected : null,
         hotels: [],
@@ -129,16 +129,9 @@ export default {
             cancelButtonText: 'Cancelar',
             type: 'warning'
                 }).then(() => {
-                    console.log('entre')
                     this.CaracRef.child(key).remove()
-                    console.log('eliminé')                    
-                    this.habs = []
-                    console.log('inicialice las habs')                    
-                    this.hotels = []
-                    console.log('inicialice los hoteles')                    
-                    this.success();
+                    this.success()
                     this.getHotels()
-                    console.log('mostre success')
                 }).catch(() => {
                 this.$message({
                     type: 'info',
@@ -152,7 +145,8 @@ export default {
             message: 'Característica eliminada satisfactoriamente.',
             type: 'success'
             });
-            this.getFotos ( this.hotelSelected )  
+            this.getHabs ( this.hotelSelected )  
+            this.getCaracs ( this.habsSelected )  
         },
         failure () {
             this.$message.error('Ha Ocurrido un error, intente de nuevo más tarde');
