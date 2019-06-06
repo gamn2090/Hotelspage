@@ -22,8 +22,13 @@
               <div class="section-heading text-left">
                 <h2 class="mb-5">Detalles</h2>
               </div>
-              <p class="mb-4">Precio: USD {{this.room.precio}}</p>
-              <p v-if="this.room"  class="mb-4">Descripción: {{this.room.descripcion}}</p>              
+              <p class="mb-4">Precio: USD {{this.room.precioDol}}</p>
+              <p v-if="this.room"  class="mb-4">Descripción: {{this.room.descripcion}}</p>     
+              <ul>
+                <li v-for="(carac, key) in caracs" :key="key">
+                    {{carac.name}}
+                </li>
+              </ul>         
             </div>
           </div>
         </div>
@@ -100,10 +105,24 @@ export default {
     data () {
       return {
         room : [],
-        hotel : []
+        hotel : [],
+        caracs: []
       }
     },
     methods: {
+      async getCaracs ( hab ) {
+            try {
+                  this.caracs = (
+                    await db
+                    .child("habsCaracs")  
+                    .orderByChild('hab')
+                    .equalTo(hab)                  
+                    .once("value")                     
+                ).val()
+            } catch (ex) {
+                return console.error(ex)
+            }            
+        },
         /*funciones de los hoteles */
         async getRoomData() {
            try {
@@ -148,7 +167,8 @@ export default {
     },
     async created () {
         await this.getRoomData(),
-        await this.getHotelData()
+        await this.getHotelData(),
+        await this.getCaracs ( this.$route.params.hab )
     }
 }
 </script>
