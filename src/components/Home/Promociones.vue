@@ -25,11 +25,10 @@
                     </p>
                     <p v-else class="mb-3 d-block post-date">
                         <center><strong>Desde USD {{ promosData.precioDol }}</strong></center> 
-                    </p>
-
+                    </p>                    
+                    <center><p>{{promosData.name}}</p></center>
                     <span v-if="promosData.fechaFin" class="mb-3 d-block post-date"><center>De el {{promosData.fechaInicio}} Hasta el {{promosData.fechaFin}}</center></span>
                     <span v-else class="mb-3 d-block post-date">Por siempre</span>
-                    <center><p>{{promosData.description}}</p></center>
                 </Slide>                       
             </Carousel>
         </div>       
