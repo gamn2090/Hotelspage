@@ -39,16 +39,16 @@ export default {
     name: "Maps",
     data () {
       return {
-        center: {lat: -12.2250907, lng: -77.0372531},
+        center: {lat: -12.1177683, lng: -77.0337438},
         markers: [{
-            position: {lat: -12.2259781, lng: -77.0428962},
-            label:{text:"El HOTEL UNO",color:"black",fontSize:"16px",fontWeight:"bold"}
+            position: {lat: -12.126204, lng: -77.0327693},
+            label:{text:"El TAMBO UNO",color:"black",fontSize:"16px",fontWeight:"bold"}
             }, {
-            position: {lat: -12.2250907, lng: -77.0372531},
-            label:{text:"El HOTEL Dos",color:"black",fontSize:"16px",fontWeight:"bold"}
+            position: {lat: -12.125064, lng: -77.0274805},
+            label:{text:"El TAMBO II",color:"black",fontSize:"16px",fontWeight:"bold"}
             },{
-            position: {lat: -12.2178094, lng: -77.0433887},
-            label:{text:"El HOTEL Dos de Mayo",color:"black",fontSize:"16px",fontWeight:"bold"}
+            position: {lat: -12.117847, lng: -77.0333857},
+            label:{text:"El TAMBO DOS DE MAYO",color:"black",fontSize:"16px",fontWeight:"bold"}
             }
         ]
       }

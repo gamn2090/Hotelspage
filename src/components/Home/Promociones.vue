@@ -6,12 +6,13 @@
                     <h2>Nuestras promociones exclusivas web</h2>
                 </div>
             </div>
-            <Carousel :autoplay="true"
-                      :per-page="3"
+            <Carousel :autoplay="true"                    
+                      :per-page="this.sliders"
                       :loop="true"
-                      :autoplayTimeout="2000"  >
-                <Slide v-for="promosData in promos" :key="promosData.key" class="media-with-text p-md-5 flex-item">       <router-link :to="{ name: 'hotel', params: { key: promosData.hotel} }" >
-                        <div class="img-border-sm mb-4">                        
+                      :autoplayTimeout="1000"  >
+                <Slide v-for="promosData in promos" :key="promosData.key" class="media-with-text p-md-5 flex-item"> 
+                    <router-link :to="{ name: 'hotel', params: { key: promosData.hotel} }" >
+                        <div class="img-border-sm mb-12">                        
                             <div href="#!" class="image-play">
                                 <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" :alt="promosData.name" class="img-fluid">
                             </div>                        
@@ -20,15 +21,15 @@
                     <h2 class="heading mb-0">{{promosData.key}}</h2>
                         
                     <p v-if="promosData.descuento && promosData.descuento !== 0" class="mb-3 d-block post-date">
-                        Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} 
+                        <center><strong>Desde USD {{ Math.round((promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100))),2) }}</strong></center>
                     </p>
                     <p v-else class="mb-3 d-block post-date">
-                        Desde USD {{ promosData.precioDol }} 
+                        <center><strong>Desde USD {{ promosData.precioDol }}</strong></center> 
                     </p>
 
-                    <span v-if="promosData.fechaFin" class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFin}}</span>
+                    <span v-if="promosData.fechaFin" class="mb-3 d-block post-date"><center>De el {{promosData.fechaInicio}} Hasta el {{promosData.fechaFin}}</center></span>
                     <span v-else class="mb-3 d-block post-date">Por siempre</span>
-                    <p>{{promosData.description}}</p>
+                    <center><p>{{promosData.description}}</p></center>
                 </Slide>                       
             </Carousel>
         </div>       
@@ -50,6 +51,7 @@ export default {
     data () {
       return {
         files: [],
+        sliders: null,
         promo: null,
         description: null,
         promos: [],
@@ -96,13 +98,18 @@ export default {
                 return console.error(ex)
             }   
         },
-    },  
+    },    
     async created() {
-        await this.getPromos()       
+        this.sliders = Math.round(window.screen.width/448)   
+        //console.log(this.sliders)
+        await this.getPromos()         
     }
 }
 </script>
 
 <style scoped>
-    
+    .img-fluid{
+        height: 300px;
+        width: 448px;
+    }
 </style>

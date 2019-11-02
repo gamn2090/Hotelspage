@@ -1,22 +1,27 @@
 <template>
     <span >
-        <div class="CanvasText">
-            <h1 v-if="routeName" >{{ routeName }}</h1>
-            <h1 v-else >BIENVENIDO A HOTELES HOTEL</h1>            
-        </div>
-        <div class="display-dark">                
-        </div>
         <Carousel class="Carousel" :autoplay="true"
                       :per-page="1"
                       :loop="true"
-                      :autoplayTimeout="5000"
-                      :paginationEnabled="false" >
+                      :autoplayTimeout="3000"
+                      :paginationEnabled="false"
+                      :speed="1000">
             <Slide v-for="(image, i) in fotos" :key="i" class="media-with-text flex-item">
-                <div class="img-border-sm mb-4 zoom">
+                <!-- <div class="img-border-sm mb-4 zoom">
                     <div class="image-play">
-                        <img :src="image.image" alt="" class="img-fluid">
+                        <img :src="image.image" alt="" class="img-fluid img-carousel">
                     </div>
-                </div>                
+                </div>   -->
+                <div class="site-blocks-cover overlay darker" v-bind:style="{ backgroundImage: 'url(' + image.image + ')' } " >
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-md-7 text-center" data-aos="fade">
+                                <h1 class="mb-2 brigther">{{image.descripcion}}</h1>
+                                <h2 class="caption brigther">{{image.adicional}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>              
             </Slide>                                 
         </Carousel>
     </span>
@@ -66,18 +71,6 @@ export default {
         height: 100vh !important;
         position: relative !important;
         margin: 0 !important;
-    }
-    h1{
-        color: white !important;
-    }
-    .CanvasText {
-        position: absolute;
-        top: 50vh;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: justify;
-        z-index: 20;
-        font-family:fantasy;
     }    
     .display-dark{
         background:#000;
@@ -88,5 +81,16 @@ export default {
         top:0;
         z-index:1;
     }
-    
+    .darker:before{       
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.7);
+    }
+    .brigther{
+        color: #FFF;
+    }
 </style>

@@ -6,7 +6,37 @@
                     <span class="icon-close2 js-menu-toggle"></span>
                 </div>
             </div>
-            <div class="site-mobile-menu-body"></div>
+            <div class="site-mobile-menu-body">
+                <div class="container">
+                    <ul class="site-menu d-lg-block"> 
+                        <li class="active">
+                            <router-link :to="'/'" >Inicio</router-link>
+                        </li>                       
+                        <li class="has-children">                            
+                            <a href="#!" @click="showHotels()" >Hoteles</a>
+                            <ul v-if="!this.isHidden">
+                                <li v-for="hotelData in hotels" :key="hotelData.key">
+                                    <router-link exact :to="{ name: 'hotel', params: { key: hotelData.key } }">
+                                        {{hotelData.name}}
+                                    </router-link>
+                                </li>                                                        
+                            </ul>
+                        </li>   
+
+                        <li v-if="this.$route.params.key || this.$route.params.hotel">
+                            <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key || this.$route.params.hotel } }">
+                                Galería
+                            </router-link>
+                        </li>                                            
+
+                        <li >
+                            <router-link :to="'/contactanos'">
+                                Contáctanos
+                            </router-link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>     
         <div class="site-navbar-wrap js-site-navbar bg-white">
             <div class="container">
@@ -25,7 +55,7 @@
                                                 <router-link :to="'/'" >Inicio</router-link>
                                             </li>
                                             <li class="has-children">
-                                                <a href="#!" >Hoteles</a>
+                                                <a href="#!" >Hoteles</a>                                                                                                
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link exact :to="{ name: 'hotel', params: { key: hotelData.key } }">
@@ -66,10 +96,11 @@ export default {
     name: "Navbar",
     data () {
       return {
+        isHidden: null,
         files: [],
         hotels: [],
         hotelsOnChildAdded: null,
-        hotelsOnChildRemoved: null,
+        hotelsOnChildRemoved: null,        
         hotelsRef: db.child("tambohotels")
       }
     },
@@ -89,11 +120,18 @@ export default {
                const index = this.hotels.findIndex(e => e.key == snapshot.key)
                this.hotels.splice(index, 1)
            })
+        },
+        showHotels() {
+            if(this.isHidden)
+                this.isHidden = false
+            else
+                this.isHidden = true
         }
     },  
     created() {
         this.getHotels()
-        //console.log('estoy en el navbar '+this.$route.params.key)
+        this.isHidden = false
+        //console.log('isHidden es: '+this.$route.params.key)
     },
     beforeDestroy() {
         this.hotelsRef.off("child_added", this.hotelsOnChildAdded)
