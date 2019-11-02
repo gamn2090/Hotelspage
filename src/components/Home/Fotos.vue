@@ -6,11 +6,11 @@
                         <h2 class="mb-5">Algunas de nuestras fotos</h2>
                     </div>
                 </div>
-                <div class="row no-gutters">  
-                    <gallery :images="images" :index="index" @close="index = null"></gallery>                 
+                <div class="row no-gutters">
+                    <gallery :images="images" :index="index" @close="index = null"></gallery>
                     <div v-for="(fotosData, i) in fotos" :key="i" @click="index = i" class="col-md-6 col-lg-3">
                         <img style="cursor:pointer;width:232.5; height:154.89 !important" :src="fotosData.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
-                    </div>                       
+                    </div> 
                 </div>                
             </div>           
         </div>    
@@ -19,9 +19,6 @@
 <script>
 import { db, storage } from '@/firebase.js'
 import moment from "moment"
-//importo el owl carousel
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel";
 
 import VueGallery from 'vue-gallery';
 
@@ -38,7 +35,7 @@ export default {
       }
     },
     components: {
-        'gallery': VueGallery
+        'gallery': VueGallery        
     },
     methods:{
         getFiles() {
@@ -49,7 +46,7 @@ export default {
                 this.fotos = (
                     await db
                     .child("fotos")
-                    .limitToLast(12)
+                    .limitToLast(4)
                     .once("value")                    
                 ).val()
 
@@ -62,7 +59,7 @@ export default {
             }          
         },
     },  
-    async created() {        
+    async created() {    
         await this.getFotos()       
     }
 }

@@ -34,6 +34,11 @@
                                 Contáctanos
                             </router-link>
                         </li>
+                        <li >
+                            <router-link :to="'/contactanos'">
+                                ¡Reserva Ahora!
+                            </router-link>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +49,7 @@
                     <div class="py-1">
                         <div class="row align-items-center">
                             <div class="col-2">
-                                <h2 class="mb-0 site-logo"> <router-link :to="'/'" >El hotel</router-link></h2>
+                                <h2 class="mb-0 site-logo"> <router-link :to="'/'" ><img src="assets/images/logo3.png" alt="El Tambo"></router-link></h2>
                             </div>
                             <div class="col-10">
                                 <nav class="site-navigation text-right" role="navigation">
@@ -75,6 +80,11 @@
                                                 <router-link :to="'/contactanos'">
                                                     Contáctanos
                                                 </router-link>
+                                            </li>
+                                            <li v-if="this.$route.params.key || this.$route.params.hotel" >
+                                                <a v-if="this.$route.params.key == '-Ld4kdUfsXiocoWudFnt'" target="_blank" href="https://app.thebookingbutton.com/properties/HotelElTamboUnoDirect">¡Reserva Ahora!</a>
+                                                <a v-if="this.$route.params.key == '-Ld4kk5Ev7o_UCdDayty'" target="_blank" href="https://app.thebookingbutton.com/properties/hoteleltambodosdirect">¡Reserva Ahora!</a>
+                                                <a v-if="this.$route.params.key == '-LsgpNGN1Ml4b4UL-Dti'" target="_blank" href="https://app.thebookingbutton.com/properties/HotelElTamboDosdeMayoDirect">¡Reserva Ahora!</a>
                                             </li>
                                         </ul>
                                     </div>

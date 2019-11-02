@@ -12,7 +12,11 @@
                         <div class="col-md-6">
                             <h3 class="footer-heading mb-4 text-white">Menu Rápido</h3>
                             <ul class="list-unstyled">
-                                <li><a href="#!">Nosotros</a></li>
+                                <li>
+                                    <router-link :to="'/login'">
+                                        Login
+                                    </router-link>
+                                </li>
                                 <li><a href="#!">Servicios</a></li>
                                 <li><a href="#!">Llegar </a></li>
                                 <li><a href="#!">Promociones</a></li>
