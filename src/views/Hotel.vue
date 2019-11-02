@@ -2,8 +2,8 @@
   <span>    
     <navbar></navbar>    
     <banner :routeName="routeName"></banner>    
-    <promociones :todasPromos="todasPromos" :hotel="hotel"></promociones>    
-    <habitaciones :habs="habs" :hotel="hotel"></habitaciones>    
+    <promociones :sliders="sliders" :todasPromos="todasPromos" :hotel="hotel"></promociones>    
+    <habitaciones :sliders="sliders" :habs="habs" :hotel="hotel"></habitaciones>    
     <caracteristicas></caracteristicas>    
     <fotos :fotos="fotos" :images="images" :index="index"></fotos>    
     <my-maps></my-maps>    
@@ -56,6 +56,7 @@ export default {
         /*data para las fotos */
         fotos: [],
         images: [],
+        sliders:null,
         index : null,
         /*data para habitaciones */
         habs: [],
@@ -140,6 +141,7 @@ export default {
         },
     },
     async created () {
+        this.sliders = Math.round(window.screen.width/448),
         await this.getPromos(),
         await this.getHotelData(),
         await this.getHabs(),

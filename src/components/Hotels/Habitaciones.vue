@@ -7,12 +7,12 @@
                 </div>
             </div>
             <Carousel :autoplay="true"
-                      :per-page="3"
+                      :per-page="this.sliders"
                       :loop="true"
                       :autoplayTimeout="2000" >
                 <Slide v-for="(habsData, key) in habs" :key="key" class="media-with-text p-md-5 flex-item">
                     <router-link :to="{ name: 'habitacion', params: { hotel: hotel, hab: key } }" >
-                        <div class="img-border-sm mb-4 zoom">
+                        <div class="img-border-sm mb-12 zoom">
                             <div class="image-play">
                                 <img :src="habsData.image || '../../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
                             </div>
@@ -39,6 +39,9 @@ export default {
         },
         hotel: {
             required: true
+        },
+        sliders: {
+            required: true
         }
     },
     components: {
@@ -59,17 +62,9 @@ export default {
 
 <style scoped>
     .img-fluid{
-        max-width: 200px !important;
-        max-height: 300px !important;
-        min-height: 150px !important;
-    }
-    @media only screen and (max-width: 600px) {
-        .img-fluid{
-            max-width: 150px !important;
-            max-height: 150px !important;
-            min-height: 100px !important;
-        }
-    }
+        height: 300px;
+        width: 448px;
+    }    
     .flex-item{
         text-align: center;
     }
