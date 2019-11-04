@@ -76,11 +76,16 @@
                                                 </router-link>
                                             </li>                                            
 
-                                            <li >
-                                                <router-link :to="'/contactanos'">
-                                                    Contáctanos
-                                                </router-link>
-                                            </li>
+                                            <li class="has-children">
+                                                <a href="#!" >Contactanos</a>                                                                                                
+                                                <ul class="dropdown arrow-top ">
+                                                    <li v-for="hotelData in hotels" :key="hotelData.key">
+                                                        <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key } }">
+                                                            {{hotelData.name}}
+                                                        </router-link>
+                                                    </li>                                                        
+                                                </ul>
+                                            </li> 
                                             <li v-if="this.$route.params.key || this.$route.params.hotel" >
                                                 <a v-if="this.$route.params.key == '-Ld4kdUfsXiocoWudFnt'" target="_blank" href="https://app.thebookingbutton.com/properties/HotelElTamboUnoDirect">¡Reserva Ahora!</a>
                                                 <a v-if="this.$route.params.key == '-Ld4kk5Ev7o_UCdDayty'" target="_blank" href="https://app.thebookingbutton.com/properties/hoteleltambodosdirect">¡Reserva Ahora!</a>

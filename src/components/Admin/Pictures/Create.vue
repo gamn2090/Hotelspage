@@ -68,7 +68,7 @@ export default {
             fileReader.addEventListener('load', () => {
                 this.hotelImage = fileReader.result
             })
-            fileReader.readAsDataURL(this.files[0])
+            fileReader.readAsDataURL(this.files[0])            
         },    
         async addPicture() {
             const key = this.picturesRef.push().key

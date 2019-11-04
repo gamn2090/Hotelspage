@@ -49,7 +49,7 @@ export const routes = [
          },
          {
            //pantalla de contactanos
-           path: "/contactanos",
+           path: "/contactanos/:key",
            name: "Contactanos",
            component: Contactanos
          },
