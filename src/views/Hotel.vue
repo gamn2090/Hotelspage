@@ -163,7 +163,7 @@ export default {
             this.getHotelData(),
             this.getHabs(),                
             this.getFotos()
-    
+            
     }
 } 
       
