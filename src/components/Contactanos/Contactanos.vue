@@ -62,6 +62,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: "Contactanos",
     data () {
@@ -111,7 +113,7 @@ export default {
             params.append('problem', this.problem);
             params.append('empresa', 'Voldemort');
             
-            await axios.post('https://mails-api.herokuapp.com/api/SendMail', params);
+            await axios.post('https://mails-api.herokuapp.com/api/sendMailEmpresa', params);
             
             this.success ();
         },
