@@ -113,14 +113,14 @@ export default {
             params.append('problem', this.problem);
             params.append('empresa', 'Voldemort');
             
-            await axios.post('https://mails-api.herokuapp.com/api/sendMailEmpresa', params);
+            await axios.post('https://mails-api.herokuapp.com/api/SendMailEmpresa', params);
             
-            this.success ();
+            this.success();
         },
-        failure () {            
+        failure() {            
             this.$message.error(this.message);
         },
-        success () {
+        success() {
             this.$message({
             message: 'Su mensaje ha sido enviado, nos pondremos en contacto con usted lo más pronto posible, gracias.',
             type: 'success'
