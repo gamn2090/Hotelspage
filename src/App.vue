@@ -13,6 +13,14 @@ export default {
 </script>
 
 <style>
+    body{
+        background-color: #fef9e9 !important;
+    }
+    .caract-text{
+        font-size: 14px;
+        color: black;
+        text-align: center;
+    }
     *{
         box-sizing: border-box;
     }
@@ -25,7 +33,7 @@ export default {
     .five-reasons {
         width: 80%;
         max-width: 1080px;
-        bottom: -180px;
+        bottom: 60px;
     }
     .five-reasons {
         position: absolute;

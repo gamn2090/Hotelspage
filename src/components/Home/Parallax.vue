@@ -1,6 +1,9 @@
 <template>
     <span>
-        <div class="py-5 upcoming-events" style="background-image: url('./assets/images/img_8.jpg'); background-attachment: fixed; height:300px; background-size: cover">
+        <div class="py-5 upcoming-events" :style="{backgroundImage: 'url(' + require('@/assets/img_8.jpg')+')',
+                                                backgroundAttachment:'fixed',
+                                                height:'300px', 
+                                                backgroundSize: 'cover' }">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">

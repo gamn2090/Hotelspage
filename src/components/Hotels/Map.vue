@@ -6,42 +6,50 @@
                     <h2 class="mb-5">Encuentranos</h2>
                 </div>
             </div>
-            <GmapMap
-            :options="{
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: false,
-                streetViewControl: true,
-                rotateControl: false,
-                fullscreenControl: true,
-                disableDefaultUi: true
-            }"
-                :center="center"
-                :zoom="14"
-                map-type-id="terrain"
-                style="width: 80%; height: 60vh; margin: auto; margin-bottom: 1rem; margin-top: 25px; min-height: 300px; max-height: 500px;"
-                >
-                <GmapMarker
-                    :key="index"
-                    v-for="(m, index) in markers"
-                    :position="m.position"
-                    :clickable="true"
-                    :draggable="true"
-                    @click="center=m.position"
-                />
-            </GmapMap>
+            <div id="map" v-if="this.hotelData.latitud">
+                <GmapMap
+                :options="{
+                    zoomControl: true,
+                    mapTypeControl: true,
+                    scaleControl: false,
+                    streetViewControl: true,
+                    rotateControl: false,
+                    fullscreenControl: true,
+                    disableDefaultUi: true
+                }"
+                    :center="center"
+                    :zoom="14"
+                    map-type-id="terrain"
+                    style="width: 80%; height: 60vh; margin: auto; margin-bottom: 1rem; margin-top: 25px; min-height: 300px; max-height: 500px;"
+                    >
+                    <GmapMarker
+                        :key="index"
+                        v-for="(m, index) in markers"
+                        :position="m.position"
+                        :clickable="true"
+                        :draggable="true"
+                        @click="center=m.position"
+                    />
+                </GmapMap>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    props: {
+        hotelData: {
+            required: true
+        }
+    },
     name: "Map",
     data () {
       return {
-        center: {lat: -12.1259781, lng: -77.0328962},
+        loading: false,        
+        center: {lat: this.hotelData.latitud, lng: this.hotelData.longitud},
         markers: [{
-            position: {lat: -12.1259781, lng: -77.0328962},
+            position: {lat: this.hotelData.latitud, lng: this.hotelData.longitud},
             label:{text:"El Tambo UNO",color:"black",fontSize:"16px",fontWeight:"bold"}
             }
         ]

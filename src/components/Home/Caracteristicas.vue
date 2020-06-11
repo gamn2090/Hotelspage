@@ -9,71 +9,112 @@
             <Carousel :autoplay="true"                    
                       :per-page="this.sliders"
                       :loop="true"
-                      :autoplayTimeout="1500"  >
-                <Slide > 
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                      :autoplayTimeout="1500"  > 
+                <Slide >
+                    <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="text-center p-4 item">
-                            <span class="flaticon-pool display-3 mb-3 d-block text-primary"></span>
-                            <h2 class="h5">Piscina</h2>
+                            <font-awesome-icon icon="virus-slash" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Certificación de bioseguridad</span>
                         </div>
                     </div>
-                </Slide> 
+                </Slide >               
                 <Slide >
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="text-center p-4 item">
-                            <span class="flaticon-desk display-3 mb-3 d-block text-primary"></span>
-                            <h2 class="h5">Recepcionistas</h2>
+                            <font-awesome-icon icon="concierge-bell" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Recepción 24/7</span>
                         </div>
                     </div>
                 </Slide >
                 <Slide >
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="text-center p-4 item">
-                            <span class="flaticon-exit display-3 mb-3 d-block text-primary"></span>
-                            <h2 class="h5">Salidas de Emergencia</h2>
+                            <font-awesome-icon icon="door-open" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Salidas de Emergencia</span>
                         </div>
                     </div>
                 </Slide >
                 <Slide >
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="text-center p-4 item">
-                            <span class="flaticon-parking display-3 mb-3 d-block text-primary"></span>
-                            <h2 class="h5">Estacionamiento</h2>
+                            <font-awesome-icon icon="car" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Estacionamiento</span>
+                        </div>
+                    </div>
+                </Slide >                
+                <Slide >
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="text-center p-4 item">
+                            <font-awesome-icon icon="volume-mute" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Ventanas Antiruido</span>
+                        </div>
+                    </div>
+                </Slide >  
+                <Slide >
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="text-center p-4 item">
+                            <font-awesome-icon icon="utensils" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Servicio a la habitación</span>
+                        </div>
+                    </div>
+                </Slide >               
+                <Slide >
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="text-center p-4 item">
+                            <font-awesome-icon icon="glass-cheers" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Minibar (a solicitud)</span>
                         </div>
                     </div>
                 </Slide >
                 <Slide >
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="text-center p-4 item">
-                            <span class="flaticon-hair-dryer display-3 mb-3 d-block text-primary"></span>
-                            <h2 class="h5">Secador de Cabello</h2>
+                            <font-awesome-icon icon="desktop" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Business center</span>
                         </div>
                     </div>
                 </Slide >
                 <Slide >
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="text-center p-4 item">
-                            <span class="flaticon-minibar display-3 mb-3 d-block text-primary"></span>
-                            <h2 class="h5">Minibar</h2>
+                            <font-awesome-icon icon="wifi" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Wifi gratis</span>
                         </div>
                     </div>
                 </Slide >
                 <Slide >
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="text-center p-4 item">
-                            <span class="flaticon-drink display-3 mb-3 d-block text-primary"></span>
-                            <h2 class="h5">Bebidas Nacionales e importadas</h2>
+                            <font-awesome-icon icon="cocktail" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Bebidas Nacionales e importadas</span>
                         </div>
                     </div>
                 </Slide >
                 <Slide >
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="text-center p-4 item">
-                            <span class="flaticon-cab display-3 mb-3 d-block text-primary"></span>
-                            <h2 class="h5">Recogida en Aeropuerto</h2>
+                            <font-awesome-icon icon="wind" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Aire acondicionado</span>
+                        </div>
+                    </div>
+                </Slide >  
+                <Slide >
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="text-center p-4 item">
+                            <font-awesome-icon icon="taxi" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Servicio de taxi</span>
+                        </div>
+                    </div>
+                </Slide >                
+                <Slide >
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="text-center p-4 item">
+                            <font-awesome-icon icon="map-marked-alt" class="display-4 mb-3 d-block text-primary"/>
+                            <span class="caract-text">Información turística</span>
                         </div>
                     </div>
                 </Slide >
+
             </Carousel>
         </div>
     </div>    
@@ -81,6 +122,7 @@
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
+import FontAwesomeIcon from "@fortawesome/vue-fontawesome";
 
 export default {
     name: "Caracteristicas",

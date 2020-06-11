@@ -27,13 +27,8 @@
                             <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key || this.$route.params.hotel } }">
                                 Galería
                             </router-link>
-                        </li>                                            
-
-                        <li >
-                            <router-link :to="'/contactanos'">
-                                Contáctanos
-                            </router-link>
                         </li>
+                        
                         <li >
                             <router-link :to="'/contactanos'">
                                 ¡Reserva Ahora!
@@ -51,7 +46,7 @@
                             <div  class="col-2">
                                 <h2 class="mb-0 site-logo"> 
                                 <router-link :to="'/'" >
-                                    <img src="dist/assets/images/logo3.png" alt="El Tambo">                                
+                                    <img src='@/assets/logo3.png' alt="El Tambo">                                
                                 </router-link></h2>
                             </div>
                            

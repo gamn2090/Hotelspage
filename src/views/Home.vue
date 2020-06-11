@@ -8,7 +8,7 @@
     <caracteristicas></caracteristicas>
     <parallax></parallax>
     <fotos></fotos>
-    <opiniones></opiniones>
+    <!-- <opiniones></opiniones> --><!-- se la quito por ahora hasta que me den opiniones reales-->
     <maps></maps>
     <my-footer></my-footer>
   </span>

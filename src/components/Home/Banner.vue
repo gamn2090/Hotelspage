@@ -6,58 +6,76 @@
                       :autoplayTimeout="3000"
                       :paginationEnabled="false"
                       :speed="1000">
-            <Slide v-for="(image, i) in fotos" :key="i" class="media-with-text flex-item">
-                <!-- <div class="img-border-sm mb-4 zoom">
-                    <div class="image-play">
-                        <img :src="image.image" alt="" class="img-fluid img-carousel">
-                    </div>
-                </div>   -->
-                <div class="site-blocks-cover overlay darker" v-bind:style="{ backgroundImage: 'url(' + image.image + ')' } " >
+            <Slide class="media-with-text flex-item">                
+                <div class="site-blocks-cover overlay darker" :style="{backgroundImage: 'url(' + require('@/assets/hero_1.jpg')+')'}" >
                     <div class="container">
                         <div class="row align-items-center justify-content-center">
                             <div class="col-md-7 text-center" data-aos="fade">
-                                <h1 class="mb-2 brigther">{{image.descripcion}}</h1>
-                                <h2 class="caption brigther">{{image.adicional}}</h2>
-                                
-                                <div class="five-reasons">
-                                    <div class="wow fadeInUp animated" data-wow-delay="1s" data-wow-duration="1.5s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 1s; animation-name: fadeInUp;">
-                                        <h5 class="text-white">3 Razones para reservar directamente con nosotros</h5>
-                                        <div class="five-items">
-                                            <ul class="text-white">
-                                                <li>
-                                                <span class="icon-calendar text-white"></span>
-                                                <span>Mejor Precio<br> Garantizado</span>
-                                                </li>
-                                                <li>
-                                                <span class="icon-check text-white"></span>
-                                                <span>Reservas en<br> Línea</span>
-                                                </li>
-                                                <li>
-                                                <span class="icon-cutlery text-white"></span>
-                                                <span>Ubicados en la<br> Mejor Zona de Lima, Miraflores</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h1 class="mb-2 brigther">Bienvenidos a Hoteles El Tambo</h1>
+                                <h2 class="caption brigther">Disfrute del Perú</h2>
                             </div>
                         </div>
                     </div>
                 </div>              
-            </Slide>                                 
+            </Slide> 
+            <Slide class="media-with-text flex-item">                
+                <div class="site-blocks-cover overlay darker" :style="{ backgroundImage: 'url(' + require('@/assets/hero_2.jpg')+')' }" >
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-md-7 text-center" data-aos="fade">
+                                <h1 class="mb-2 brigther">Experiencia Extraordinaria</h1>
+                                <h2 class="caption brigther">Permítanos ser anfitriones de su estancia</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+            </Slide>   
+            <Slide class="media-with-text flex-item">                
+                <div class="site-blocks-cover overlay darker" :style="{ backgroundImage: 'url(' + require('@/assets/hero_3.jpg')+')' }" >
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-md-7 text-center" data-aos="fade">
+                                <h1 class="mb-2 brigther">Habitaciones Relajantes</h1>
+                                <h2 class="caption brigther">Su habitación, sus reglas</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+            </Slide>                        
         </Carousel>
+        <div class="five-reasons">
+            <div class="wow fadeInUp animated" data-wow-delay="1s" data-wow-duration="1.5s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 1s; animation-name: fadeInUp;">
+                <h5 class="text-white">3 Razones para reservar directamente con nosotros</h5>
+                <div class="five-items">
+                    <ul class="text-white">
+                        <li>
+                        <span class="icon-calendar text-white"></span>
+                        <span>Mejor Precio<br> Garantizado</span>
+                        </li>
+                        <li>
+                        <span class="icon-check text-white"></span>
+                        <span>Reservas en<br> Línea</span>
+                        </li>
+                        <li>
+                        <span class="icon-cutlery text-white"></span>
+                        <span>Ubicados en la<br> Mejor Zona de Lima, Miraflores</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </span>
 </template>
 
 <script>
-import { db, storage } from '@/firebase.js'
+
 import { Carousel, Slide } from 'vue-carousel';
 
 export default {
     name: "Banner",
     data () {
       return {
-        fotos : [],
+        
       }
     },
      props: {
@@ -68,22 +86,6 @@ export default {
     components: {
         Carousel,
         Slide
-    },
-    methods: {
-        async getFotos () {
-            try {
-                  this.fotos = (
-                    await db
-                    .child("banner")                                   
-                    .once("value")                     
-                ).val()
-            } catch (ex) {
-                return console.error(ex)
-            }            
-        },
-    },
-    created () {
-        this.getFotos();
     }
 };
 </script>

@@ -4,38 +4,21 @@
             <div class="row">
                 <div class="col-md-4">
                     <h3 class="footer-heading mb-4 text-white">Nosotros</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
-                    <p><a href="#!" class="btn btn-primary pill text-white px-4">Leer más</a></p>
+                    <p>Contamos con 3 hoteles que ofrecen una excelente ubicación y le permitirán visitar cómodamente a pie los lugares mas atractivos de Miraflores.</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <h3 class="footer-heading mb-4 text-white">Menu Rápido</h3>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <router-link :to="'/login'">
-                                        Login
-                                    </router-link>
-                                </li>
-                                <li><a href="#!">Servicios</a></li>
-                                <li><a href="#!">Llegar </a></li>
-                                <li><a href="#!">Promociones</a></li>
-                                <li><a href="#!">Hoteles</a></li>
+                            <ul class="list-unstyled">                                
+                                <li><a href="/Hoteles/-Ld4kdUfsXiocoWudFnt">El Tambo Uno</a></li>
+                                <li><a href="/Hoteles/-Ld4kk5Ev7o_UCdDayty">El Tambo Dos </a></li>
+                                <li><a href="Hoteles/-LsgpNGN1Ml4b4UL-Dti">El Tambo dos de Mayo</a></li>
                             </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="footer-heading mb-4 text-white">Servicios</h3>
-                            <ul class="list-unstyled">
-                                <li><a href="#!">Masajes</a></li>
-                                <li><a href="#!">Hospedajes</a></li>
-                                <li><a href="#!">Piscinas</a></li>
-                                <li><a href="#!">Restaurantes</a></li>
-                                <li><a href="#!">Eventos</a></li>
-                            </ul>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Encuentranos también en:</h3></div>
                     <div class="col-md-12">
                         <p>
@@ -45,12 +28,17 @@
                             <!--<a href="#!" class="p-2"><span class="icon-vimeo"></span></a>-->
                         </p>
                     </div>
+                     <div class="col-md-12">
+                        <router-link :to="'/'" >
+                            <img src='@/assets/logo3.png' alt="El Tambo">                                
+                        </router-link></h2>
+                     </div>
                 </div>
             </div>
             <div class="row pt-5 mt-5 text-center">
                 <div class="col-md-12">
                     <p>
-                        Copyright &copy; 2019 El hotel Todos los derechos reservados | Powered by <strong><a href="https://www.chevere.tech" target="_blank">ChevereTech</a></strong>
+                        Copyright &copy; 2020 Hotel el Tambo Todos los derechos reservados | Powered by <strong><a href="https://www.chevere.tech" target="_blank">ChevereTech</a></strong>
                         &copy;
                     </p>
                 </div>

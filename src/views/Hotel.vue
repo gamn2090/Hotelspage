@@ -1,12 +1,12 @@
 <template>
   <span>    
-    <navbar></navbar>    
-    <banner :routeName="routeName"></banner>    
+    <navbar ></navbar> 
+    <portada :hotelData="hotelData"></portada>   
     <promociones :sliders="sliders" :todasPromos="todasPromos" :hotel="hotel"></promociones>    
     <habitaciones :sliders="sliders" :habs="habs" :hotel="hotel"></habitaciones>    
     <caracteristicas></caracteristicas>    
     <fotos :fotos="fotos" :images="images" :index="index"></fotos>    
-    <my-maps></my-maps>    
+    <!--<my-maps :hotelData="hotelData"></my-maps>-->
     <my-footer></my-footer>    
   </span>
 </template>
@@ -16,17 +16,17 @@ import { db } from '@/firebase.js'
 
 import MyFooter from '@/components/Home/MyFooter';
 import Navbar from '@/components/Home/Navbar';
-import Banner from "@/components/Home/Banner";
+import Portada from "@/components/Home/Portada";
 import Promociones from "@/components/Hotels/Promociones";
 import Habitaciones from "@/components/Hotels/Habitaciones";
-import Caracteristicas from "@/components/Hotels/Caracteristicas";
+import Caracteristicas from "@/components/Home/Caracteristicas";
 import Fotos from "@/components/Hotels/Fotos";
 import MyMaps from "@/components/Hotels/Map";
 
 export default {
   name: "hotel",
   components: {    
-    Banner,
+    Portada,
     Promociones,
     Habitaciones,
     Caracteristicas,
@@ -38,6 +38,7 @@ export default {
   data () {
       return {
         /*data para los hoteles */
+        hotelData : null,
         hotel : null,
         routeName: 'DETALLES DEL HOTEL',
         /*data para el map*/ 
@@ -72,8 +73,15 @@ export default {
                     .child("tambohotels")
                     .once("value")                    
                 ).val()
+                
+                this.hotel = this.$route.params.key; 
+                
+                for (let elem in data) {
+                    if(elem == this.hotel)
+                        this.hotelData = data[elem];                    
+                }
 
-                this.hotel = this.$route.params.key;                   
+                //console.log(this.hotelData)
                            
             } catch (ex) {
                 return console.error(ex)

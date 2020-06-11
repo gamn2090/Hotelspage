@@ -7,7 +7,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       "@": path.resolve("src"),
-      "~@": path.resolve(__dirname, "./dist")
+      "@@": path.resolve(__dirname, "./dist")
     }    
   },
   entry: './src/main.js',
