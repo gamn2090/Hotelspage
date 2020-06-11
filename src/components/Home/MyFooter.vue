@@ -36,13 +36,13 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Siguenos en:</h3></div>
+                    <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Encuentranos también en:</h3></div>
                     <div class="col-md-12">
                         <p>
-                            <a href="#!" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                            <a href="#!" class="p-2"><span class="icon-twitter"></span></a>
-                            <a href="#!" class="p-2"><span class="icon-instagram"></span></a>
-                            <a href="#!" class="p-2"><span class="icon-vimeo"></span></a>
+                            <a target="_blank" href="https://www.facebook.com/Hoteles-El-Tambo-105795394231178" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
+                            <a target="_blank" href="https://www.tripadvisor.com.pe/Hotel_Review-g14097971-d20469134-Reviews-Hotel_El_Tambo_1-Miraflores_Arequipa_Region.html?m=19905" class="p-2"><span class="icon-tripadvisor"></span></a>
+                            <a target="_blank" href="https://www.instagram.com/eltamboperu/" class="p-2"><span class="icon-instagram"></span></a>
+                            <!--<a href="#!" class="p-2"><span class="icon-vimeo"></span></a>-->
                         </p>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
     <my-header></my-header>
     <div class="main-content">
         <my-sidebar></my-sidebar>
-            <router-view></router-view>
+        <router-view></router-view>
     </div>
 
   </span>

@@ -1,5 +1,5 @@
 <template>
-    <div class="site-section">
+    <div class="site-section  beige-backgound">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">

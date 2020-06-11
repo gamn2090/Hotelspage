@@ -102,7 +102,7 @@ export default {
             }
             if( this.problem === null)
             {
-                this.message = "Si no nos dice que problema tiene, no podremos darle una solución"
+                this.message = "Debe comunicarnos que desea saber"
                 this.failure()
                 return
             }
@@ -111,7 +111,8 @@ export default {
             params.append('phone', this.phone);
             params.append('email', this.email);
             params.append('problem', this.problem);
-            params.append('empresa', 'Voldemort');
+            params.append('correo', this.hotelData.email );
+            params.append('empresa', this.hotelData.name );
             
             await axios.post('https://mails-api.herokuapp.com/api/SendMailEmpresa', params);
             

@@ -162,11 +162,9 @@ export default {
             this.getPromos(),  
             this.getHotelData(),
             this.getHabs(),                
-            this.getFotos()
-            
-    }
-} 
-      
+            this.getFotos()           
+        }
+    }       
 };
 </script>
 

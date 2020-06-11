@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h2 class="text-white">Conozca Lima de la mejor manera</h2>
+                        <h2 class="text-white stroke">Conozca Lima de la mejor manera</h2>
                     </div>
                     <div class="col-md-6">
                         <span class="caption"></span>

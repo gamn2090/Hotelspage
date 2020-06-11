@@ -18,6 +18,28 @@
                             <div class="col-md-7 text-center" data-aos="fade">
                                 <h1 class="mb-2 brigther">{{image.descripcion}}</h1>
                                 <h2 class="caption brigther">{{image.adicional}}</h2>
+                                
+                                <div class="five-reasons">
+                                    <div class="wow fadeInUp animated" data-wow-delay="1s" data-wow-duration="1.5s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 1s; animation-name: fadeInUp;">
+                                        <h5 class="text-white">3 Razones para reservar directamente con nosotros</h5>
+                                        <div class="five-items">
+                                            <ul class="text-white">
+                                                <li>
+                                                <span class="icon-calendar text-white"></span>
+                                                <span>Mejor Precio<br> Garantizado</span>
+                                                </li>
+                                                <li>
+                                                <span class="icon-check text-white"></span>
+                                                <span>Reservas en<br> Línea</span>
+                                                </li>
+                                                <li>
+                                                <span class="icon-cutlery text-white"></span>
+                                                <span>Ubicados en la<br> Mejor Zona de Lima, Miraflores</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
