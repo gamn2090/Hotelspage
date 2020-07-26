@@ -34,7 +34,7 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
             <span class="caption mb-3 sub-heading">Hablenos</span>
-            <h1 class="mb-4 sub-heading">Pongase en contácto</h1>
+            <h1 class="mb-4 sub-heading">Póngase en contacto</h1>
           </div>
         </div>
       </div>
@@ -80,9 +80,9 @@
                 <p class="mb-0 font-weight-bold">Dirección</p>
                 <p v-if="this.hotel"  class="mb-4">{{this.hotel.direccion}}</p>
                 <p class="mb-0 font-weight-bold">Teléfono</p>
-                <p v-if="this.hotel" class="mb-4"><a href="#">{{this.hotel.phone}}</a></p>
+                <p v-if="this.hotel" class="mb-4">{{this.hotel.phone}}</p>
                 <p class="mb-0 font-weight-bold">Correo Electrónico</p>
-                <p v-if="this.hotel" class="mb-0"><a href="#"><span class="__cf_email__" data-cfemail="0871677d7a6d65696164486c6765696166266b6765">{{this.hotel.email}}</span></a></p>
+                <p v-if="this.hotel" class="mb-0">{{this.hotel.email}}</p>
               </div>
             </div>
           </div>

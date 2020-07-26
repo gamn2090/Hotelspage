@@ -148,7 +148,7 @@ export default {
             }          
         },
     },
-    async created () {
+    async mounted () {
         this.sliders = Math.round(window.screen.width/448),
         await this.getPromos(),
         await this.getHotelData(),

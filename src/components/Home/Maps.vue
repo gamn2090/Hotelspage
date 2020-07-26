@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 class="mb-5">Encuentranos</h2>
+                    <h2 class="mb-5">Encuéntranos</h2>
                 </div>
             </div>
             <GmapMap

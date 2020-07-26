@@ -37,8 +37,8 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
-            <span class="caption mb-3 sub-heading">Hablenos</span>
-            <h1 class="mb-4 sub-heading">Pongase en contácto</h1>
+            <span class="caption mb-3 sub-heading">Háblenos</span>
+            <h1 class="mb-4 sub-heading">Póngase en contacto</h1>
           </div>
         </div>
       </div>
@@ -167,6 +167,10 @@ export default {
             }          
         },
         async SendMail () {  
+            this.$message({
+              message: 'Su mensaje esta siendo enviado, porfavor espere, gracias.',
+              type: 'info'
+            });
             if(isNaN(this.phone) && this.phone === null)
             {
                 this.message = "Estimado, el número de teléfono debe contener solo números"
@@ -179,7 +183,7 @@ export default {
                 this.failure()
                 return
             }
-            if( this.email === null)
+           if( this.email === null || !validateEmail(this.email))
             {
                 this.message = "Tiene que dejar su correo para poder comunicarnos con usted"
                 this.failure()
@@ -205,6 +209,10 @@ export default {
         },
         failure() {            
             this.$message.error(this.message);
+        },
+        validateEmail(email) {
+            const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            return re.test(email);
         },
         success() {
             this.$message({

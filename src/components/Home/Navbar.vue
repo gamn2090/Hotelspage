@@ -21,19 +21,27 @@
                                     </router-link>
                                 </li>                                                        
                             </ul>
-                        </li>   
-
+                        </li>
                         <li v-if="this.$route.params.key || this.$route.params.hotel">
                             <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key || this.$route.params.hotel } }">
                                 Galería
                             </router-link>
-                        </li>
-                        
+                        </li>   
                         <li >
-                            <router-link :to="'/contactanos'">
+                            <router-link :to="'/Reserva-online'">
                                 ¡Reserva Ahora!
                             </router-link>
-                        </li>
+                        </li>   
+                        <li class="has-children">                            
+                            <a href="#!" @click="showHotelsR()" >¡Contáctanos!</a>
+                            <ul v-if="!this.isHiddenR">
+                                <li v-for="hotelData in hotels" :key="hotelData.key">
+                                    <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key } }">
+                                        {{hotelData.name}}
+                                    </router-link>
+                                </li>                                                        
+                            </ul>
+                        </li>                         
                     </ul>
                 </div>
             </div>
@@ -43,7 +51,7 @@
                 <div class="site-navbar bg-light">
                     <div class="py-1">
                         <div class="row align-items-center">
-                            <div  class="col-2">
+                            <div class="col-2">
                                 <h2 class="mb-0 site-logo"> 
                                 <router-link :to="'/'" >
                                     <img src='@/assets/logo3.png' alt="El Tambo">                                
@@ -84,7 +92,12 @@
                                                         </router-link>
                                                     </li>                                                        
                                                 </ul>
-                                            </li>                                             
+                                            </li> 
+                                            <li >
+                                                <router-link :to="'/Reserva-online'">
+                                                    ¡Reserva ahora!
+                                                </router-link>
+                                            </li>                                                                                           
                                         </ul>
                                     </div>
                                 </nav>
@@ -106,6 +119,7 @@ export default {
     data () {
       return {
         isHidden: null,
+        isHiddenR: null,
         files: [],
         hotels: [],
         hotelsOnChildAdded: null,
@@ -135,6 +149,12 @@ export default {
                 this.isHidden = false
             else
                 this.isHidden = true
+        },
+        showHotelsR() {
+            if(this.isHiddenR)
+                this.isHiddenR = false
+            else
+                this.isHiddenR = true
         }
     },  
     created() {

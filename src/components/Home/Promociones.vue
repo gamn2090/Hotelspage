@@ -98,7 +98,7 @@ export default {
             }   
         },
     },    
-    async created() {
+    async mounted() {
         this.sliders = Math.round(window.screen.width/448)   
         //console.log(this.sliders)
         await this.getPromos()         

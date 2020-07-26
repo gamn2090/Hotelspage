@@ -4,7 +4,7 @@
             <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
                 <span class="caption mb-3 sub-heading">Hablenos</span>
-                <h1 class="mb-4 sub-heading">Pongase en Contácto</h1>
+                <h1 class="mb-4 sub-heading">Póngase en Contacto</h1>
             </div>
             </div>
         </div>
@@ -50,9 +50,9 @@
                     <p class="mb-0 font-weight-bold">Dirección</p>
                     <p v-if="hotelData" class="mb-4">{{hotelData.direccion}} </p>
                     <p class="mb-0 font-weight-bold">Teléfono</p>
-                    <p v-if="hotelData" class="mb-4"><a href="#!">{{hotelData.phone}}</a></p>
+                    <p v-if="hotelData" class="mb-4">{{hotelData.phone}}</p>
                     <p class="mb-0 font-weight-bold">Correo Electrónico</p>
-                    <p v-if="hotelData" class="mb-0"><a href="#!"><span class="__cf_email__" data-cfemail="0871677d7a6d65696164486c6765696166266b6765">{{hotelData.email}}</span></a></p>
+                    <p v-if="hotelData" class="mb-0">{{hotelData.email}}</p>
                 </div>
                 </div>
             </div>
@@ -82,6 +82,10 @@ export default {
     },
     methods: {        
         async SendMail () {  
+            this.$message({
+                message: 'Su mensaje esta siendo enviado, porfavor espere, gracias.',
+                type: 'info'
+            });
             if(isNaN(this.phone) && this.phone === null)
             {
                 this.message = "Estimado, el número de teléfono debe contener solo números"
@@ -94,7 +98,7 @@ export default {
                 this.failure()
                 return
             }
-            if( this.email === null)
+            if( this.email === null || !validateEmail(this.email))
             {
                 this.message = "Tiene que dejar su correo para poder comunicarnos con usted"
                 this.failure()
@@ -112,6 +116,7 @@ export default {
             params.append('email', this.email);
             params.append('problem', this.problem);
             params.append('correo', this.hotelData.email );
+            //params.append('correo', 'gamn2090@gmail.com' );
             params.append('empresa', this.hotelData.name );
             
             await axios.post('https://mails-api.herokuapp.com/api/SendMailEmpresa', params);
@@ -120,6 +125,10 @@ export default {
         },
         failure() {            
             this.$message.error(this.message);
+        },
+        validateEmail(email) {
+            const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            return re.test(email);
         },
         success() {
             this.$message({

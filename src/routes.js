@@ -6,6 +6,7 @@ import Login from "@/views/Login.vue"
 import Dashboard from "@/views/Dashboard.vue";
 import Galeria from "@/views/Galeria.vue";
 import Contactanos from "@/views/Contactanos.vue";
+import Checkin from "@/views/Checkin.vue";
 
 import Profile from "@/components/Admin/profile.vue";
 /* hotels */
@@ -53,6 +54,12 @@ export const routes = [
            name: "Contactanos",
            component: Contactanos
          },
+         {
+          //pantalla de contactanos
+          path: "/Reserva-online",
+          name: "Reserva-online",
+          component: Checkin
+          },
          {
            //ruta para vista única de hoteles
            path: "/Hoteles/:key",

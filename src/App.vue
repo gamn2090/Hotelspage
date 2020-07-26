@@ -16,6 +16,12 @@ export default {
     body{
         background-color: #fef9e9 !important;
     }
+    .site-section{
+        padding: 3em 0 !important;
+    }
+    .el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, .el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner{
+        width: 100% !important;
+    }
     .caract-text{
         font-size: 14px;
         color: black;
@@ -33,7 +39,7 @@ export default {
     .five-reasons {
         width: 80%;
         max-width: 1080px;
-        bottom: 60px;
+        bottom: 35px;
     }
     .five-reasons {
         position: absolute;
@@ -95,4 +101,21 @@ export default {
        font-size: 25px;
        color:red;
    }
+    @media only screen and (max-width: 400px) {
+        .five-reasons {
+            bottom: -5px;
+        }
+        .five-reasons .five-items ul li span{
+            font-size: 10px;
+        }
+        .text-button-five{
+            font-size: 10px;
+        }
+        #titleBanner{
+            font-size:11px;
+        }
+        .Carousel{
+            top:25%;
+        }
+    }
 </style>

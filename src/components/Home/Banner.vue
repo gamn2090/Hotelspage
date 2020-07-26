@@ -45,20 +45,20 @@
         </Carousel>
         <div class="five-reasons">
             <div class="wow fadeInUp animated" data-wow-delay="1s" data-wow-duration="1.5s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 1s; animation-name: fadeInUp;">
-                <h5 class="text-white">3 Razones para reservar directamente con nosotros</h5>
+                <h5 id="titleBanner" class="text-white title">3 Razones para reservar directamente con nosotros</h5>
                 <div class="five-items">
                     <ul class="text-white">
                         <li>
                         <span class="icon-calendar text-white"></span>
-                        <span>Mejor Precio<br> Garantizado</span>
+                        <span class="text-five">Mejor Precio<br> Garantizado</span>
                         </li>
                         <li>
                         <span class="icon-check text-white"></span>
-                        <span>Reservas en<br> Línea</span>
+                        <span ><router-link :to="'/Reserva-online'"><button id="reserve-ahora" class="btn btn-primary pill text-button-five" >Reserva ahora</button></router-link><br>En línea</span>
                         </li>
                         <li>
                         <span class="icon-cutlery text-white"></span>
-                        <span>Ubicados en la<br> Mejor Zona de Lima, Miraflores</span>
+                        <span class="text-five">Ubicados en la<br> Mejor Zona de Lima, Miraflores</span>
                         </li>
                     </ul>
                 </div>

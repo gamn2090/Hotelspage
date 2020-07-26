@@ -33,7 +33,7 @@ export default {
     .content{
         flex: 3;
         min-height: calc(100vh - 120px);
-        background-color: #34495e;
+        background-color: #f4f6f9;
         font-size: 20px;
         font-weight: bold;
     }

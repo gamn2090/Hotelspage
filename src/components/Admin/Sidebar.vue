@@ -112,7 +112,7 @@ export default {
         }
     },
     methods: {
-        logout () {
+        logout () {           
             auth.signOut().then(() => this.$router.replace('Login'))
         }
     },
@@ -139,15 +139,16 @@ export default {
     .sidebar{
         flex: 1;
         min-height: calc(100vh - 120px);
-        background-color: #2c3e50;
+        background-color: #4f5962;
     }
     .sidebar-links li{
+        color:white;
         padding: 10px;
-        border-bottom: 2px solid grey;
+        border-bottom: 2px solid rgb(68, 66, 66);
         list-style-type: none;
     }
     .sidebar-links li:hover{
-        background-color: blue;
+        background-color: rgb(194, 199, 208,0.2);
         color:white;
         cursor: pointer;
     }
@@ -159,10 +160,10 @@ export default {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    background-color: #2c3e50;
+    background-color: #4f5962;
     }
     .form{
-        color:black;
+        color:white;
         text-decoration: none;
     }
 </style>

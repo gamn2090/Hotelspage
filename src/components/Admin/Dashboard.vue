@@ -92,7 +92,7 @@ export default {
     .content{
         flex: 3;
         height: calc(100vh - 120px);
-        background-color: #34495e;
+        background-color: #fff;
         font-size: 20px;
         font-weight: bold;
     }
