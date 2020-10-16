@@ -102,6 +102,7 @@ export default {
         descripcion: null,
         precioDol:null,        
         hotels: [],
+        imageInvalid : true,
         habs: [],
         habSelected: null,
         hotelSelected: null,
@@ -111,12 +112,13 @@ export default {
     },    
     methods:{ 
         getFiles() {
-            this.files = this.$refs.files.files
+            this.files = this.$refs.files.files            
             const fileReader = new FileReader()
             fileReader.addEventListener('load', () => {
                 this.hotelImage = fileReader.result
             })
             fileReader.readAsDataURL(this.files[0])
+            
         },                
         async editHab() {
             

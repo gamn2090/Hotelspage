@@ -92,6 +92,7 @@ export default {
         descripcion: null,
         direccion: null,
         hotelEditar : null,
+        imageInvalid : true,
         hotels: [],        
         hotelsRef: db.child("tambohotels")
       }
@@ -99,11 +100,14 @@ export default {
     methods:{ 
         getFiles() {
             this.files = this.$refs.files.files
+            
             const fileReader = new FileReader()
             fileReader.addEventListener('load', () => {
                 this.hotelImage = fileReader.result
             })
             fileReader.readAsDataURL(this.files[0])
+            
+            
         },                
         async editHotel() {
                 try {

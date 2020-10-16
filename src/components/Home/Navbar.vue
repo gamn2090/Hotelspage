@@ -28,7 +28,7 @@
                             </router-link>
                         </li>   
                         <li >
-                            <router-link :to="'/Reserva-online'">
+                            <router-link :to="{ path: '/Reserva-online', hash: '#checkin' }">
                                 ¡Reserva Ahora!
                             </router-link>
                         </li>   
@@ -36,7 +36,7 @@
                             <a href="#!" @click="showHotelsR()" >¡Contáctanos!</a>
                             <ul v-if="!this.isHiddenR">
                                 <li v-for="hotelData in hotels" :key="hotelData.key">
-                                    <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key } }">
+                                    <router-link exact :to="{ name: 'Contáctanos', params: { key: hotelData.key } }">
                                         {{hotelData.name}}
                                     </router-link>
                                 </li>                                                        
@@ -78,13 +78,14 @@
                                             </li>   
 
                                             <li v-if="this.$route.params.key || this.$route.params.hotel">
-                                                <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key || this.$route.params.hotel } }">
+                                                
+                                                <router-link :to="{ name: 'galeria',  params: { key: this.$route.params.key || this.$route.params.hotel }, hash:'#galeria', }">
                                                     Galería
                                                 </router-link>
                                             </li>                                            
 
                                             <li class="has-children">
-                                                <a href="#!" >Contactanos</a>                                                                                                
+                                                <a href="#!" >Contáctanos</a>                                                                                                
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key } }">
@@ -94,7 +95,7 @@
                                                 </ul>
                                             </li> 
                                             <li >
-                                                <router-link :to="'/Reserva-online'">
+                                                <router-link :to="{ path: '/Reserva-online', hash: '#checkin' }">
                                                     ¡Reserva ahora!
                                                 </router-link>
                                             </li>                                                                                           

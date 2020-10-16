@@ -1,6 +1,6 @@
 <template>
-    <div class="site-section">
-            <div class="container">
+        <div  class="site-section">
+            <div id="galeria" class="container">
                 <div class="row">
                     <div class="col-md-6 mx-auto text-center mb-5 section-heading">
                         <h2 class="mb-5">Vea nuestro establecimiento</h2>

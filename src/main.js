@@ -32,6 +32,8 @@ Vue.use(Element, {locale})
 /*importas JQuery */
 import "jquery"
 
+import VueSignaturePad from 'vue-signature-pad';
+Vue.use(VueSignaturePad);
 /*importas las rutas */
 import { routes } from './routes'
 /*importas babel */
@@ -49,8 +51,14 @@ Vue.use(VueGoogleMaps, {
 const router = new VueRouter({
   mode: "history",
   routes: routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {   
+
+    if (to.hash) {
+      return { selector: to.hash };
+    }
+
     return { x: 0, y: 0 }
+
   }
 });
 

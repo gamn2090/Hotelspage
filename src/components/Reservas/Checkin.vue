@@ -1,10 +1,10 @@
-<template>
-    <div>
+<template >
+    <div id="checkin">
         <div class="container">
             <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
                 <span class="caption mb-3 sub-heading">¡Reserve ahora!</span>
-                <h1 class="mb-4 sub-heading">Pongase en Contácto</h1>
+                <h1 class="mb-4 sub-heading">Póngase en Contacto</h1>
             </div>
             </div>
         </div>

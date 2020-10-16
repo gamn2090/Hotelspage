@@ -51,7 +51,7 @@
             <br>
             <el-row :gutter="20">               
                 <el-col :xs="8" :md="12" :offset="8" >
-                    <input @click="addHotel" value="crear" class="btn btn-primary pill px-4 py-2">
+                    <input v-if="this.imageInvalid == false" @click="addHotel" value="crear" class="btn btn-primary pill px-4 py-2">
                 </el-col>                
             </el-row>
         </div>
@@ -81,17 +81,24 @@ export default {
         hotels: [],
         hotelsOnChildAdded: null,
         hotelsOnChildRemoved: null,
+        imageInvalid : true,
         hotelsRef: db.child("tambohotels")
       }
     },    
     methods:{ 
         getFiles() {
             this.files = this.$refs.files.files
-            const fileReader = new FileReader()
-            fileReader.addEventListener('load', () => {
-                this.hotelImage = fileReader.result
-            })
-            fileReader.readAsDataURL(this.files[0])
+            if(this.files[0]['type'] != 'image/jpeg' && this.files[0]['type'] != 'image/png' && this.files[0]['type'] != 'image/jpg'){
+                this.imageInvalid = true
+                this.$message.error('Necesita cargar una imagen con extención png, jpeg o jpg');
+            }else{
+                this.imageInvalid = false
+                const fileReader = new FileReader()
+                fileReader.addEventListener('load', () => {
+                    this.hotelImage = fileReader.result
+                })
+                fileReader.readAsDataURL(this.files[0])
+            }            
         },        
         // Un sugerencia que te doy es que cuando uses las funciones de firebase que devuelven promesas, uses async/await, es cosa de gente praah
         // Las que devuelven promesas son: set, update, once...

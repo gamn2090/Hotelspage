@@ -7,6 +7,7 @@ import Dashboard from "@/views/Dashboard.vue";
 import Galeria from "@/views/Galeria.vue";
 import Contactanos from "@/views/Contactanos.vue";
 import Checkin from "@/views/Checkin.vue";
+import Webcheckin from "@/views/Webcheckin.vue";
 
 import Profile from "@/components/Admin/profile.vue";
 /* hotels */
@@ -59,6 +60,12 @@ export const routes = [
           path: "/Reserva-online",
           name: "Reserva-online",
           component: Checkin
+          },
+          {
+            //pantalla de contactanos
+            path: "/Web-checkin",
+            name: "Web-checkin",
+            component: Webcheckin
           },
          {
            //ruta para vista única de hoteles

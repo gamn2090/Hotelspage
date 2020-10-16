@@ -15,7 +15,7 @@
                 
                 <div class="row">
                     <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                        <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key } }">Ver todas las fotos
+                        <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key }, hash:'#galeria' }">Ver todas las fotos
                         </router-link>
                     </div>
                 </div>                

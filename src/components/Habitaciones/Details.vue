@@ -22,8 +22,9 @@
               <div class="section-heading text-left">
                 <h2 class="mb-5">Detalles</h2>
               </div>
-              <p class="mb-4">Precio: USD {{this.room.precioDol}}</p>
+              <p class="mb-4">Precio: USD {{this.room.precioDol}} ó S/ {{this.room.precioPen}}</p>
               <p v-if="this.room"  class="mb-4">Descripción: {{this.room.descripcion}}</p>     
+              <p v-if="this.room"  class="mb-4">Cuenta con {{this.room.camas}} cama(s)</p>
               <ul>
                 <li v-for="(carac, key) in caracs" :key="key">
                     {{carac.name}}

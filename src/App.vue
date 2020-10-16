@@ -16,6 +16,9 @@ export default {
     body{
         background-color: #fef9e9 !important;
     }
+    a.close,a.next,a.prev{
+        color: white !important;
+    }
     .site-section{
         padding: 3em 0 !important;
     }

@@ -49,7 +49,7 @@
                             <el-input-number v-model="precioDol" placeholder="75"></el-input-number>
                         </div>
                         <div class="col-md-6">
-                            <input style="margin-top: 10%;" @click="addRoom" value="Crear" class="btn btn-primary pill px-4 py-2">
+                            <input v-if="this.imageInvalid == false" style="margin-top: 10%;" @click="addRoom" value="Crear" class="btn btn-primary pill px-4 py-2">
                         </div>
                     </div>
                 </div>                
@@ -80,6 +80,7 @@ export default {
         descripcion: null,
         precioDol:null,        
         hotels: [],
+        imageInvalid : true,
         roomsRef: db.child("rooms"),
         hotelsRef: db.child("tambohotels")
         }
@@ -87,11 +88,17 @@ export default {
     methods: {
         getFiles() {
             this.files = this.$refs.files.files
-            const fileReader = new FileReader()
-            fileReader.addEventListener('load', () => {
-                this.hotelImage = fileReader.result
-            })
-            fileReader.readAsDataURL(this.files[0])
+            if(this.files[0]['type'] != 'image/jpeg' && this.files[0]['type'] != 'image/png' && this.files[0]['type'] != 'image/jpg'){
+                this.imageInvalid = true
+                this.$message.error('Necesita cargar una imagen con extención png, jpeg o jpg');
+            }else{
+                this.imageInvalid = false
+                const fileReader = new FileReader()
+                fileReader.addEventListener('load', () => {
+                    this.hotelImage = fileReader.result
+                })
+                fileReader.readAsDataURL(this.files[0])
+            }
         },    
         async addRoom() {
             const key = this.roomsRef.push().key

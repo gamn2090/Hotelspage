@@ -54,7 +54,7 @@
                         </li>
                         <li>
                         <span class="icon-check text-white"></span>
-                        <span ><router-link :to="'/Reserva-online'"><button id="reserve-ahora" class="btn btn-primary pill text-button-five" >Reserva ahora</button></router-link><br>En línea</span>
+                        <span ><router-link :to="{ path: '/Reserva-online', hash: '#checkin' }"><button id="reserve-ahora" class="btn btn-primary pill text-button-five" >Reserva ahora</button></router-link><br>En línea</span>
                         </li>
                         <li>
                         <span class="icon-cutlery text-white"></span>

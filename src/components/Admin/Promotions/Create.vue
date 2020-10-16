@@ -77,7 +77,7 @@
                         </el-select>   
                     </el-col>
                     <el-col :xs="24" :md="10" :offset="1">
-                        <input style="margin-top: 10%;" @click="addPromo" value="Crear" class="btn btn-primary pill px-4 py-2">
+                        <input v-if="this.imageInvalid == false" style="margin-top: 10%;" @click="addPromo" value="Crear" class="btn btn-primary pill px-4 py-2">
                     </el-col>                
                 </el-row>  
             </div>
@@ -108,6 +108,7 @@ export default {
         hotelSelected : null,
         promos: [],
         tempArray: [],
+        imageInvalid : true,
         hotels: [],
         promosRef: db.child("promos"),
         hotelsRef: db.child("tambohotels")
@@ -116,11 +117,17 @@ export default {
     methods: {
         getFiles() {
             this.files = this.$refs.files.files
-            const fileReader = new FileReader()
-            fileReader.addEventListener('load', () => {
-                this.hotelImage = fileReader.result
-            })
-            fileReader.readAsDataURL(this.files[0])
+            if(this.files[0]['type'] != 'image/jpeg' && this.files[0]['type'] != 'image/png' && this.files[0]['type'] != 'image/jpg'){
+                this.imageInvalid = true
+                this.$message.error('Necesita cargar una imagen con extención png, jpeg o jpg');
+            }else{
+                this.imageInvalid = false
+                const fileReader = new FileReader()
+                fileReader.addEventListener('load', () => {
+                    this.hotelImage = fileReader.result
+                })
+                fileReader.readAsDataURL(this.files[0])  
+            }
         },    
         async addPromo() {
             const key = this.promosRef.push().key
