@@ -6,7 +6,7 @@
                     <h2>Nuestras promociones exclusivas web</h2>
                 </div>
             </div>
-            <Carousel :autoplay="true"                    
+            <Carousel v-if="this.promos != null && this.sliders != null" :autoplay="true"                    
                       :per-page="this.sliders"
                       :loop="true"
                       :autoplayTimeout="1000"  >
@@ -61,7 +61,7 @@ export default {
         getFiles() {
             this.files = this.$refs.files.files
         },    
-    async addPromo() {
+        async addPromo() {
             const key = this.promosRef.push().key
             try {
                 const file = this.$refs.files.files[0]

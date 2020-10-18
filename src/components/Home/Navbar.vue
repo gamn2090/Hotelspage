@@ -28,10 +28,21 @@
                             </router-link>
                         </li>   
                         <li >
-                            <router-link :to="{ path: '/Reserva-online', hash: '#checkin' }">
-                                ¡Reserva Ahora!
+                            <router-link :to="{ path: '/Web-checkin', hash: '#checkin' }">
+                                ¡Web-Checkin!
                             </router-link>
-                        </li>   
+                        </li>
+                          
+                        <li class="has-children">                            
+                            <a href="#!" @click="showHotelsRes()" >¡Reserva ya!</a>
+                            <ul v-if="!this.isHiddenRes">
+                                <li v-for="hotelData in hotels" :key="hotelData.key">
+                                    <router-link :to="{ name: 'Seleccion-hotel', params: { key: hotelData.key }, hash:'#habitaciones', }">
+                                        {{hotelData.name}}
+                                    </router-link>
+                                </li>                                                        
+                            </ul>
+                        </li>
                         <li class="has-children">                            
                             <a href="#!" @click="showHotelsR()" >¡Contáctanos!</a>
                             <ul v-if="!this.isHiddenR">
@@ -85,20 +96,31 @@
                                             </li>                                            
 
                                             <li class="has-children">
-                                                <a href="#!" >Contáctanos</a>                                                                                                
+                                                <a href="#!" >Contáctanos</a>
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key } }">
                                                             {{hotelData.name}}
                                                         </router-link>
-                                                    </li>                                                        
+                                                    </li>        
                                                 </ul>
                                             </li> 
+                                            <li class="has-children">
+                                                <a href="#!" >¡Reserva ya!</a>                                           
+                                                <ul class="dropdown arrow-top ">
+                                                    <li v-for="hotelData in hotels" :key="hotelData.key">
+                                                        <router-link :to="{ name: 'Seleccion-hotel', params: { key: hotelData.key }, hash:'#habitaciones', }">
+                                                            {{hotelData.name}}
+                                                        </router-link>
+                                                    </li>                                                        
+                                                </ul>
+                                            </li>  
                                             <li >
-                                                <router-link :to="{ path: '/Reserva-online', hash: '#checkin' }">
-                                                    ¡Reserva ahora!
+                                                <router-link :to="{ path: '/Web-checkin', hash: '#checkin' }">
+                                                    ¡Web-checkin!
                                                 </router-link>
-                                            </li>                                                                                           
+                                            </li> 
+
                                         </ul>
                                     </div>
                                 </nav>
@@ -121,6 +143,7 @@ export default {
       return {
         isHidden: null,
         isHiddenR: null,
+        isHiddenRes: null,
         files: [],
         hotels: [],
         hotelsOnChildAdded: null,
@@ -156,6 +179,12 @@ export default {
                 this.isHiddenR = false
             else
                 this.isHiddenR = true
+        },
+        showHotelsRes() {
+            if(this.isHiddenRes)
+                this.isHiddenRes = false
+            else
+                this.isHiddenRes = true
         }
     },  
     created() {

@@ -7,7 +7,7 @@
                     </div>
                 </div>
                 <div class="row no-gutters">
-                    <gallery :images="images" :index="index" @close="index = null"></gallery>
+                    <gallery v-if="images" :images="images" :index="index" @close="index = null"></gallery>
                     <div v-for="(fotosData, i) in fotos" :key="i" @click="index = i" class="col-md-6 col-lg-3">
                         <img style="cursor:pointer;width:232.5; height:154.89 !important" :src="fotosData.image || '../../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
                     </div> 

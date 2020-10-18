@@ -1,7 +1,7 @@
-<template>
+<template >
     <div style="text-align: center" id="app">
       <br>
-      <div class="container">
+      <div id="checkin" class="container">
           <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
               <h1 class="mb-4 sub-heading">Web Check-in</h1>
@@ -68,8 +68,10 @@
                     </div>
                     <br>
                     <div class="row form-group">
+                      
                       <div class="col-md-12 ">
-                        <VueSignaturePad id="signature" width="500px" height="200px" ref="signaturePad"
+                        <label class="font-weight-bold" for="signature">Firma</label>
+                        <VueSignaturePad id="signature" width="this.width" height="200px" ref="signaturePad"
                         :options="{ backgroundColor: 'white', penColor:'red'}" />
                         
                         <div style="margin-top: 15px;">                            
@@ -77,6 +79,13 @@
                         </div>
                       </div>
                     </div>
+                    
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <p style="font-size:12px; text-decoration:underline">Se recomienda utilizar un dispositivo táctil para dibujar su firma.</p>
+                        </div>
+                    </div>    
+                    <br><br>  
                     <div class="row form-group">
                         <div class="col-md-12">
                             <a @click="SendMail()" style="color:white" class="btn btn-primary pill px-4 py-2">Generar Web-checkin</a>
@@ -99,6 +108,8 @@ export default {
   name: 'webchecking',
    data() {
       return {
+        width:null,
+        height:null,
         hotelSelected: null,
         hotelData: null,
         datosHotel: null,
@@ -218,6 +229,21 @@ export default {
             const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
             return re.test(email);
         },
+        getCanvasDimentions(){
+          if(window.innerwidth > 400 && window.innerwidth < 600)
+          {
+            this.width = 350
+          }
+          if(window.innerwidth >= 500 )
+          {
+            this.width = 500
+          }
+          if(window.innerwidth < 400 )
+          {
+            this.width = 300
+          }
+
+        },
         success() {
             this.$message({
             message: 'Su mensaje ha sido enviado, nos pondremos en contacto con usted lo más pronto posible, gracias.',
@@ -268,6 +294,7 @@ export default {
     },
     async created () {
         await this.getHotelData()
+        this.getCanvasDimentions()
     },
 };
 </script>

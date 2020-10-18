@@ -24,6 +24,7 @@
     "owl.carousel": "^2.3.4",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^1.1.2",
+    "v-wow": "git+https://github.com/guisoares2011/vue-wow.git",
     "vue": "^2.5.11",
     "vue-axios": "^2.1.5",
     "vue-carousel": "^0.18.0",

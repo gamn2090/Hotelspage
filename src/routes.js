@@ -1,5 +1,6 @@
 import Home from "@/views/Home.vue";
 import Hotel from "@/views/Hotel.vue";
+import SeleccionHotel from "@/views/Habitaciones.vue";
 import Reservas from "@/views/Reservas.vue";
 import Habitacion from "@/views/Habitacion.vue";
 import Login from "@/views/Login.vue"
@@ -54,13 +55,7 @@ export const routes = [
            path: "/contactanos/:key",
            name: "Contactanos",
            component: Contactanos
-         },
-         {
-          //pantalla de contactanos
-          path: "/Reserva-online",
-          name: "Reserva-online",
-          component: Checkin
-          },
+         },         
           {
             //pantalla de contactanos
             path: "/Web-checkin",
@@ -73,6 +68,18 @@ export const routes = [
            component: Hotel,
            name: "hotel"
          },
+         {
+          //ruta para vista única de hoteles
+          path: "/Seleccion-Hoteles/:key",
+          component: SeleccionHotel,
+          name: "Seleccion-hotel"
+          },
+          {
+            //pantalla de contactanos
+            path: "/Reserva-online/:key",
+            name: "Reserva-online",
+            component: Checkin
+          },          
          {
            //ruta para vista única de promociones
            path: "/Reservas/:hotel/:promo",

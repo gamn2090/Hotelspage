@@ -53,16 +53,18 @@
                 <el-row :gutter="20">
                     <el-col :xs="24" :md="10" :offset="1">
                         <label class="font-weight-bold" >Precio en Dolares</label><br>
-                        <el-input-number v-model="precioDol"  placeholder="75"></el-input-number>
+                        <el-input-number v-model="precioDol" placeholder="75"></el-input-number>
                     </el-col>
+                    <el-col :xs="24" :md="10" :offset="1">
+                        <label class="font-weight-bold" >Precio en Soles</label><br>
+                        <el-input-number v-model="precioPen" placeholder="75"></el-input-number>
+                    </el-col>  
                     <el-col :xs="24" :md="10" :offset="1">
                         <label class="font-weight-bold">Descripción</label>
                         <el-input
                         type="textarea"
                         :rows="2" v-model="descripcion" name="message" placeholder="Describa su promoción"></el-input>
-                    </el-col>                
-                </el-row>
-                <el-row :gutter="20">
+                    </el-col>       
                     <el-col :xs="24" :md="10" :offset="1">
                         <label class="font-weight-bold">¿Desea que esta promoción aparezca en el inicio?</label>
                         <el-select v-model="mainPromo" >
@@ -75,7 +77,10 @@
                             value="False">
                             No</el-option>
                         </el-select>   
-                    </el-col>
+                    </el-col>         
+                </el-row>
+                <el-row :gutter="20">
+                    
                     <el-col :xs="24" :md="10" :offset="1">
                         <input v-if="this.imageInvalid == false" style="margin-top: 10%;" @click="addPromo" value="Crear" class="btn btn-primary pill px-4 py-2">
                     </el-col>                
@@ -99,6 +104,7 @@ export default {
         files: [],
         promo: null,
         precioDol: null,
+        precioPen: null,
         descuento: null,
         hotelImage:null,
         descripcion: null,
@@ -142,6 +148,7 @@ export default {
                 const update = {
                     name: this.promo,
                     precioDol: this.precioDol,
+                    precioPen: this.precioPen,
                     fechaInicio: this.fechaInicio,
                     fechaFin: this.fechaFin,
                     descuento: this.descuento,

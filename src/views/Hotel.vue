@@ -92,20 +92,20 @@ export default {
             this.files = this.$refs.files.files
         },
         async getPromos() {           
-                this.promosOnChildAdded = this.promosRef
-                    .orderByChild('hotel')
-                    .equalTo(this.$route.params.key)
-                    .on("child_added", snapshot => {
-                    const data = snapshot.val()
-                    const key = snapshot.key
-                    data.key = key
-                    this.todasPromos.push(data);                  
-                })                   
+            this.promosOnChildAdded = this.promosRef
+                .orderByChild('hotel')
+                .equalTo(this.$route.params.key)
+                .on("child_added", snapshot => {
+                const data = snapshot.val()
+                const key = snapshot.key
+                data.key = key
+                this.todasPromos.push(data);                  
+            })                   
 
-                this.promosOnChildRemoved = this.promosRef.on("child_removed", snapshot => {
-                    const index = this.promos.findIndex(e => e.key == snapshot.key)
-                    this.promos.splice(index, 1)
-                }) 
+            this.promosOnChildRemoved = this.promosRef.on("child_removed", snapshot => {
+                const index = this.promos.findIndex(e => e.key == snapshot.key)
+                this.promos.splice(index, 1)
+            }) 
         },                            
         /*funciones de la galería (fotos) */
         async getFotos() {

@@ -9,6 +9,9 @@ Vue.use(VueRouter);
 import VModal from 'vue-js-modal' 
 Vue.use(VModal)
 
+import vWow from 'v-wow'
+Vue.use(vWow);
+
 //importo font awesome
 
 import { library } from '@fortawesome/fontawesome-svg-core'

@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span >
     <navbar></navbar>
     <banner></banner>
     <hoteles></hoteles>
@@ -7,6 +7,7 @@
     <nosotros></nosotros>
     <caracteristicas></caracteristicas>
     <parallax></parallax>
+    <wcheckin></wcheckin>
     <fotos></fotos>
     <!-- <opiniones></opiniones> --><!-- se la quito por ahora hasta que me den opiniones reales-->
     <maps></maps>
@@ -15,7 +16,9 @@
 </template>
 
 <script>
+
 import MyFooter from '@/components/Home/MyFooter';
+import Wcheckin from '@/components/Home/Wcheckin';
 import Navbar from '@/components/Home/Navbar';
 import Banner from "@/components/Home/Banner.vue";
 import Hoteles from "@/components/Home/Hoteles";
@@ -35,13 +38,20 @@ export default {
     Promociones,
     Nosotros,
     Caracteristicas,
+    Wcheckin,
     Parallax,
     Fotos,
     Opiniones,
     Maps,
     MyFooter,
     Navbar
-  }
+  },
+  data () {
+      return {
+               
+      }    
+    },
+    
 };
 </script>
 

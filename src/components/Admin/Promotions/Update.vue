@@ -68,11 +68,15 @@
                         </div>                        
                     </div>                    
                     <div class="row form-group">
-                        <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="col-md-4 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Precio en Dolares</label><br>
                             <el-input-number v-model="precioDol" :min="0" :max="1000"></el-input-number>
                         </div> 
-                        <div class="col-md-6">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <label class="font-weight-bold" >Precio en Soles</label><br>
+                            <el-input-number v-model="precioPen" :min="0" :max="1000"></el-input-number>
+                        </div> 
+                        <div class="col-md-4">
                             <label class="font-weight-bold">Descripción</label><br>
                             <el-input
                             type="textarea"
@@ -132,6 +136,7 @@ export default {
         /* */
         promo: null,        
         precioDol: null,
+        precioPen: null,
         descuento: null,
         descripcion: null,
         fechaInicio: null,
@@ -176,6 +181,7 @@ export default {
                 const update = {
                     name: this.promo,
                     precioDol: this.precioDol,
+                    precioPen: this.precioPen,
                     fechaInicio: this.fechaInicio,
                     fechaFin: this.fechaFin,
                     descuento: this.descuento,
@@ -191,6 +197,7 @@ export default {
                 this.promos = []
                 this.promo = null,
                 this.precioDol = 0,
+                this.precioPen = 0,
                 this.fechaInicio = null,
                 this.fechaFin = null,
                 this.descuento = 0,
@@ -249,6 +256,7 @@ export default {
                 this.hotelImage =    this.promoEditar.image
                 this.promo =         this.promoEditar.name
                 this.precioDol =     this.promoEditar.precioDol
+                this.precioPen =     this.promoEditar.precioPen
                 this.descuento =     this.promoEditar.descuento
                 this.descripcion =   this.promoEditar.description
                 this.fechaInicio =   this.promoEditar.fechaInicio

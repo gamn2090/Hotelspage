@@ -21,7 +21,7 @@
                         </li>
                         <li>
                         <span class="icon-check text-white"></span>
-                        <span ><router-link :to="'/Reserva-online'"><button id="reserve-ahora" class="btn btn-primary pill text-button-five" >Reserva ahora</button></router-link><br>En línea</span>
+                        <span ><a><button @click="show()" id="reserve-ahora" class="btn btn-primary pill text-button-five" >Reserva ahora</button></a><br>En línea</span>
                         </li>
                         <li>
                         <span class="icon-cutlery text-white"></span>
@@ -30,12 +30,38 @@
                     </ul>
                 </div>
             </div>
-        </div>  
+        </div> 
+        <modal :scrollable="true" :adaptive="true" :width="600" :height="400" name="hotelesModal">
+            <div style="margin-top:50px; margin-right:10px;margin-left:10px;" class="row">
+                <div v-for="hotelData in hotels" :key="hotelData.key" class="col-sm-4 d-none d-lg-block">
+                    <router-link :to="{ name: 'Seleccion-hotel', params: { key: hotelData.key }, hash:'#habitaciones', }">
+                        <div class="hotel-room text-center">
+                            <img style="height:100px; width:150px" :src="hotelData.image || '../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
+                            <div class="hotel-room-body">
+                                <h3 class="heading mb-0">{{hotelData.name}}</h3>
+                            </div>
+                        </div>
+                    </router-link>               
+                </div> 
+                <div v-for="hotelData in hotels" :key="hotelData.key" class="col-xs-4 d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                    <router-link :to="{ name: 'Seleccion-hotel', params: { key: hotelData.key }, hash:'#habitaciones' }">
+                        <div class="hotel-room text-center">
+                            <img style="height:50px; width:100px" :src="hotelData.image || '../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
+                            <div class="hotel-room-body">
+                                <span class="" style="font-zise:8px; color:black">{{hotelData.name}}</span>
+                            </div>
+                        </div>
+                    </router-link>               
+                </div> 
+            </div>
+        </modal> 
     </span>
 </template>
 
 <script>
+import { db } from '@/firebase.js'
 
+import VModal from 'vue-js-modal'
 export default {
     props: {
         hotelData: {
@@ -45,8 +71,50 @@ export default {
     name: "Portada",
     data () {
       return {
-        
+        hotels : [],
+        hotelsOnChildAdded: null,
+        hotelsOnChildRemoved: null,
+        hotelsRef: db.child("tambohotels")
       }        
+    },
+    methods: {
+        show () {
+            this.$modal.show('hotelesModal');
+        },
+        hide () {
+            this.$modal.hide('hotelesModal');
+        },    
+        /*funciones de los hoteles */
+        getHotels() {
+           this.hotelsOnChildAdded = this.hotelsRef.on("child_added", snapshot => {
+               const data = snapshot.val()
+               const key = snapshot.key
+               data.key = key
+               this.hotels.push(data)
+               //console.log(this.hotels)
+           })
+
+           this.hotelsOnChildRemoved = this.hotelsRef.on("child_removed", snapshot => {
+               const index = this.hotels.findIndex(e => e.key == snapshot.key)
+               this.hotels.splice(index, 1)
+           })
+        } 
+    },
+    async created () {
+        await this.getHotels()
+    },     
+    beforeDestroy() {
+        this.hotelsRef.off("child_added", this.hotelsOnChildAdded)
+        this.hotelsRef.off("child_removed", this.hotelsOnChildRemoved)
+    },
+    watch : {
+        $route (to, from){
+            this.hide (),
+            this.hotels = [],
+            this.hotelsOnChildAdded = null,
+            this.hotelsOnChildRemoved = null,
+            this.getHotels()                       
+        }
     }
 }
 </script>

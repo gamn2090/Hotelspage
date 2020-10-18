@@ -46,11 +46,15 @@
                         </div>
                     </div>                                                    
                     <div class="row form-group">
-                        <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="col-md-4 mb-3 mb-md-0">
                             <label class="font-weight-bold" >Precio en Dolares</label><br>
                             <el-input-number v-model="precioDol" :min="0" :max="1000"></el-input-number>
                         </div> 
-                        <div class="col-md-6">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <label class="font-weight-bold" >Precio en Soles</label><br>
+                            <el-input-number v-model="precioPen" :min="0" :max="1000"></el-input-number>
+                        </div>
+                        <div class="col-md-4">
                             <label class="font-weight-bold">Descripción</label><br>
                             <el-input
                             type="textarea"
@@ -101,6 +105,7 @@ export default {
         habitacion: null,
         descripcion: null,
         precioDol:null,        
+        precioPen:null,        
         hotels: [],
         imageInvalid : true,
         habs: [],
@@ -142,6 +147,7 @@ export default {
                 const update = {
                     nombre: this.habitacion,
                     precioDol: this.precioDol,
+                    precioPen: this.precioPen,
                     hotel: this.hotelSelected,
                     camas: this.camas,
                     cantHabitaciones: this.habitaciones,
@@ -158,6 +164,7 @@ export default {
                 this.hotelSelected = null,
                 this.habitaciones = null,
                 this.precioDol = null,
+                this.precioPen = null,
                 this.hotel = null,
                 this.descripcion = null,
                 this.image = null,
@@ -212,6 +219,7 @@ export default {
                 this.hotelImage =    this.habEditar.image
                 this.habitacion =    this.habEditar.nombre
                 this.precioDol =     this.habEditar.precioDol
+                this.precioPen =     this.habEditar.precioPen
                 this.descripcion =   this.habEditar.descripcion
                 this.camas       =   this.habEditar.camas
                 this.habitaciones =  this.habEditar.cantHabitaciones

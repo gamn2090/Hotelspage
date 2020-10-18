@@ -42,7 +42,6 @@ export default {
                 ).val()
                 
                 this.hotel = this.$route.params.key;                 
-                console.log                          
             } catch (ex) {
                 return console.error(ex)
             }          

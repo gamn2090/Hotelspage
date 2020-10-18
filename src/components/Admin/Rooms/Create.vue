@@ -49,6 +49,12 @@
                             <el-input-number v-model="precioDol" placeholder="75"></el-input-number>
                         </div>
                         <div class="col-md-6">
+                            <label class="font-weight-bold">Precio en soles de la habitación</label><br>
+                            <el-input-number v-model="precioPen" placeholder="75"></el-input-number>
+                        </div>                       
+                    </div>
+                    <div class="row form-group">                        
+                        <div class="col-md-6">
                             <input v-if="this.imageInvalid == false" style="margin-top: 10%;" @click="addRoom" value="Crear" class="btn btn-primary pill px-4 py-2">
                         </div>
                     </div>
@@ -79,6 +85,7 @@ export default {
         habitaciones: null,
         descripcion: null,
         precioDol:null,        
+        precioPen:null,        
         hotels: [],
         imageInvalid : true,
         roomsRef: db.child("rooms"),
@@ -117,6 +124,7 @@ export default {
                     cantHabitaciones: this.habitaciones,
                     descripcion: this.descripcion,
                     precioDol: this.precioDol,                    
+                    precioPen: this.precioPen,                    
                     image: url,
                     createdAt: now.format("DD/MM/YYYY"),
                     createdAtUnix: now.unix() 
