@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="contactoScroll">
         <div class="container">
             <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
@@ -98,7 +98,7 @@ export default {
                 this.failure()
                 return
             }
-            if( this.email === null || !validateEmail(this.email))
+            if( this.email === null || !this.validateEmail(this.email))
             {
                 this.message = "Tiene que dejar su correo para poder comunicarnos con usted"
                 this.failure()
@@ -115,11 +115,13 @@ export default {
             params.append('phone', this.phone);
             params.append('email', this.email);
             params.append('problem', this.problem);
+            params.append('empresa', this.hotelData.name );
             params.append('correo', this.hotelData.email );
             //params.append('correo', 'gamn2090@gmail.com' );
             params.append('empresa', this.hotelData.name );
             
             await axios.post('https://mails-api.herokuapp.com/api/SendMailEmpresa', params);
+            //await axios.post('http://localhost/mailApi/public/api/SendMailEmpresa', params);
             
             this.success();
         },
@@ -145,6 +147,9 @@ export default {
 </script>
 
 <style scoped>
+    #contactoScroll{
+        padding-top: 100px;
+    }
     .sub-heading{
       color: black !important;
     }

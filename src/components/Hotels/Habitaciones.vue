@@ -7,11 +7,11 @@
                 </div>
             </div>
             <Carousel :autoplay="true"
-                      :per-page="this.sliders"
+                      :per-page-custom=[[480,1],[1080,2]]
                       :loop="true"
                       :autoplayTimeout="2000" >
                 <Slide v-for="(habsData, key) in habs" :key="key" class="media-with-text p-md-5 flex-item">
-                    <router-link :to="{ name: 'habitacion', params: { hotel: hotel, hab: key } }" >
+                    <router-link :to="{ name: 'habitacion', params: { hotel: hotel, hab: key }, hash: '#detallesHabitacion' }" >
                         <div class="img-border-sm mb-12 zoom">
                             <div class="image-play">
                                 <img :src="habsData.image || '../../../public/assets/images/img_1.jpg'" alt="" class="img-fluid">
@@ -37,9 +37,6 @@ export default {
             required: true
         },
         hotel: {
-            required: true
-        },
-        sliders: {
             required: true
         }
     },

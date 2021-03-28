@@ -10,27 +10,39 @@
                 </div>
             </div>
         </div> 
+
         <div class="five-reasons">
             <div class="wow fadeInUp animated" data-wow-delay="1s" data-wow-duration="1.5s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 1s; animation-name: fadeInUp;">
-                <h5 class="text-white">3 Razones para reservar directamente con nosotros</h5>
+                <h5 id="titleBanner" class="text-white title">Razones para reservar directamente con nosotros</h5>
                 <div class="five-items">
                     <ul class="text-white">
                         <li>
-                        <span class="icon-calendar text-white"></span>
-                        <span>Mejor Precio<br> Garantizado</span>
+                            <font-awesome-icon icon="money-bill" class="text-white iconosBanner"/>
+                            <span class="text-five">Mejor Precio<br> Garantizado</span>
+                        </li>                        
+                        <li>
+                            <font-awesome-icon icon="wifi" class="text-white iconosBanner"/>
+                            <span class="text-five">Wifi grátis</span>
                         </li>
                         <li>
-                        <span class="icon-check text-white"></span>
-                        <span ><a><button @click="show()" id="reserve-ahora" class="btn btn-primary pill text-button-five" >Reserva ahora</button></a><br>En línea</span>
+                            <router-link style="color:white" :to="{ path: '/Web-checkin', hash: '#checkin'}">
+                                <font-awesome-icon icon="laptop" class="text-white iconosBanner"/>
+                                <span >Checkin en línea</span>
+                            </router-link>                        
                         </li>
                         <li>
-                        <span class="icon-cutlery text-white"></span>
-                        <span>Ubicados en la<br> Mejor Zona de Lima, Miraflores</span>
+                            <font-awesome-icon icon="virus-slash" class="text-white iconosBanner"/>
+                            <span >Protocolos COVID19</span>
+                        </li>
+                        <li>
+                            <font-awesome-icon icon="map-marker-alt" class="text-white iconosBanner"/>
+                            <span class="text-five">Mejor Ubicación</span>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div> 
+        </div>
+
         <modal :scrollable="true" :adaptive="true" :width="600" :height="400" name="hotelesModal">
             <div style="margin-top:50px; margin-right:10px;margin-left:10px;" class="row">
                 <div v-for="hotelData in hotels" :key="hotelData.key" class="col-sm-4 d-none d-lg-block">

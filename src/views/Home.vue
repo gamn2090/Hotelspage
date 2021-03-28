@@ -3,12 +3,11 @@
     <navbar></navbar>
     <banner></banner>
     <hoteles></hoteles>
-    <promociones></promociones> 
     <nosotros></nosotros>
-    <caracteristicas></caracteristicas>
     <parallax></parallax>
+    <promociones></promociones>
     <wcheckin></wcheckin>
-    <fotos></fotos>
+    <whatsapp></whatsapp>
     <!-- <opiniones></opiniones> --><!-- se la quito por ahora hasta que me den opiniones reales-->
     <maps></maps>
     <my-footer></my-footer>
@@ -19,6 +18,7 @@
 
 import MyFooter from '@/components/Home/MyFooter';
 import Wcheckin from '@/components/Home/Wcheckin';
+import Whatsapp from '@/components/Home/Whatsapp';
 import Navbar from '@/components/Home/Navbar';
 import Banner from "@/components/Home/Banner.vue";
 import Hoteles from "@/components/Home/Hoteles";
@@ -44,7 +44,8 @@ export default {
     Opiniones,
     Maps,
     MyFooter,
-    Navbar
+    Navbar,
+    Whatsapp
   },
   data () {
       return {

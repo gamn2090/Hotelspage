@@ -2,15 +2,16 @@
   <span>    
     <navbar></navbar>    
     <banner :routeName="routeName"></banner>    
-    <detalle></detalle>   
-    <my-footer></my-footer>   
-      
+    <detalle></detalle>  
+    <whatsapp></whatsapp> 
+    <my-footer></my-footer> 
   </span>
 </template>
 
 <script>
 import MyFooter from '@/components/Home/MyFooter';
 import Navbar from '@/components/Home/Navbar';
+import Whatsapp from '@/components/Home/Whatsapp';
 import Banner from "@/components/Home/Banner";
 import Detalle from "@/components/Reservas/Webchecking";
 import { db } from '@/firebase.js'
@@ -21,7 +22,8 @@ export default {
     Detalle,
     Banner,
     MyFooter,
-    Navbar    
+    Navbar,
+    Whatsapp   
   },  
   data () {
       return {

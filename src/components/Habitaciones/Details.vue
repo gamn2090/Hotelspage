@@ -1,6 +1,6 @@
 <template>
-    <span>
-      <div class="container">
+    <span >
+      <div class="container" id="detallesHabitacion">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
             <span class="caption mb-3 sub-heading">{{this.hotel.name}}</span>
@@ -235,6 +235,9 @@ export default {
 </script>
 
 <style scoped>
+    #detallesHabitacion{
+        padding-top: 100px;
+    }
     .sub-heading{
       color: black !important;
     }

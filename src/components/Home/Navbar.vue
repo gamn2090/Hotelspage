@@ -13,7 +13,7 @@
                             <router-link :to="'/'" >Inicio</router-link>
                         </li>                       
                         <li class="has-children">                            
-                            <a href="#!" @click="showHotels()" >Hoteles</a>
+                            <a href="javascript:void(0);" @click="showHotels()" >Hoteles</a>
                             <ul v-if="!this.isHidden">
                                 <li v-for="hotelData in hotels" :key="hotelData.key">
                                     <router-link exact :to="{ name: 'hotel', params: { key: hotelData.key } }">
@@ -34,7 +34,7 @@
                         </li>
                           
                         <li class="has-children">                            
-                            <a href="#!" @click="showHotelsRes()" >¡Reserva ya!</a>
+                            <a href="javascript:void(0);" @click="showHotelsRes()" >¡Reserva ya!</a>
                             <ul v-if="!this.isHiddenRes">
                                 <li v-for="hotelData in hotels" :key="hotelData.key">
                                     <router-link :to="{ name: 'Seleccion-hotel', params: { key: hotelData.key }, hash:'#habitaciones', }">
@@ -44,10 +44,10 @@
                             </ul>
                         </li>
                         <li class="has-children">                            
-                            <a href="#!" @click="showHotelsR()" >¡Contáctanos!</a>
+                            <a href="javascript:void(0);" @click="showHotelsR()" >¡Contáctanos!</a>
                             <ul v-if="!this.isHiddenR">
                                 <li v-for="hotelData in hotels" :key="hotelData.key">
-                                    <router-link exact :to="{ name: 'Contáctanos', params: { key: hotelData.key } }">
+                                    <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key }, hash: '#contactoScroll' }">
                                         {{hotelData.name}}
                                     </router-link>
                                 </li>                                                        
@@ -58,27 +58,33 @@
             </div>
         </div>     
         <div class="site-navbar-wrap js-site-navbar bg-white">
-            <div class="container">
+            <div class="container" style="padding">
                 <div class="site-navbar bg-light">
                     <div class="py-1">
                         <div class="row align-items-center">
                             <div class="col-2">
                                 <h2 class="mb-0 site-logo"> 
                                 <router-link :to="'/'" >
-                                    <img src='@/assets/logo3.png' alt="El Tambo">                                
+                                
+                                    <img v-if="isDefaultImage" class="iconoInicio"
+                                    src="@/assets/tamboBlanco.png"
+                                    alt="El Tambo">
+                                    <img v-else class="iconoInicio"
+                                    src="@/assets/tamboVerde.png"
+                                    alt="El Tambo">                                
                                 </router-link></h2>
                             </div>
                            
                             <div class="col-10">
                                 <nav class="site-navigation text-right" role="navigation">
                                     <div class="container">
-                                        <div class="d-inline-block d-lg-none  ml-md-0 mr-auto py-3"><a href="#!" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+                                        <div class="d-inline-block d-lg-none  ml-md-0 mr-auto py-3"><a href="javascript:void(0);" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
                                         <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                            <li class="active">
+                                            <li >
                                                 <router-link :to="'/'" >Inicio</router-link>
                                             </li>
                                             <li class="has-children">
-                                                <a href="#!" >Hoteles</a>                                                                                                
+                                                <a href="javascript:void(0);" >Hoteles</a>                                                                                                
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link exact :to="{ name: 'hotel', params: { key: hotelData.key } }">
@@ -96,17 +102,17 @@
                                             </li>                                            
 
                                             <li class="has-children">
-                                                <a href="#!" >Contáctanos</a>
+                                                <a href="javascript:void(0);" >Contáctanos</a>
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
-                                                        <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key } }">
+                                                        <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key }, hash: '#contactoScroll' }">
                                                             {{hotelData.name}}
                                                         </router-link>
                                                     </li>        
                                                 </ul>
                                             </li> 
                                             <li class="has-children">
-                                                <a href="#!" >¡Reserva ya!</a>                                           
+                                                <a href="javascript:void(0);" >¡Reserva ya!</a>                                           
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link :to="{ name: 'Seleccion-hotel', params: { key: hotelData.key }, hash:'#habitaciones', }">
@@ -141,6 +147,7 @@ export default {
     name: "Navbar",
     data () {
       return {
+        isDefaultImage: true,
         isHidden: null,
         isHiddenR: null,
         isHiddenRes: null,
@@ -185,9 +192,22 @@ export default {
                 this.isHiddenRes = false
             else
                 this.isHiddenRes = true
-        }
+        },
+        handleScroll(event) {
+            // Any code to be executed when the window is scrolled 
+            //console.log(window.scrollY);
+            if (window.scrollY > 1) {
+                return (this.isDefaultImage = false);
+            }
+            if (window.scrollY <= 100) {
+                if (!this.defaultImage) {
+                return (this.isDefaultImage = true);
+                }
+            }
+        },
     },  
     created() {
+        window.addEventListener("scroll", this.handleScroll);
         this.getHotels()
         this.isHidden = false
         //console.log('isHidden es: '+this.$route.params.key)
@@ -195,11 +215,21 @@ export default {
     beforeDestroy() {
         this.hotelsRef.off("child_added", this.hotelsOnChildAdded)
         this.hotelsRef.off("child_removed", this.hotelsOnChildRemoved)
+    },
+    destroyed() {
+        window.removeEventListener("scroll", this.handleScroll);
     }
 }
 
 </script>
 
 <style scoped>
-    
+    .iconoInicio{
+        width:100% 
+    }
+     @media only screen and (max-width: 900px) {
+         .iconoInicio{
+             width: 200%;
+         }
+     }
 </style>

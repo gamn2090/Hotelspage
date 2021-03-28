@@ -219,8 +219,8 @@ export default {
             //params.append('correo', 'gamn2090@gmail.com' );
             params.append('empresa', this.datosHotel.name );
             try{
-
                 await axios.post('https://mails-api.herokuapp.com/api/Reservar', params);
+                //await axios.post('http://localhost/mailApi/public/api/Reservar', params);
             }catch(ex){
                 this.message = "No podemos enviar el mensaje"
                 this.$message.error(this.message);
@@ -301,6 +301,7 @@ export default {
             try {
                 this.hotelSelected = hab.hotel
                 this.habSelected = hab.nombre
+                this.loadHotel(this.hotelSelected)
             } catch (ex) {
                 return console.error(ex)
             }            

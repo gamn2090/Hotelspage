@@ -5,6 +5,8 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
+import store from "./store";
+
 //importo el modal
 import VModal from 'vue-js-modal' 
 Vue.use(VModal)
@@ -54,15 +56,17 @@ Vue.use(VueGoogleMaps, {
 const router = new VueRouter({
   mode: "history",
   routes: routes,
+
   scrollBehavior(to, from, savedPosition) {   
-
     if (to.hash) {
-      return { selector: to.hash };
+       const algoasi = document.querySelector(to.hash)
+       algoasi && (algoasi.scrollIntoView())
+       return { selector: to.hash };
+    }else{
+       return { x: 0, y: 0 }
     }
-
-    return { x: 0, y: 0 }
-
   }
+  
 });
 
 router.beforeEach((to, from, next) => {
@@ -83,14 +87,19 @@ router.beforeEach((to, from, next) => {
     next();
 
   }
-})
-
-auth.onAuthStateChanged(function(user){
-
-  new Vue({
-    el: '#app',
-    router,
-    render: h => h(App)
-  })
-
 });
+
+store.dispatch("GET_HOTELS")
+  .then(() => {
+
+    auth.onAuthStateChanged(function(user){
+      new Vue({
+        el: '#app',
+        router,
+        store,
+        render: h => h(App)
+      });
+    });
+
+  })
+  .catch(console.error);

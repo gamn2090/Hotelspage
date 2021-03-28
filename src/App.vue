@@ -13,8 +13,21 @@ export default {
 </script>
 
 <style>
+    html{
+        scroll-behavior: smooth;
+    }
     body{
-        background-color: #fef9e9 !important;
+        background-color: white !important;
+    }
+    .dropdown.arrow-top{
+        background: #ffffff !important;
+    }
+    .dropdown.arrow-top li a{
+        color: rgb(11,119,61) !important;
+    }
+    .dropdown.arrow-top:before{
+        border-color: transparent;
+        border-bottom-color: #fff !important;
     }
     a.close,a.next,a.prev{
         color: white !important;
@@ -32,12 +45,13 @@ export default {
     }
     *{
         box-sizing: border-box;
-    }
+    }/*fef9e9cc */
     .site-navbar-wrap.scrolled {
-        background-color: #26180b !important;
+        background: rgb(255, 255, 255) !important;
     }
     .site-navbar-wrap.scrolled .site-navbar .site-navigation .site-menu > li > a{
-        color: #fff !important;
+        /*color: rgb(11, 100, 53) !important;*/
+        color: rgb(81, 81, 81) !important;
     }
     .five-reasons {
         width: 80%;
@@ -54,9 +68,9 @@ export default {
     .five-reasons .five-items {
         width: 100%;
         margin-top: 15px;
-        padding: 30px 0px;
+        padding: 10px 0px;
         text-align: center;
-        background: rgba(0, 0, 0, 0.8);
+        /*background: rgba(0, 0, 0, 0.8);*/
     }
     .five-reasons .five-items ul {
         width: 100%;
@@ -67,7 +81,7 @@ export default {
         list-style: none;
     }
     .five-reasons .five-items ul li {
-        width: 33.3333%;
+        width: 20%;
         display: inline-block;
         float: left;
         border-right: 1px solid rgba(255, 255, 255, 0.3);
@@ -91,7 +105,7 @@ export default {
         -webkit-text-stroke-color: black;
     }
     .beige-backgound{
-        background-color: #fef9e9 !important;
+        background-color: #ffffff !important;      
     }
   .help-icon{
        margin-left:0 !important;
@@ -104,7 +118,7 @@ export default {
        font-size: 25px;
        color:red;
    }
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 480px) {
         .five-reasons {
             bottom: -5px;
         }

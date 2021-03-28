@@ -1,9 +1,10 @@
 <template>
+<div>
     <div id="habitaciones" class="site-section bg-light beige-backgound">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 class="mb-5">Elija la habitación que quiera</h2>
+                    <h2 v-if="this.datosHotel" class="mb-5">Elija la habitación que quiera del hotel {{this.datosHotel.name}}</h2>
                 </div>
             </div>            
             <div class="row">
@@ -17,13 +18,13 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6  col-lg-4">
                                     <div class="hotel-room-body">
-                                        <h3  class="heading mb-0">{{habsData.nombre}}</h3>
-                                        <p style="color: grey; text-aling:center">{{habsData.descripcion}}</p>
+                                        <h3 v-if="habsData" class="heading mb-0">{{habsData.nombre}}</h3>
+                                        <p v-if="habsData" style="color: grey; text-aling:center">{{habsData.descripcion}}</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                                     <div class="hotel-room-body">
-                                        <span style="font-size:24px; font-weigth:bolder; color:black; text-aling:center" class="mb-3 ">USD {{habsData.precioDol}} ó S/{{habsData.precioPen}} </span>
+                                        <span v-if="habsData" style="font-size:24px; font-weigth:bolder; color:black; text-aling:center" class="mb-3 ">USD {{habsData.precioDol}} ó S/{{habsData.precioPen}} </span>
                                         <span style="font-size:11px;" class="mb-3 d-block post-date">Incluye impuestos y servicios</span>
                                         <p style="color: black;font-size:13px;">* Tarifa en base a una persona</p>
                                         <p style="color: #3ac92a;font-size:16px;">Incluye Desayuno</p>
@@ -36,7 +37,7 @@
             </div>
         </div>
     </div>
-    
+</div>
 </template>
 
 <script>
@@ -47,6 +48,7 @@ export default {
     data () {
       return {
         habs: [],
+        datosHotel: null,
         habsOnChildAdded: null,
         habsOnChildRemoved: null,
         habsRef: db.child("rooms")
@@ -68,10 +70,29 @@ export default {
                 const index = this.habs.findIndex(e => e.key == snapshot.key)
                 this.habs.splice(index, 1)
             }) 
-        }          
+        },
+        async loadHotel ( ) {            
+            try {
+                let data = (
+                    await db
+                    .child("tambohotels")
+                    .once("value")                    
+                ).val()
+
+                for (let elem in data) {
+                    if(elem == this.$route.params.key)
+                    {    
+                      this.datosHotel = data[elem]; 
+                    }
+                }   
+            } catch (ex) {
+                return console.error(ex)
+            }          
+        },           
     },
     async created () {
         await this.getHabs()
+        await this.loadHotel() 
     },     
     beforeDestroy() {
         this.habsRef.off("child_added", this.habsOnChildAdded)
@@ -82,7 +103,8 @@ export default {
             this.habs = [],
             this.habsOnChildAdded = null,
             this.habsOnChildRemoved = null,
-            this.getHabs()                       
+            this.getHabs(),
+            this.loadHotel()                      
         }
     }
     
@@ -90,6 +112,9 @@ export default {
 </script>
 
 <style scoped>
+    #habitaciones{
+        padding-top:100px !important;
+    }
     .sub-heading{
       color: black !important;
     }

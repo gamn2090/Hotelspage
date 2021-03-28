@@ -26,6 +26,18 @@
                         <input v-model="email" type="email" id="email" class="form-control" placeholder="Correo Electrónico">
                     </div>
                     </div>
+                     <div class="row form-group">
+                    <div class="col-md-12">
+                        <label class="font-weight-bold" for="phone">Teléfono</label>
+                        <input v-model="phone" type="phone" id="phone" class="form-control" placeholder="Teléfono">
+                    </div>
+                    </div>
+                     <div class="row form-group">
+                    <div class="col-md-12">
+                        <label class="font-weight-bold" for="direction">Dirección</label>
+                        <input v-model="address" type="address" id="address" class="form-control" placeholder="Dirección">
+                    </div>
+                    </div>
                     <div class="row form-group">
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="fullname">Hotel en el que reservó</label>
@@ -116,6 +128,8 @@ export default {
         tipoDocumento: null,
         name: null,
         email: null,
+        phone: null,
+        address: null,
         reserva: null,
         nroDocumento: null,
         firma: null,
@@ -184,6 +198,18 @@ export default {
                 this.failure()
                 return
             }
+            if(this.phone === null)
+            {
+                this.message = "Es necesario que nos dé su número de teléfono"
+                this.failure()
+                return
+            }
+            if(this.address === null)
+            {
+                this.message = "Es necesario que coloque su dirección"
+                this.failure()
+                return
+            }
             if(this.reserva === null)
             {
                 this.message = "Es imperativo que introduzca su número de reserva"
@@ -206,16 +232,19 @@ export default {
             const params = new URLSearchParams();
             params.append('nombre', this.name);
             params.append('firma', this.firma);
+            params.append('direccion', this.address);
+            params.append('telefono', this.phone);
             params.append('tipoDocumento', this.tipoDocumento);
             params.append('hotel', this.datosHotel.name);
             params.append('reserva', this.reserva);
             params.append('nroDocumento', this.nroDocumento);
             params.append('correoElectronico', this.email);
-            //params.append('correo', this.datosHotel.email );
-            params.append('correo', 'gamn2090@gmail.com' );
+            params.append('correo', this.datosHotel.mailRecep );
+            //params.append('correo', 'gamn2090@gmail.com' );
             params.append('empresa', this.datosHotel.name );
             try{
                 await axios.post('https://mails-api.herokuapp.com/api/Web-checkin', params);
+                //await axios.post('http://localhost/mailApi/public/api/Web-checkin', params);
             }catch(ex){
                 this.message = "No podemos enviar el mensaje"
                 this.$message.error(this.message);
@@ -288,7 +317,6 @@ export default {
             }          
         },       
         onChange ( event ) {
-          console.log(this.hotelSelected)
             this.loadHotel(this.hotelSelected) 
         },      
     },
@@ -300,6 +328,9 @@ export default {
 </script>
 
 <style scoped>
+    #checkin{
+        padding-top: 100px;
+    }
     .sub-heading{
       color: black !important;
     }

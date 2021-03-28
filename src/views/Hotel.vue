@@ -2,9 +2,11 @@
   <span>    
     <navbar ></navbar> 
     <portada :hotelData="hotelData"></portada>   
-    <promociones :sliders="sliders" :todasPromos="todasPromos" :hotel="hotel"></promociones>    
-    <habitaciones :sliders="sliders" :habs="habs" :hotel="hotel"></habitaciones>    
+    <promociones :todasPromos="todasPromos" :hotel="hotelKey"></promociones>
+    <habitaciones :habs="habs" :hotel="hotelKey"></habitaciones>    
     <caracteristicas></caracteristicas>    
+    <wcheckin></wcheckin>
+    <whatsapp></whatsapp>
     <fotos :fotos="fotos" :images="images" :index="index"></fotos>    
     <!--<my-maps :hotelData="hotelData"></my-maps>-->
     <my-footer></my-footer>    
@@ -13,7 +15,8 @@
 
 <script>
 import { db } from '@/firebase.js'
-
+import Wcheckin from '@/components/Home/Wcheckin';
+import Whatsapp from '@/components/Home/Whatsapp';
 import MyFooter from '@/components/Home/MyFooter';
 import Navbar from '@/components/Home/Navbar';
 import Portada from "@/components/Home/Portada";
@@ -27,19 +30,19 @@ export default {
   name: "hotel",
   components: {    
     Portada,
+    Wcheckin,
     Promociones,
     Habitaciones,
     Caracteristicas,
     Fotos,
     MyMaps,
     MyFooter,
-    Navbar
+    Navbar,
+    Whatsapp
   },
   data () {
       return {
         /*data para los hoteles */
-        hotelData : null,
-        hotel : null,
         routeName: 'DETALLES DEL HOTEL',
         /*data para el map*/ 
         center: {lat: -12.1259781, lng: -77.0328962},
@@ -56,37 +59,22 @@ export default {
         promosRef: db.child("promos"),
         /*data para las fotos */
         fotos: [],
-        images: [],
-        sliders:null,
+        images: [],        
         index : null,
         /*data para habitaciones */
         habs: [],
         habsRef: db.child("habitaciones")
       }    
     },
-    methods: {
-        /*funciones de los hoteles */
-        async getHotelData() {
-           try {
-                let data = (
-                    await db
-                    .child("tambohotels")
-                    .once("value")                    
-                ).val()
-                
-                this.hotel = this.$route.params.key; 
-                
-                for (let elem in data) {
-                    if(elem == this.hotel)
-                        this.hotelData = data[elem];                    
-                }
-
-                //console.log(this.hotelData)
-                           
-            } catch (ex) {
-                return console.error(ex)
-            }          
+    computed: {
+        hotelKey() {
+            return this.$route.params.key;
         },
+        hotelData() {
+            return this.$store.state.hotels.find(a => a.key == this.hotelKey);
+        },
+    },
+    methods: {
         /*funciones de las promociones */
         getFiles() {
             this.files = this.$refs.files.files
@@ -149,10 +137,8 @@ export default {
         },
     },
     async mounted () {
-        this.sliders = Math.round(window.screen.width/448),
-        await this.getPromos(),
-        await this.getHotelData(),
-        await this.getHabs(),
+        await this.getPromos()
+        await this.getHabs()
         await this.getFotos()
     },
     beforeDestroy() {
@@ -161,7 +147,6 @@ export default {
     },    
     watch : {
         $route (to, from){
-            this.hotel = null,
             this.files = [],
             this.todasPromos = [],
             this.fotos = [],

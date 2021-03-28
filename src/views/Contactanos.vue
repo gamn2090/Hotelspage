@@ -4,10 +4,15 @@
     <banner :routeName="routeName"></banner>           
     <my-contacto :hotelData="hotelData" ></my-contacto>    
     <my-footer></my-footer> 
+    <wcheckin></wcheckin>
+    <whatsapp></whatsapp>
+
   </span>
 </template>
 
 <script>
+import Wcheckin from '@/components/Home/Wcheckin';
+import Whatsapp from '@/components/Home/Whatsapp';
 import MyFooter from '@/components/Home/MyFooter';
 import Navbar from '@/components/Home/Navbar';
 import Banner from "@/components/Home/Banner";
@@ -24,9 +29,11 @@ export default {
   },
   components: {    
     Banner,   
+    Wcheckin,
     MyContacto,
     MyFooter,
-    Navbar
+    Navbar,
+    Whatsapp
   }, 
   methods: {
     async selectHotel ( hotel ) {            

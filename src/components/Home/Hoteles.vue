@@ -3,21 +3,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 class="mb-5">Nuestros hoteles</h2>
+                    <h2 class="mb-5 bannerFont">Nuestros Hoteles</h2>
                 </div>
             </div>            
             <div class="row">
-                <div v-for="hotelData in hotels" :key="hotelData.key" class="col-md-6 col-lg-4 mb-5">
+                <div v-for="hotelData in hotels" :key="hotelData.key" class="col-md-6 col-lg-4 mb-5 ">
                     <router-link :to="{ name: 'hotel', params: { key: hotelData.key } }">
-                        <div class="hotel-room text-center">
+                        <div class="hotel-room text-center hotelItem">
                            
-                            <img style="height:215px; width:300px" :src="hotelData.image || '../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
+                            <img style="height:215px; width:100%" :src="hotelData.image || '../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
                             
                             <div class="hotel-room-body">
                                 <h3 class="heading mb-0">{{hotelData.name}}</h3>
-                                <span class="mb-3 d-block post-date">{{hotelData.direccion}}</span>
+                                <span style="color:rgb(11,119,61);" class="mb-3 d-block post-date">{{hotelData.direccion}}</span>
                                 <p style="color: grey">{{hotelData.descripcion}}</p>
                             </div>
+                            <div class="verMas">
+                                <span style="font-weight:bold;color:rgb(11,119,61)">Ver más</span>
+                                <font-awesome-icon style="color:rgb(11,119,61)" icon="arrow-right" class="iconosHoteles"/>
+                            </div>
+                            
                         </div>
                     </router-link>               
                 </div> 
@@ -28,7 +33,6 @@
 
 <script>
 import { db, storage } from '@/firebase.js'
-import moment from "moment"
 
 export default {
     name: "Hoteles",
@@ -69,5 +73,24 @@ export default {
 </script>
 
 <style scoped>
-    
+    .verMas{
+        position:absolute;
+        bottom:2%;
+        left:7%;
+    }
+    .iconosHoteles{
+        font-size: 15px !important;
+    }
+    .img-fluid{
+        border-radius: 25px;
+    }
+    .hotelItem{
+        border-radius: 25px;
+        border: 2px solid rgb(11,119,61);
+        height: 450px;
+        position:relative;
+    }
+    .bannerFont{
+        font-weight: bold;
+    }
 </style>
