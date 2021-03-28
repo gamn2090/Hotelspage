@@ -55,9 +55,8 @@ export default {
             const params = new URLSearchParams();
             params.append('name', this.name);
             params.append('correo', this.correo);
-            //params.append('correoEmpresa', 'ventas@eltamboperu.com' );
-            params.append('correoEmpresa', 'gamn2090@gmail.com' );
-            
+            params.append('correoEmpresa', 'ventas@eltamboperu.com' );
+            //params.append('correoEmpresa', 'gamn2090@gmail.com' );
             
             await axios.post('https://mails-api.herokuapp.com/api/Newsletter', params);
             //await axios.post('http://localhost/mailApi/public/api/Newsletter', params);

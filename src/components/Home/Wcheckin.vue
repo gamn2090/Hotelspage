@@ -24,7 +24,7 @@ export default {
         background-color:rgb(11,119,61);
         color:white;
         padding: 8px;        
-        z-index: 999;
+        z-index: 500;
         cursor: pointer;
     }
     @media only screen and (max-width: 500px) {

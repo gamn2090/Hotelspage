@@ -47,7 +47,7 @@
                                 :key="`index-${index}`"
                                 :position="m.position"
                                 :clickable="true"
-                                :draggable="true"                                
+                                :draggable="false"                                
                                 @click="toggleInfo(m, index)"
                             />
                             </GmapMap>

@@ -27,10 +27,10 @@
                         v-for="(m, index) in markers"
                         :position="m.position"
                         :clickable="true"
-                        :draggable="true"
+                        :draggable="false"
                         @click="center=m.position"
                     />
-                </GmapMap>
+                    </GmapMap>
             </div>
         </div>
     </div>

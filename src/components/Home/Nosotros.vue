@@ -31,7 +31,7 @@
             </div>
         </div>
         
-        <modal :width="600" :height="338" name="video">
+        <modal style="z-index:999" :width="600" :height="338" name="video">
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe  class="embed-responsive-item" src='https://www.youtube.com/embed/TYRuw4YxpTM?rel=0&amp;autoplay=1&amp;modestbranding=1&amp;showinfo=0&amp;showinfo=0&amp;listType=playlist&loop=1' id="video"  allowscriptaccess="always" allow="autoplay" allowfullscreen></iframe>
             </div>
