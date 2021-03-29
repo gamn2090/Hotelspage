@@ -75,7 +75,7 @@ export default {
         },
         hotelSelected: null,
         center: {lat: -12.1208012, lng: -77.0292627},
-        centerAlways: {lat: -12.1177683, lng: -77.0337438},
+        centerAlways: {lat: -12.1208012, lng: -77.0292627},
         markers: []
       }
     },
@@ -84,10 +84,15 @@ export default {
             return this.$store.state.hotels;
         },
         visibleMarkers() {
-            if (this.hotelSelected == "00" || this.hotelSelected == null ) {           
+            if (this.hotelSelected == "00" || this.hotelSelected == null ) {
+                this.center = this.centerAlways;
                 return this.markers;
             }
-            return this.markers.filter(a => a.key == this.hotelSelected);
+
+            let markerSelected = this.markers.filter(a => a.key == this.hotelSelected);
+            this.center = {lat: markerSelected[0].position.lat, lng: markerSelected[0].position.lng};
+            return markerSelected;
+
         }
     },
     methods:{

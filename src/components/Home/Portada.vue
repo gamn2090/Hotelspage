@@ -22,7 +22,7 @@
                         </li>                        
                         <li>
                             <font-awesome-icon icon="wifi" class="text-white iconosBanner"/>
-                            <span class="text-five">Wifi grátis</span>
+                            <span class="text-five">Wifi gratis</span>
                         </li>
                         <li>
                             <router-link style="color:white" :to="{ path: '/Web-checkin', hash: '#checkin'}">

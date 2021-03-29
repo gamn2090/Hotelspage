@@ -1,15 +1,15 @@
 <template>
     <footer class="site-footer">
-        <div class="container">
+        <div class="container footer">
             <div class="row">   
-                <div class="col-md-4">                    
+                <div class="col-md-2">                    
                     <center>
                         <router-link :to="'/'" >
-                            <img style="width:70%" src='@/assets/tamboBlanco.png' alt="El Tambo">                                
+                            <img style="width:100%" src='@/assets/tamboBlanco.png' alt="El Tambo">                                
                         </router-link>
                     </center>                    
                 </div>             
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <center>
                         <h3 class="footer-heading text-white">Menu Rápido</h3><br>
                         <ul class="list-unstyled"> 
@@ -36,7 +36,7 @@
                         </ul>                                          
                     </center>     
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <center>
                         <h3 class="footer-heading mb-4 text-white">Síguenos:</h3>
                         <p>                            
@@ -52,10 +52,8 @@
                             <!--<a href="#!" class="p-2"><span class="icon-vimeo"></span></a>-->
                         </p>
                     </center>
-                </div>
-            </div>
-            <div class="row"> 
-                <div class="col-md-4">
+                </div>             
+                <div class="col-md-2">
                     <center><h5 style="color:white">Tambo 1</h5>
                     <p>
                         <font-awesome-icon icon="map-marker-alt" class="text-white"/> 
@@ -74,7 +72,7 @@
                         reservas@eltamboperu.com
                     </p></center>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <center><h5 style="color:white">Tambo 2</h5>
                     <p>
                         <font-awesome-icon icon="map-marker-alt" class="text-white"/>
@@ -93,7 +91,7 @@
                         reservas2@eltamboperu.com
                     </p></center>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <center><h5 style="color:white">Tambo 2 de Mayo</h5></center>
                     <center><p>
                         <font-awesome-icon icon="map-marker-alt" class="text-white"/> 
@@ -113,7 +111,7 @@
                     </p></center>
                 </div>
             </div>
-            <div class="row pt-5 mt-5 text-center">
+            <div class="row pt-5 mt-5 text-center" style="margin-top:15px !important">
                 <div class="col-md-12">
                     <p>
                         Copyright &copy; 2020 Hotel El Tambo Todos los derechos reservados | Powered by <strong><a href="https://www.chevere.tech" target="_blank">ChevereTech</a></strong>
@@ -140,5 +138,8 @@ export default {
 .socialLinks{
     color:white !important;
     font-size: 20px !important;
+}
+.footer{
+    font-size: 12px !important;
 }
 </style>
