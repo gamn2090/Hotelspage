@@ -47,8 +47,12 @@
                                 :key="`index-${index}`"
                                 :position="m.position"
                                 :clickable="true"
-                                :draggable="false"                                
-                                @click="toggleInfo(m, index)"
+                                :draggable="false" 
+                                @click="toggleInfo(m, index)"     
+                                :icon="{ url: require('@/assets/map-marker2.png'),
+                                    size: {width: 35, height: 50, f: 'px', b: 'px'},
+                                    scaledSize: {width: 35, height: 50, f: 'px', b: 'px'}
+                                }"
                             />
                             </GmapMap>
                     </div>
@@ -99,7 +103,7 @@ export default {
         getGmapsMarkers() {
             this.hotels.forEach(element => {
                 const position = {lat: Number.parseFloat(element.latitud), lng: Number.parseFloat(element.longitud)};
-                const label = {text:element.name,color:"black",fontSize:"16px",fontWeight:"bold"};
+                const label = {text:element.name,direction:element.direccion,color:"black",fontSize:"16px",fontWeight:"bold"};
                 const key = element.key;
                 const info = {position, label, key};
                 this.markers.push(info);
@@ -117,7 +121,7 @@ export default {
         toggleInfo: function(marker, key) {
             //solo debe haber un infobox
             this.infoPosition = this.getPosition(marker);
-            this.infoContent = marker.label.text;
+            this.infoContent = marker.label.text +' - '+ marker.label.direction;
             if (this.infoCurrentKey == key) {
                 this.infoOpened = !this.infoOpened;
             } else {

@@ -145,7 +145,7 @@ export default {
         z-index: 99;
     }
     .Carousel {
-        height: 60vh !important;
+        height: 100vh !important;
         position: relative !important;
         margin: 0 !important;
     }

@@ -54,7 +54,7 @@
                     </center>
                 </div>             
                 <div class="col-md-2">
-                    <center><h5 style="color:white">Tambo 1</h5>
+                    <center><h5 class="FooterTittle" style="color:white">Tambo 1</h5>
                     <p>
                         <font-awesome-icon icon="map-marker-alt" class="text-white"/> 
                         La Paz 1276 Miraflores
@@ -73,7 +73,7 @@
                     </p></center>
                 </div>
                 <div class="col-md-2">
-                    <center><h5 style="color:white">Tambo 2</h5>
+                    <center><h5 class="FooterTittle" style="color:white">Tambo 2</h5>
                     <p>
                         <font-awesome-icon icon="map-marker-alt" class="text-white"/>
                         Av. La Paz 720 Miraflores
@@ -92,7 +92,7 @@
                     </p></center>
                 </div>
                 <div class="col-md-2">
-                    <center><h5 style="color:white">Tambo 2 de Mayo</h5></center>
+                    <center><h5 class="FooterTittle" style="color:white">Tambo 2 de Mayo</h5></center>
                     <center><p>
                         <font-awesome-icon icon="map-marker-alt" class="text-white"/> 
                         Calle 2 de Mayo 494 Miraflores
@@ -141,5 +141,8 @@ export default {
 }
 .footer{
     font-size: 12px !important;
+}
+.FooterTittle{
+    font-size: 14px !important;
 }
 </style>
