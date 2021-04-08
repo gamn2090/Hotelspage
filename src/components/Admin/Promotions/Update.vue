@@ -86,12 +86,21 @@
                             </el-input>                            
                         </div>                                             
                     </div>
-                    <div class="row form-group">                       
-                        <div class="col-md-6">
+                    <div class="row form-group"> 
+                        <div class="col-md-4">
+                            <label class="font-weight-bold">Términos y condiciones</label><br>
+                            <el-input
+                            type="textarea"
+                            :rows="2"
+                            placeholder="Términos y condiciones"
+                            v-model="terminos">
+                            </el-input>                            
+                        </div>                       
+                        <div class="col-md-4">
                             <label class="font-weight-bold">Descuento</label><br>
                             <el-input-number v-model="descuento" :min="0" :max="1000"></el-input-number>
                         </div> 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                         <label class="font-weight-bold">¿Desea que esta promoción aparezca en el inicio?</label>
                         <el-select v-model="mainPromo" >
                             <el-option   
@@ -134,9 +143,10 @@ export default {
         hotelSelected: null,
         hotelImage: null,
         /* */
-        promo: null,        
-        precioDol: null,
-        precioPen: null,
+        promo: null,
+        terminos:null,
+        precioDol: 0,
+        precioPen: 0,
         descuento: null,
         descripcion: null,
         fechaInicio: null,
@@ -188,6 +198,7 @@ export default {
                     hotel: this.hotelSelected,
                     description: this.descripcion,
                     mainPromo: this.mainPromo,
+                    terminos: this.terminos,
                     image: url,
                     createdAt: now.format("DD/MM/YYYY"),
                     createdAtUnix: now.unix() 
@@ -199,6 +210,7 @@ export default {
                 this.precioDol = 0,
                 this.precioPen = 0,
                 this.fechaInicio = null,
+                this.terminos = null,
                 this.fechaFin = null,
                 this.descuento = 0,
                 this.hotel = null,
@@ -262,6 +274,7 @@ export default {
                 this.fechaInicio =   this.promoEditar.fechaInicio
                 this.mainPromo =     this.promoEditar.mainPromo
                 this.fechaFin =      this.promoEditar.fechaFin
+                this.terminos =      this.promoEditar.terminos
 
             } catch (ex) {
                 return console.error(ex)

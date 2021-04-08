@@ -90,11 +90,13 @@ export default {
         visibleMarkers() {
             if (this.hotelSelected == "00" || this.hotelSelected == null ) {
                 this.center = this.centerAlways;
+                this.infoOpened = false;
                 return this.markers;
             }
 
             let markerSelected = this.markers.filter(a => a.key == this.hotelSelected);
             this.center = {lat: markerSelected[0].position.lat, lng: markerSelected[0].position.lng};
+            this.infoOpened = false;
             return markerSelected;
 
         }

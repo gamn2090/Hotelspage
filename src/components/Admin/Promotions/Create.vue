@@ -64,6 +64,12 @@
                         <el-input
                         type="textarea"
                         :rows="2" v-model="descripcion" name="message" placeholder="Describa su promoción"></el-input>
+                    </el-col>      
+                    <el-col :xs="24" :md="10" :offset="1">
+                        <label class="font-weight-bold">Términos y condiciones</label>
+                        <el-input
+                        type="textarea"
+                        :rows="2" v-model="terminos" name="message" placeholder="Términos y condiciones"></el-input>
                     </el-col>       
                     <el-col :xs="24" :md="10" :offset="1">
                         <label class="font-weight-bold">¿Desea que esta promoción aparezca en el inicio?</label>
@@ -104,6 +110,7 @@ export default {
         files: [],
         promo: null,
         precioDol: null,
+        terminos:null,
         precioPen: null,
         descuento: null,
         hotelImage:null,
@@ -155,6 +162,7 @@ export default {
                     hotel: this.hotelSelected,
                     description: this.descripcion,
                     mainPromo: this.mainPromo,
+                    terminos:this.terminos,
                     image: url,
                     createdAt: now.format("DD/MM/YYYY"),
                     createdAtUnix: now.unix() 

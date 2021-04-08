@@ -9,7 +9,7 @@
             <Carousel v-if="this.promos != null" :autoplay="true"                    
                       :per-page="1"
                       :loop="true"
-                      :autoplayTimeout="2000"  >
+                      :autoplayTimeout="8000"  >
                 <Slide v-for="promosData in promos" :key="promosData.key" class="promocionesTambo"> 
                     <!-- <router-link :to="{ name: 'hotel', params: { key: promosData.hotel} }" > -->
                     <div class="img-border-sm mb-12">                        
@@ -17,18 +17,29 @@
                             <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" :alt="promosData.name" class="img-fluid">
                         </div>                        
                     </div>
-                <!-- </router-link> -->
-                    <div class="innerContainer">
+                
+                    <div class="innerContainer"><!--vertical-align -->
                         <div
-                            class="row align-items-center justify-content-center vertical-align"
+                            class="row align-items-center justify-content-center " 
                         >
                             <div class="col-md-12 text-center onTop" data-aos="fade">
-                            <h2 class="heading mb-0 tituloPromocion">{{promosData.name}}</h2>
-                            <h3 class="mb-3 d-block post-date infoPromocion">{{promosData.description}}</h3>
-                                                            
-                            </div>                            
+                            <h2 class="heading mb-0 tituloPromocion">{{promosData.name}}</h2><br><br>
+                            <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.description">{{promosData.description}}</h5><br><br>
+                            <div class="price">
+                                S./ {{promosData.precioPen}}
+                            </div>
+                            </div>
                         </div>
-                    </div>                   
+                    </div> 
+                    <div class="innerContainerBottom"><!--vertical-align -->
+                        <div
+                            class="row align-items-center justify-content-center " 
+                        >
+                            <div class="col-md-12 text-center onTop">
+                                <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.terminos">{{promosData.terminos}}</h5><br><br>
+                            </div>
+                        </div>
+                    </div>
                 </Slide>                       
             </Carousel>
         </div>       
@@ -105,6 +116,17 @@ export default {
 </script>
 
 <style scoped>
+    .price{
+        background-color: rgb(167, 91, 31);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        margin-left: 30%;
+        margin-right: 30%;
+        border-radius: 20px;
+    }
     .container{
         width:100% !important;
         margin:0 !important;
@@ -129,8 +151,9 @@ export default {
         z-index: 99;
     }
     .innerContainer {
+        height: 100%;
         border-radius: 7%;
-        background-color: #fff;
+        background-color: rgba(253, 249, 222,.8);
         padding-right:20px;
         padding-bottom:20px;
         padding-top:20px;
@@ -144,6 +167,27 @@ export default {
         transform: translate(-50%, -50%);
         z-index: 99;
     }
+    .innerContainerBottom {
+        height: 15%;
+        background-color: rgb(253, 249, 222);
+        padding-right:20px;
+        padding-bottom:20px;
+        padding-top:20px;
+        padding-left:10px;
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        bottom: -10%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 99;
+    }
+    .tituloPromocion{
+        padding-top:10px;
+        font-size: 19px;
+        color: rgb(167,91,31) !important;
+    }    
     .Carousel {
         height: 100vh !important;
         position: relative !important;
@@ -175,25 +219,25 @@ export default {
             background-color: rgba(88, 172, 225, 1)
         }
     }
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 900px) {
         .innerContainer {
             border-radius: 7%;
-            background-color: #fff;
-            padding-right:20px;
-            padding-bottom:20px;
-            padding-top:20px;
-            padding-left:10px;
             width: 50%;
             margin: 0;
-            position: absolute;
             top: 50%;
-            left: 20%;
+            left: 30%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-            z-index: 99;
+        } 
+        .price{
+            font-size:16px;
         }
+        .innerContainer h5{
+            font-size:11px;
+        }   
         .tituloPromocion, .infoPromocion{
-            font-size: 20px !important;
+            padding-top:10px;
+            font-size: 16px !important;
         }
     }
 

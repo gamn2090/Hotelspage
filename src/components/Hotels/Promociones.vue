@@ -19,10 +19,19 @@
                     </div>
                 <!-- </router-link> -->
                     <div class="innerContainer">
-                        <div class="row align-items-center justify-content-center vertical-align">
+                        <div class="row align-items-center justify-content-center ">
                             <div class="col-md-12 text-center onTop" data-aos="fade">
-                            <h2 class="heading mb-0 tituloPromocion">{{promosData.name}}</h2>
-                            <h3 class="mb-3 d-block post-date infoPromocion">{{promosData.description}}</h3>
+                            <h2 class="heading mb-0 tituloPromocion">{{promosData.name}}</h2><br><br>
+                            <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.description">{{promosData.description}}</h5>
+                                <p v-if="promosData.descuento && promosData.descuento > 0" class="mb-3 d-block post-date">
+                                    <center>
+                                        <strong v-if="(promosData.precioDol && promosData.precioDol !== '0') && (promosData.precioPen && promosData.precioPen !== '0')" >Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} ó S/. {{ promosData.precioPen - (promosData.precioPen * (promosData.descuento / 100)) }}</strong>
+
+                                        <strong v-if="(promosData.precioDol && promosData.precioDol!==0) && (!promosData.precioPen || promosData.precioPen===0)">Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} </strong> 
+
+                                         <strong v-if="(!promosData.precioDol || promosData.precioDol===0) && (promosData.precioPen && promosData.precioPen!==0)">Desde S/ {{ promosData.precioPen - (promosData.precioPen * (promosData.descuento / 100)) }} </strong> 
+                                    </center> 
+                                </p>
                                 <p v-if="promosData.descuento && promosData.descuento !== 0" class="mb-3 d-block post-date">
                                     <center><strong>Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} ó S/. {{ promosData.precioPen - (promosData.precioPen * (promosData.descuento / 100)) }}</strong></center> 
                                 </p>
@@ -96,6 +105,7 @@ export default {
 </script>
 
 <style scoped>
+    
     .container{
         width:100% !important;
         margin:0 !important;
@@ -120,8 +130,9 @@ export default {
         z-index: 99;
     }
     .innerContainer {
+        height: 100%;
         border-radius: 7%;
-        background-color: #fff;
+        background-color: rgba(253, 249, 222,.8);
         padding-right:20px;
         padding-bottom:20px;
         padding-top:20px;
@@ -135,6 +146,10 @@ export default {
         transform: translate(-50%, -50%);
         z-index: 99;
     }
+    .tituloPromocion{
+        padding-top:10px;
+        color: rgb(167,91,31) !important;
+    }   
     .Carousel {
         height: 60vh !important;
         position: relative !important;
@@ -166,25 +181,25 @@ export default {
             background-color: rgba(88, 172, 225, 1)
         }
     }
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 900px) {
         .innerContainer {
             border-radius: 7%;
-            background-color: #fff;
-            padding-right:20px;
-            padding-bottom:20px;
-            padding-top:20px;
-            padding-left:10px;
             width: 50%;
             margin: 0;
-            position: absolute;
             top: 50%;
-            left: 20%;
+            left: 30%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-            z-index: 99;
+        } 
+        .price{
+            font-size:16px;
         }
+        .innerContainer h5{
+            font-size:11px;
+        }   
         .tituloPromocion, .infoPromocion{
-            font-size: 20px !important;
+            padding-top:10px;
+            font-size: 16px !important;
         }
     }
 </style>

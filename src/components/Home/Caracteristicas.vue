@@ -143,5 +143,7 @@ export default {
 </script>
 
 <style scoped>
-    
+    .text-primary{
+        color:rgb(11,119,61) !important;
+    }
 </style>

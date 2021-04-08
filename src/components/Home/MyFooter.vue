@@ -5,7 +5,7 @@
                 <div class="col-md-2">                    
                     <center>
                         <router-link :to="'/'" >
-                            <img style="width:100%" src='@/assets/tamboBlanco.png' alt="El Tambo">                                
+                            <img class="imagenFooterHotel" src='@/assets/tamboBlanco.png' alt="El Tambo">                                
                         </router-link>
                     </center>                    
                 </div>             
@@ -57,7 +57,7 @@
                     <center><h5 class="FooterTittle" style="color:white">Tambo 1</h5>
                     <p>
                         <font-awesome-icon icon="map-marker-alt" class="text-white"/> 
-                        La Paz 1276 Miraflores
+                        Av. La Paz 1276<br> Miraflores
                     </p>
                     <p> 
                         <font-awesome-icon icon="phone-alt" class="text-white"/>
@@ -76,7 +76,7 @@
                     <center><h5 class="FooterTittle" style="color:white">Tambo 2</h5>
                     <p>
                         <font-awesome-icon icon="map-marker-alt" class="text-white"/>
-                        Av. La Paz 720 Miraflores
+                        Av. La Paz 720<br> Miraflores
                     </p>
                     <p> 
                         <font-awesome-icon icon="phone-alt" class="text-white"/>
@@ -142,7 +142,15 @@ export default {
 .footer{
     font-size: 12px !important;
 }
+.imagenFooterHotel{
+    width: 100%
+}
 .FooterTittle{
     font-size: 14px !important;
+}
+@media only screen and (max-width: 750px) {
+    .imagenFooterHotel{
+        width: 60% ;
+    }
 }
 </style>
