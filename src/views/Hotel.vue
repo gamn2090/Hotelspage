@@ -6,6 +6,7 @@
     <habitaciones :habs="habs" :hotel="hotelKey"></habitaciones>    
     <caracteristicas></caracteristicas>    
     <wcheckin></wcheckin>
+    <lang></lang>
     <whatsapp></whatsapp>
     <fotos :fotos="fotos" :images="images" :index="index"></fotos>    
     <!--<my-maps :hotelData="hotelData"></my-maps>-->
@@ -16,11 +17,12 @@
 <script>
 import { db } from '@/firebase.js'
 import Wcheckin from '@/components/Home/Wcheckin';
+import Lang from '@/components/Home/Lang';
 import Whatsapp from '@/components/Home/Whatsapp';
 import MyFooter from '@/components/Home/MyFooter';
 import Navbar from '@/components/Home/Navbar';
 import Portada from "@/components/Home/Portada";
-import Promociones from "@/components/Hotels/Promociones";
+import Promociones from "@/components/Home/Promociones";
 import Habitaciones from "@/components/Hotels/Habitaciones";
 import Caracteristicas from "@/components/Home/Caracteristicas";
 import Fotos from "@/components/Hotels/Fotos";
@@ -32,6 +34,7 @@ export default {
     Portada,
     Wcheckin,
     Promociones,
+    Lang,
     Habitaciones,
     Caracteristicas,
     Fotos,

@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                        <h2 class="mb-5">Vea nuestro establecimiento</h2>
+                        <h2 class="mb-5">{{$t('HotelesPage["Sections"]["Fotos"]["Titulo"]')}}</h2>
                     </div>
                 </div>
                 <div class="row no-gutters">  
@@ -15,7 +15,7 @@
                 
                 <div class="row">
                     <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                        <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key }, hash:'#galeria' }">Ver todas las fotos
+                        <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key }, hash:'#galeria' }">{{$t('HotelesPage["Sections"]["Fotos"]["Ver"]')}}
                         </router-link>
                     </div>
                 </div>                

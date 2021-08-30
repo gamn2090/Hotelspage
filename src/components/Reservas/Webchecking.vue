@@ -4,8 +4,8 @@
       <div id="checkin" class="container">
           <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
-              <h1 class="mb-4 sub-heading">Web Check-in</h1>
-              <span class="caption mb-3 sub-heading">Sin contactos, más rápido, más seguro</span>
+              <h1 class="mb-4 sub-heading">{{$t('WebCheckin["Titulo"]')}}</h1>
+              <span class="caption mb-3 sub-heading">{{$t('WebCheckin["Comentario"]')}}</span>
           </div>
           </div>
       </div>
@@ -16,32 +16,32 @@
                   <form action="#" class="p-5 bg-white">
                     <div class="row form-group">
                     <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="fullname">Nombre Completo</label>
-                        <input v-model="name" type="text" id="fullname" class="form-control" placeholder="Nombre Completo">
+                        <label class="font-weight-bold" for="fullname">{{$t('WebCheckin["Labels"]["Nombre"]')}}</label>
+                        <input v-model="name" type="text" id="fullname" class="form-control" :placeholder="$t('WebCheckin.Placeholders.Nombre')">
                     </div>
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12">
-                        <label class="font-weight-bold" for="email">Correo Electrónico</label>
-                        <input v-model="email" type="email" id="email" class="form-control" placeholder="Correo Electrónico">
+                        <label class="font-weight-bold" for="email">{{$t('WebCheckin["Labels"]["Correo"]')}}</label>
+                        <input v-model="email" type="email" id="email" class="form-control" :placeholder="$t('WebCheckin.Placeholders.Correo')">
                     </div>
                     </div>
                      <div class="row form-group">
                     <div class="col-md-12">
-                        <label class="font-weight-bold" for="phone">Teléfono</label>
-                        <input v-model="phone" type="phone" id="phone" class="form-control" placeholder="Teléfono">
+                        <label class="font-weight-bold" for="phone">{{$t('WebCheckin["Labels"]["Telefono"]')}}</label>
+                        <input v-model="phone" type="phone" id="phone" class="form-control" :placeholder="$t('WebCheckin.Placeholders.Telefono')">
                     </div>
                     </div>
                      <div class="row form-group">
                     <div class="col-md-12">
-                        <label class="font-weight-bold" for="direction">Dirección</label>
-                        <input v-model="address" type="address" id="address" class="form-control" placeholder="Dirección">
+                        <label class="font-weight-bold" for="direction">{{$t('WebCheckin["Labels"]["Direccion"]')}}</label>
+                        <input v-model="address" type="address" id="address" class="form-control" :placeholder="$t('WebCheckin.Placeholders.Direccion')">
                     </div>
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12">
-                        <label class="font-weight-bold" for="fullname">Hotel en el que reservó</label>
-                        <el-select @change="onChange($event)" class="form-control" id="hotel" placeholder="Seleccione un hotel" v-model="hotelSelected">
+                        <label class="font-weight-bold" for="fullname">{{$t('WebCheckin["Labels"]["Hotel"]')}}</label>
+                        <el-select @change="onChange($event)" class="form-control" id="hotel" :placeholder="$t('WebCheckin.Placeholders.Hotel')" v-model="hotelSelected">
                             <el-option 
                                 v-for="(hotel, key) in hotelData" 
                                 :key="key" 
@@ -54,15 +54,15 @@
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="reserva">Número de Reserva</label>
-                        <input v-model="reserva" type="text" id="reserva" class="form-control" placeholder="Número de reserva">
+                        <label class="font-weight-bold" for="reserva">{{$t('WebCheckin["Labels"]["Reserva"]')}}</label>
+                        <input v-model="reserva" type="text" id="reserva" class="form-control" :placeholder="$t('WebCheckin.Placeholders.Reserva')">
                     </div>
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12">
-                        <label class="font-weight-bold" for="tipoDocumento">Tipo de documento</label>
+                        <label class="font-weight-bold" for="tipoDocumento">{{$t('WebCheckin["Labels"]["Documento"]')}}</label>
                         <el-select id="tipoDocumento" class="form-control" v-model="tipoDocumento">
-                            <el-option :selected="true" disabled value="">Seleccione un tipo de documento</el-option>
+                            <el-option :selected="true" disabled value="">{{$t('WebCheckin["Labels"]["DocumentoOpc"]')}}</el-option>
                             <el-option
                               v-for="item in tipoDocs"
                               :key="item.value"
@@ -74,33 +74,32 @@
                     </div>
                      <div class="row form-group">
                     <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="phone">Número de Documento</label>
-                        <input v-model="nroDocumento" type="text" id="nroDocumento" class="form-control" placeholder="Número de documento">
+                        <label class="font-weight-bold" for="phone">{{$t('WebCheckin["Labels"]["NroDocumento"]')}}</label>
+                        <input v-model="nroDocumento" type="text" id="nroDocumento" class="form-control" :placeholder="$t('WebCheckin.Placeholders.NroDocumento')">
                     </div>
                     </div>
                     <br>
                     <div class="row form-group">
                       
                       <div class="col-md-12 ">
-                        <label class="font-weight-bold" for="signature">Firma</label>
+                        <label class="font-weight-bold" for="signature">{{$t('WebCheckin["Labels"]["Nombre"]')}}</label>
                         <VueSignaturePad id="signature" width="this.width" height="200px" ref="signaturePad"
                         :options="{ backgroundColor: 'white', penColor:'red'}" />
-                        
-                        <div style="margin-top: 15px;">                            
-                            <a style="width:90px;color:white" class="btn btn-primary pill" @click="undo">Deshacer</a>
+                        <div style="margin-top: 15px;">
+                            <a style="width:90px;color:white" class="btn btn-primary pill" @click="undo" >{{$t('WebCheckin["Labels"]["Deshacer"]')}}</a>
                         </div>
                       </div>
                     </div>
                     
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <p style="font-size:12px; text-decoration:underline">Se recomienda utilizar un dispositivo táctil para dibujar su firma.</p>
+                            <p style="font-size:12px; text-decoration:underline">{{$t('WebCheckin["Labels"]["Consideracion"]')}}</p>
                         </div>
                     </div>    
                     <br><br>  
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <a @click="SendMail()" style="color:white" class="btn btn-primary pill px-4 py-2">Generar Web-checkin</a>
+                            <a @click="SendMail()" style="color:white" class="btn btn-primary pill px-4 py-2">{{$t('WebCheckin["Labels"]["Enviar"]')}}</a>
                         </div>
                     </div>                    
                   </form>
@@ -239,10 +238,11 @@ export default {
             params.append('reserva', this.reserva);
             params.append('nroDocumento', this.nroDocumento);
             params.append('correoElectronico', this.email);
-            params.append('correo', this.datosHotel.mailRecep );
+            params.append('correo', this.datosHotel.email );
             //params.append('correo', 'gamn2090@gmail.com' );
             params.append('empresa', this.datosHotel.name );
             try{
+                console.log(this.datosHotel.email);
                 await axios.post('https://mails-api.herokuapp.com/api/Web-checkin', params);
                 //await axios.post('http://localhost/mailApi/public/api/Web-checkin', params);
             }catch(ex){
@@ -334,13 +334,11 @@ export default {
     .sub-heading{
       color: black !important;
     }
-
     #signature {
         margin: auto;
         border: solid 3px black;
         border-radius: 5px;        
         background-origin: border-box;
         background-clip: content-box, border-box;
-    }
-    
+    }    
 </style>

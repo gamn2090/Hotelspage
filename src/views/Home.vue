@@ -7,7 +7,9 @@
     <parallax></parallax>
     <promociones></promociones>
     <wcheckin></wcheckin>
+    <lang></lang>
     <whatsapp></whatsapp>
+    <fb-messenger></fb-messenger>
     <!-- <opiniones></opiniones> --><!-- se la quito por ahora hasta que me den opiniones reales-->
     <maps></maps>
     <my-footer></my-footer>
@@ -16,8 +18,10 @@
 
 <script>
 
+import FbMessenger from '@/components/Home/FbMessenger';
 import MyFooter from '@/components/Home/MyFooter';
 import Wcheckin from '@/components/Home/Wcheckin';
+import Lang from '@/components/Home/Lang';
 import Whatsapp from '@/components/Home/Whatsapp';
 import Navbar from '@/components/Home/Navbar';
 import Banner from "@/components/Home/Banner.vue";
@@ -36,9 +40,11 @@ export default {
     Banner,
     Hoteles,
     Promociones,
+    FbMessenger,
     Nosotros,
     Caracteristicas,
     Wcheckin,
+    Lang,
     Parallax,
     Fotos,
     Opiniones,

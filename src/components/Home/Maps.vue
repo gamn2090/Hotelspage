@@ -3,13 +3,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 class="mb-5 bannerFont">Ubícanos</h2>
+                    <h2 class="mb-5 bannerFont">{{$t('Ubicanos["Titulo"]')}}</h2>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12 col-lg-3 mb-2">
-                    <a href="javascript:;" v-on:click="selectMap('00')" class="button-map-select d-block text-center font-weight-bold text-dark">Todos los hoteles</a>
+                    <a href="javascript:;" v-on:click="selectMap('00')" class="button-map-select d-block text-center font-weight-bold text-dark">{{$t('Ubicanos["TodosHoteles"]')}}</a>
                 </div>
                 <div class="col-12 col-lg-3 mb-2" v-for="hotel in hotels" :key="hotel.key">
                     <a href="javascript:;" @click="selectMap(hotel.key)" class="button-map-select d-block text-center font-weight-bold text-dark">

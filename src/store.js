@@ -7,10 +7,14 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     hotels: [],
+    pictures: [],
   },
   mutations: {
     SET_HOTELS(state, data) {
       state.hotels = data;
+    },
+    SET_PICTURES(state, data) {
+      state.pictures = data;
     }
   },
   actions: {

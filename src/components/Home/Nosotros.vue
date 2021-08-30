@@ -15,18 +15,10 @@
                 </div>
                 <div class="col-md-5 ml-auto">
                     <div class="section-heading mb-5 text-center">
-                        <h2 class="mb-5 bannerFont">Nosotros</h2>
+                        <h2 class="mb-5 bannerFont">{{$t('Nosotros["Titulo"]')}}</h2>
                     </div>
-                    <p style="text-align:center" class="mb-4">Somos una cadena hotelera peruana con más de 12 años de servicio.</p>
-                    <p style="text-align:center" class="mb-4">Nos encontramos ubicados en la mejor zona comercial y turística de Miraflores,
-                    contamos con 147 habitaciones distribuidas en 3 propiedades totalmente equipadas y
-                    diseñadas para brindarles una agradable estadía generando una experiencia
-                    inolvidable a nuestros huéspedes.</p>
-                    <p style="text-align:center" class="mb-4">La posición estratégica en el corazón de Miraflores, junto con el estilo único y la
-                    hospitalidad que siempre han caracterizado a Hoteles El Tambo, hacen de nuestros 3
-                    hoteles un destino perfecto tanto para estancias de negocios como de turismo.
-                    </p>
-                    <p><a @click="show()" style="color:red;cursor:pointer" class="popup-vimeo text-uppercase">Ver video <span class="icon-arrow-right small"></span></a></p>
+                    <span v-html="$t('Nosotros.Texto')"></span>
+                    <p><a @click="show()" style="color:red;cursor:pointer" class="popup-vimeo text-uppercase">{{$t('Nosotros["video"]')}} <span class="icon-arrow-right small"></span></a></p>
                 </div>
             </div>
         </div>

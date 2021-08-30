@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row" style="margin-right:0;margin-left:0">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 class="mb-5 bannerFont">Nuestras promociones exclusivas web</h2>
+                    <h2 class="mb-5 bannerFont">{{$t('Promociones["Titulo"]')}}</h2>
                 </div>
             </div>
             <Carousel v-if="this.promos != null" :autoplay="true"                    
@@ -19,24 +19,34 @@
                     </div>
                 
                     <div class="innerContainer"><!--vertical-align -->
-                        <div
-                            class="row align-items-center justify-content-center " 
-                        >
+                        <div v-if="$i18n.locale == 'es'" class="row align-items-center justify-content-center "  >
                             <div class="col-md-12 text-center onTop" data-aos="fade">
-                            <h2 class="heading mb-0 tituloPromocion">{{promosData.name}}</h2><br><br>
-                            <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.description">{{promosData.description}}</h5><br><br>
-                            <div class="price">
-                                S./ {{promosData.precioPen}}
+                                <h2 class="heading mb-0 tituloPromocion">{{promosData.name}}</h2><br><br>
+                                <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.description">{{promosData.description}}</h5>
+                                <br><br>
+                                <div class="price">
+                                    S./ {{promosData.precioPen}}
+                                </div>
                             </div>
+                        </div>
+                        <div v-else class="row align-items-center justify-content-center "  >
+                            <div class="col-md-12 text-center onTop" data-aos="fade">
+                                <h2 class="heading mb-0 tituloPromocion">{{promosData.name_en}}</h2><br><br>
+                                <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.description_en">{{promosData.description_en}}</h5>
+                                <br><br>
+                                <div class="price">
+                                    S./ {{promosData.precioPen}}
+                                </div>
                             </div>
                         </div>
                     </div> 
                     <div class="innerContainerBottom"><!--vertical-align -->
-                        <div
-                            class="row align-items-center justify-content-center " 
-                        >
-                            <div class="col-md-12 text-center onTop">
-                                <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.terminos">{{promosData.terminos}}</h5><br><br>
+                        <div class="row align-items-center justify-content-center " >
+                            <div v-if="$i18n.locale == 'es'" class="col-md-12 text-center onTop">
+                                <h5 class="mb-3 d-block post-date infoPromocion terminos" v-html="promosData.terminos">{{promosData.terminos}}</h5><br><br>
+                            </div>
+                            <div v-else class="col-md-12 text-center onTop">
+                                <h5 class="mb-3 d-block post-date infoPromocion terminos" v-html="promosData.terminos_en">{{promosData.terminos_en}}</h5><br><br>
                             </div>
                         </div>
                     </div>
@@ -153,7 +163,7 @@ export default {
     .innerContainer {
         height: 100%;
         border-radius: 7%;
-        background-color: rgba(253, 249, 222,.8);
+        background-color: rgba(252, 252, 252,.8);
         padding-right:20px;
         padding-bottom:20px;
         padding-top:20px;
@@ -167,9 +177,12 @@ export default {
         transform: translate(-50%, -50%);
         z-index: 99;
     }
+    .terminos{
+        font-size: 10px !important;
+    }
     .innerContainerBottom {
         height: 15%;
-        background-color: rgb(253, 249, 222);
+        background-color: rgb(252, 252, 252);
         padding-right:20px;
         padding-bottom:20px;
         padding-top:20px;
@@ -187,7 +200,10 @@ export default {
         padding-top:10px;
         font-size: 19px;
         color: rgb(167,91,31) !important;
-    }    
+    }   
+    .infoPromocion{
+        font-size: 16px;
+    } 
     .Carousel {
         height: 100vh !important;
         position: relative !important;
@@ -206,6 +222,10 @@ export default {
             margin:0 !important;
             padding:0 !important;
         }
+        .infoPromocion{
+            padding-top:10px;
+            font-size: 14px ;
+        }
     }
     @media (min-width: 576px){
         .container {
@@ -217,6 +237,17 @@ export default {
     @media only screen and (max-width: 500px) {
         .copyright{  
             background-color: rgba(88, 172, 225, 1)
+        }
+        .infoPromocion{
+            padding-top:10px;
+            font-size: 12px ;
+        }
+        .innerContainerBottom {
+            height: 17%;            
+        }
+        .terminos{
+            font-size: 8px !important;
+            color: black;
         }
     }
     @media only screen and (max-width: 900px) {
@@ -237,7 +268,10 @@ export default {
         }   
         .tituloPromocion, .infoPromocion{
             padding-top:10px;
-            font-size: 16px !important;
+            font-size: 16px ;
+        }
+        .terminos{
+            font-size: 10px !important;
         }
     }
 

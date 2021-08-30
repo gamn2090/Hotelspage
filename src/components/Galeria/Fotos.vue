@@ -3,7 +3,7 @@
             <div id="galeria" class="container">
                 <div class="row">
                     <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                        <h2 class="mb-5">Vea nuestro establecimiento</h2>
+                        <h2 class="mb-5">{{$t('Galeria["Titulo"]')}}</h2>
                     </div>
                 </div>
                 <div class="row no-gutters">  

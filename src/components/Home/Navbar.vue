@@ -10,10 +10,10 @@
                 <div class="container">
                     <ul class="site-menu d-lg-block"> 
                         <li class="active">
-                            <router-link :to="'/'" >Inicio</router-link>
+                            <router-link :to="'/'" >{{$t('NavBar["Inicio"]')}}</router-link>
                         </li>                       
                         <li class="has-children">                            
-                            <a href="javascript:void(0);" @click="showHotels()" >Hoteles</a>
+                            <a href="javascript:void(0);" @click="showHotels()" >{{$t('NavBar["Hoteles"]')}}</a>
                             <ul v-if="!this.isHidden">
                                 <li v-for="hotelData in hotels" :key="hotelData.key">
                                     <router-link exact :to="{ name: 'hotel', params: { key: hotelData.key } }">
@@ -24,17 +24,17 @@
                         </li>
                         <li v-if="this.$route.params.key || this.$route.params.hotel">
                             <router-link :to="{ name: 'galeria', params: { key: this.$route.params.key || this.$route.params.hotel } }">
-                                Galería
+                                {{$t('NavBar["Galeria"]')}}
                             </router-link>
                         </li>   
                         <li >
                             <router-link :to="{ path: '/Web-checkin', hash: '#checkin' }">
-                                ¡Web-Checkin!
+                                {{$t('NavBar["WebCheckin"]')}}
                             </router-link>
                         </li>
                           
                         <li class="has-children">                            
-                            <a href="javascript:void(0);" @click="showHotelsRes()" >¡Reserva ya!</a>
+                            <a href="javascript:void(0);" @click="showHotelsRes()" >{{$t('NavBar["Reserva"]')}}</a>
                             <ul v-if="!this.isHiddenRes">
                                 <li v-for="hotelData in hotels" :key="hotelData.key">
                                     <router-link :to="{ name: 'Seleccion-hotel', params: { key: hotelData.key }, hash:'#habitaciones', }">
@@ -44,7 +44,7 @@
                             </ul>
                         </li>
                         <li class="has-children">                            
-                            <a href="javascript:void(0);" @click="showHotelsR()" >¡Contáctanos!</a>
+                            <a href="javascript:void(0);" @click="showHotelsR()" >{{$t('NavBar["Contactanos"]')}}</a>
                             <ul v-if="!this.isHiddenR">
                                 <li v-for="hotelData in hotels" :key="hotelData.key">
                                     <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key }, hash: '#contactoScroll' }">
@@ -81,10 +81,10 @@
                                         <div class="d-inline-block d-lg-none  ml-md-0 mr-auto py-3"><a href="javascript:void(0);" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
                                         <ul class="site-menu js-clone-nav d-none d-lg-block">
                                             <li >
-                                                <router-link :to="'/'" >Inicio</router-link>
+                                                <router-link :to="'/'" >{{$t('NavBar["Inicio"]')}}</router-link>
                                             </li>
                                             <li class="has-children">
-                                                <a href="javascript:void(0);" >Hoteles</a>                                                                                                
+                                                <a href="javascript:void(0);" >{{$t('NavBar["Hoteles"]')}}</a>                                                                                                
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link exact :to="{ name: 'hotel', params: { key: hotelData.key } }">
@@ -97,12 +97,12 @@
                                             <li v-if="this.$route.params.key || this.$route.params.hotel">
                                                 
                                                 <router-link :to="{ name: 'galeria',  params: { key: this.$route.params.key || this.$route.params.hotel }, hash:'#galeria', }">
-                                                    Galería
+                                                    {{$t('NavBar["Galeria"]')}}
                                                 </router-link>
                                             </li>                                            
 
                                             <li class="has-children">
-                                                <a href="javascript:void(0);" >Contáctanos</a>
+                                                <a href="javascript:void(0);" >{{$t('NavBar["Contactanos"]')}}</a>
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link exact :to="{ name: 'Contactanos', params: { key: hotelData.key }, hash: '#contactoScroll' }">
@@ -112,7 +112,7 @@
                                                 </ul>
                                             </li> 
                                             <li class="has-children">
-                                                <a href="javascript:void(0);" >¡Reserva ya!</a>                                           
+                                                <a href="javascript:void(0);" >{{$t('NavBar["Reserva"]')}}</a>                                           
                                                 <ul class="dropdown arrow-top ">
                                                     <li v-for="hotelData in hotels" :key="hotelData.key">
                                                         <router-link :to="{ name: 'Seleccion-hotel', params: { key: hotelData.key }, hash:'#habitaciones', }">
@@ -123,10 +123,9 @@
                                             </li>  
                                             <li >
                                                 <router-link :to="{ path: '/Web-checkin', hash: '#checkin' }">
-                                                    ¡Web-checkin!
+                                                    {{$t('NavBar["WebCheckin"]')}}
                                                 </router-link>
-                                            </li> 
-
+                                            </li>
                                         </ul>
                                     </div>
                                 </nav>

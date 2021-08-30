@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 class="mb-5 bannerFont">Nuestros Hoteles</h2>
+                    <h2 class="mb-5 bannerFont">{{$t('Hoteles["Titulo"]')}}</h2>
                 </div>
             </div>            
             <div class="row">
@@ -13,16 +13,21 @@
                            
                             <img style="height:215px; width:100%" :src="hotelData.image || '../../public/assets/images/img_1.jpg'" alt="Image" class="img-fluid">
                             
-                            <div class="hotel-room-body">
+                            <div v-if="$i18n.locale == 'es'" class="hotel-room-body">
                                 <h3 class="heading mb-0">{{hotelData.name}}</h3>
                                 <span style="color:rgb(11,119,61);" class="mb-3 d-block post-date">{{hotelData.direccion}}</span>
                                 <p style="color: grey">{{hotelData.descripcion}}</p>
                             </div>
-                            <div class="verMas">
-                                <span style="font-weight:bold;color:rgb(11,119,61)">Ver más</span>
-                                <font-awesome-icon style="color:rgb(11,119,61)" icon="arrow-right" class="iconosHoteles"/>
+                            <div v-else class="hotel-room-body">
+                                <h3 class="heading mb-0">{{hotelData.name}}</h3>
+                                <span style="color:rgb(11,119,61);" class="mb-3 d-block post-date">{{hotelData.direccion_en}}</span>
+                                <p style="color: grey">{{hotelData.descripcion_en}}</p>
                             </div>
-                            
+
+                            <div class="verMas">
+                                <span style="font-weight:bold;color:rgb(11,119,61)">{{$t('Hoteles["VerMas"]')}}</span>
+                                <font-awesome-icon style="color:rgb(11,119,61)" icon="arrow-right" class="iconosHoteles"/>
+                            </div>                            
                         </div>
                     </router-link>               
                 </div> 
@@ -41,6 +46,7 @@ export default {
         files: [],
         hotel: null,
         hotels: [],
+        lang: null,
         hotelsOnChildAdded: null,
         hotelsOnChildRemoved: null,
         hotelsRef: db.child("tambohotels")
@@ -63,6 +69,7 @@ export default {
         }
     },  
     created() {
+        this.lang = this.$i18n.locale,
         this.getHotels()
     },
     beforeDestroy() {

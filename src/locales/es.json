@@ -1,0 +1,218 @@
+{
+    "Banner": {
+        "Img1": {
+            "linea1": "Bienvenidos a",
+            "linea2": "Hoteles el Tambo"
+        },
+        "Img2":{
+            "linea1": "Experiencia",
+            "linea2": "Extraordinaria"            
+        }
+        ,
+        "Img3":{
+            "linea1": "Habitaciones",
+            "linea2": "Relajantes"            
+        },
+        "IconosBanner":{
+            "mensajeGral": "Razones para reservar directamente con nosotros",
+            "Icono1":"Mejor Precio<br> Garantizado",
+            "Icono2":"Wifi Gratis",
+            "Icono3":"Checkin en Línea",
+            "Icono4":"Protocolos COVID19",
+            "Icono5":"Mejor Ubicación"
+        }
+    },
+    "NavBar": {
+        "Inicio":"INICIO",      
+        "Hoteles":"HOTELES",
+        "Galeria":"GALERÍA",
+        "Contactanos":"CONTÁCTANOS",
+        "Reserva":"¡RESERVA YA!",
+        "WebCheckin":"¡WEB-CHECKIN!"        
+    },
+    "Hoteles":{
+        "Titulo":"Nuestros Hoteles",
+        "VerMas":"Ver más"
+    },
+    "Nosotros":{
+        "Titulo":"Nosotros",
+        "Texto":"<p style='text-align:center' class='mb-4'>Somos una cadena hotelera peruana con más de 12 años de servicio.</p><p style='text-align:center' class='mb-4'>Nos encontramos ubicados en la mejor zona comercial y turística de Miraflores, contamos con 147 habitaciones distribuidas en 3 propiedades totalmente equipadas y diseñadas para brindarles una agradable estadía generando una experiencia inolvidable a nuestros huéspedes.</p><p style='text-align:center' class='mb-4'>La posición estratégica en el corazón de Miraflores, junto con el estilo único y la hospitalidad que siempre han caracterizado a Hoteles El Tambo, hacen de nuestros 3 hoteles un destino perfecto tanto para estancias de negocios como de turismo.</p>",
+        "video":"VER VIDEO"
+    },
+    "NewsLetter":{
+        "Mensaje":"¡Sé el primero en enterarte de nuestras promociones, deja tus datos de contacto!",
+        "NombrePlaceholder":"Su nombre",
+        "MailPlaceholder":"Su correo electrónico",
+        "Boton":"Registrarse"
+    },
+    "Promociones":{
+        "Titulo":"Nuestras promociones exclusivas web"
+    },
+    "Ubicanos":{
+        "Titulo":"Ubícanos",
+        "TodosHoteles":"Todos los hoteles"
+    },
+    "Footer":{
+        "MenuRapido":{
+            "Titulo":"Menú Rápido",
+            "link1":"Inicio"
+        },
+        "Siguenos":{
+            "Titulo":"Síguenos"
+        },
+        "CopyRight":"2020 Hotel El Tambo Todos los derechos reservados"        
+    },
+    "HotelesPage":{
+        "Sections":{
+            "Promociones":{
+                "Titulo": "Nuestras promociones exclusivas web"
+            },
+            "Habitaciones":{
+                "Tutilo":"Descubra nuestras habitaciones"
+            },
+            "Caracteristicas":{
+                "Titulo": "Características de los Hoteles",
+                "Iconos":{
+                    "Bioseguridad":"Certificación de bioseguridad",
+                    "Recepcion":"Recepción 24/7",
+                    "Salidas":"Salidas de Emergencia",
+                    "Estacionamiento":"Estacionamiento",
+                    "Ventanas":"Ventanas Antiruido",
+                    "Servicio":"Servicio a la habitación",
+                    "Minibar":"Minibar (a solicitud)",
+                    "Business":"Business center",
+                    "Wifi":"Wifi gratis",
+                    "Bebidas":"Bebidas Nacionales e importadas",
+                    "Aire":"Aire acondicionado",
+                    "Taxy":"Servicio de taxi",
+                    "Informacion":"Información turística"
+                }                
+            },
+            "Fotos":{
+                "Titulo":"Vea nuestro establecimiento",
+                "Ver":"Ver todas las fotos"
+            }
+        }
+    },
+    "Habitaciones":{
+        "Detalles":"Detalles",
+        "Precio": "Precio: USD",
+        "o":"ó",
+        "Descripcion": "Descripción",
+        "Camas": "Cuenta con",
+        "Cantidad":"cama(s)",
+        "Hablenos":"Háblenos",
+        "Contacto":"Póngase en contacto",
+        "Labels":{
+            "Nombre":"Nombre Completo",
+            "Correo":"Correo Electrónico",
+            "Telefono":"Teléfono",
+            "Mensaje":"Mensaje",
+            "Enviar":"Enviar Mensaje"
+        },
+        "Placeholders":{
+            "Nombre":"Nombre Completo",
+            "Correo":"Correo Electrónico",
+            "Telefono":"Teléfono",
+            "Mensaje":"Diganos que necesita"
+        },
+        "Informacion":{
+            "Titulo":"Información de contacto",
+            "Direccion":"Dirección",
+            "Telefono":"Teléfono",
+            "Correo":"Correo Electrónico"
+        }
+    },
+    "Galeria":{
+        "Titulo":"Vea nuestro establecimiento"
+    },
+    "SeleccionHab":{
+        "Titulo":"Elija la habitación que quiera del hotel",
+        "Usd":"USD",
+        "Impuesto":"Incluye impuestos y servicios",
+        "Tarifa":"* Tarifa en base a una persona",
+        "Incluye":"Incluye Desayuno"
+    },
+    "Reserva":{
+        "Comentario":"¡Reserve ahora!",
+        "Titulo":"Póngase en Contacto",
+        "Labels":{
+            "Nombre":"Nombre Completo",
+            "Correo":"Correo Electrónico",
+            "FechaLlegada":"Fecha Llegada",
+            "FechaSalida":"Fecha Salida",
+            "Hotel":"Hotel en el que reservará",
+            "Habitacion":"Tipo de habitacion",
+            "CantidadHab":"Cantidad de Habitaciones",
+            "CantidadAdul":"Cantidad de Adultos",
+            "CantidadNiñ":"Cantidad de Niños",
+            "Mensaje":"Mensaje"
+        },
+        "Placeholders":{
+            "Nombre":"Nombre Completo",
+            "Correo":"Correo Electrónico",
+            "CantidadHab":"Cantidad de Habitaciones",
+            "CantidadAdul":"Cantidad de Adultos",
+            "CantidadNiñ":"Cantidad de Niños",
+            "Mensaje":"Mensaje",
+            "Enviar":"Enviar Mensaje"
+        },
+        "o":"ó",
+        "Impuestos":"Incluye impuestos y servicios",
+        "Tarifa":"* Tarifa en base a una persona",
+        "Desayuno":"Incluye Desayuno"
+    },
+    "Contacto":{
+        "Comentario":"Hablenos",
+        "Titulo":"Póngase en Contacto",
+        "Labels":{
+            "Nombre":"Nombre Completo",
+            "Correo":"Correo Electrónico",
+            "Telefono":"Teléfono",
+            "Mensaje":"Mensaje",
+            "Enviar":"Enviar Mensaje"
+        },
+        "Placeholders":{
+            "Nombre":"Nombre Completo",
+            "Correo":"Correo Electrónico",
+            "Telefono":"Teléfono",
+            "Mensaje":"Diganos que necesita"
+        },
+        "Informacion":{
+            "Titulo":"Información de contacto",
+            "Direccion":"Dirección",
+            "Telefono":"Teléfono",
+            "Correo":"Correo Electrónico"
+        }
+    },
+    "WebCinBtn":"¿Tienes Reserva?<br>Realiza tu Check-in<br> online",    
+    "WebCheckin":{
+        "Comentario":"Sin contactos, más rápido, más seguro",
+        "Titulo":"Web Check-in",
+        "Labels":{
+            "Nombre":"Nombre Completo",
+            "Correo":"Correo Electrónico",
+            "Telefono":"Teléfono",
+            "Direccion":"Dirección",
+            "Hotel":"Hotel en el que reservará",
+            "Reserva":"Número de Reserva",
+            "Documento":"Tipo de documento",
+            "DocumentoOpc":"Seleccione un tipo de documento",
+            "NroDocumento":"Número de Documento",
+            "Firma":"Firma",
+            "Deshacer":"Deshacer",
+            "Consideracion":"Se recomienda utilizar un dispositivo táctil para dibujar su firma.",
+            "Enviar":"Generar Web-checkin"
+        },
+        "Placeholders":{
+            "Nombre":"Nombre Completo",
+            "Correo":"Correo Electrónico",
+            "Telefono":"Teléfono",
+            "Direccion":"Dirección",
+            "Hotel":"Hotel en el que reservará",
+            "Reserva":"Número de Reserva",
+            "Documento":"Tipo de documento",
+            "NroDocumento":"Número de Documento"
+        }
+    }
+}

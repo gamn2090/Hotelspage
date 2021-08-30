@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2>Descubra nuestras habitaciones</h2>
+                    <h2>{{$t('HotelesPage["Sections"]["Habitaciones"]["Tutilo"]')}}</h2>
                 </div>
             </div>
             <Carousel :autoplay="true"
@@ -18,7 +18,8 @@
                             </div>
                         </div>
                     </router-link>
-                        <h2 class="heading mb-0"><a href="#!">{{habsData.nombre}}</a></h2>
+                        <h2 v-if="$i18n.locale == 'es'" class="heading mb-0"><a href="#!">{{habsData.nombre}}</a></h2>
+                        <h2 v-else class="heading mb-0"><a href="#!">{{habsData.nombre_en}}</a></h2>
                         <span class="mb-3 d-block post-date">Desde USD {{habsData.precioDol}} ó S/ {{habsData.precioPen}}</span>                    
                         <span class="mb-3 d-block post-date">{{habsData.cantidad}}</span>
                 </Slide>                       

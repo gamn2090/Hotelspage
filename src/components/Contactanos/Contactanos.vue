@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
-                <span class="caption mb-3 sub-heading">Hablenos</span>
-                <h1 class="mb-4 sub-heading">Póngase en Contacto</h1>
+                <span class="caption mb-3 sub-heading">{{$t('Contacto["Comentario"]')}}</span>
+                <h1 class="mb-4 sub-heading">{{$t('Contacto["Titulo"]')}}</h1>
             </div>
             </div>
         </div>
@@ -15,43 +15,43 @@
                 <form action="#" class="p-5 bg-white">
                     <div class="row form-group">
                     <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="fullname">Nombre Completo</label>
-                        <input v-model="name" type="text" id="fullname" class="form-control" placeholder="Nombre Completo">
+                        <label class="font-weight-bold" for="fullname">{{$t('Contacto["Labels"]["Nombre"]')}}</label>
+                        <input v-model="name" type="text" id="fullname" class="form-control" :placeholder="$t('Contacto.Placeholders.Nombre')">
                     </div>
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12">
-                        <label class="font-weight-bold" for="email">Correo Electrónico</label>
-                        <input v-model="email" type="email" id="email" class="form-control" placeholder="Correo Electrónico">
+                        <label class="font-weight-bold" for="email">{{$t('Contacto["Labels"]["Correo"]')}}</label>
+                        <input v-model="email" type="email" id="email" class="form-control" :placeholder="$t('Contacto.Placeholders.Correo')">
                     </div>
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12 mb-3 mb-md-0">
-                        <label class="font-weight-bold" for="phone">Teléfono</label>
-                        <input v-model="phone" type="text" id="phone" class="form-control" placeholder="Teléfono">
+                        <label class="font-weight-bold" for="phone">{{$t('Contacto["Labels"]["Telefono"]')}}</label>
+                        <input v-model="phone" type="text" id="phone" class="form-control" :placeholder="$t('Contacto.Placeholders.Telefono')">
                     </div>
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12">
-                        <label class="font-weight-bold" for="message">Mensaje</label>
-                        <textarea v-model="problem" name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Diganos que necesita"></textarea>
+                        <label class="font-weight-bold" for="message">{{$t('Contacto["Labels"]["Mensaje"]')}}</label>
+                        <textarea v-model="problem" name="message" id="message" cols="30" rows="5" class="form-control" :placeholder="$t('Contacto.Placeholders.Mensaje')"></textarea>
                     </div>
                     </div>
                     <div class="row form-group">
                     <div class="col-md-12">
-                        <input @click="SendMail()" value="Enviar Mensaje" class="btn btn-primary pill px-4 py-2">
+                        <input @click="SendMail()" :Value="$t('Contacto.Labels.Enviar')" class="btn btn-primary pill px-4 py-2">
                     </div>
                     </div>
                 </form>
                 </div>
                 <div class="col-lg-4">
                 <div class="p-4 mb-3 bg-white">
-                    <h3 class="h5 text-black mb-3">Información de contacto</h3>
-                    <p class="mb-0 font-weight-bold">Dirección</p>
+                    <h3 class="h5 text-black mb-3">{{$t('Contacto["Informacion"]["Titulo"]')}}</h3>
+                    <p class="mb-0 font-weight-bold">{{$t('Contacto["Informacion"]["Direccion"]')}}</p>
                     <p v-if="hotelData" class="mb-4">{{hotelData.direccion}} </p>
-                    <p class="mb-0 font-weight-bold">Teléfono</p>
+                    <p class="mb-0 font-weight-bold">{{$t('Contacto["Informacion"]["Telefono"]')}}</p>
                     <p v-if="hotelData" class="mb-4">{{hotelData.phone}}</p>
-                    <p class="mb-0 font-weight-bold">Correo Electrónico</p>
+                    <p class="mb-0 font-weight-bold">{{$t('Contacto["Informacion"]["Correo"]')}}</p>
                     <p v-if="hotelData" class="mb-0">{{hotelData.email}}</p>
                 </div>
                 </div>

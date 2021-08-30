@@ -7,11 +7,11 @@
             <div style="height:100%" class="container">
                 <div style="text-align:center;position:relative;height:100% " class="row align-items-center ">
                     <div class="col-md-12 vertically-centered">
-                        <h4 style="display:inline-block" class="text-white stroke">¡Sé el primero en enterarte de nuestras promociones, deja tus datos de contacto!</h4>
+                        <h4 style="display:inline-block" class="text-white stroke">{{$t('NewsLetter["Mensaje"]')}}</h4>
                         <div class="row">
-                            <input type="text" class="form-control col-md-5" v-model="name" placeholder="Su nombre">
-                            <input type="text" class="form-control col-md-5" v-model="correo" placeholder="Su correo electrónico">
-                            <button @click="SendMail()" value="Enviar Mensaje" class="btn btn-primary pill green col-md-2">Registarse</button>
+                            <input type="text" class="form-control col-md-5" v-model="name" :placeholder="$t('NewsLetter.NombrePlaceholder')">
+                            <input type="text" class="form-control col-md-5" v-model="correo" :placeholder="$t('NewsLetter.MailPlaceholder')">
+                            <button @click="SendMail()" value="Enviar Mensaje" class="btn btn-primary pill green col-md-2">{{$t('NewsLetter["Boton"]')}}</button>
                         </div>
                         <!-- <h2 style="display:inline-block" class="text-white stroke">¡Disfrute de lo mejor de Lima en nuestros hoteles!</h2> -->
                     </div> 
@@ -37,6 +37,10 @@ export default {
     methods: {        
         async SendMail () {  
             this.$message({
+                //validar el locale para ver que mensaje mostrar
+                //if(LS.locale == 'en')
+                messageEn: 'Your message is being send, please be patiente, thank you.',
+                //else
                 message: 'Su mensaje esta siendo enviado, porfavor espere, gracias.',
                 type: 'info'
             });

@@ -1,7 +1,7 @@
 <template>    
     <router-link style="color:white" :to="{ path: '/Web-checkin', hash: '#checkin'}">
         <span style="" v-wow="{ 'animation-name': 'fadeInUp','animation-duration': '2s'}" id="WCheckin">
-            <span class="seMuestra">Web Check-in</span><span class="seEscondera">¿Tienes Reserva?<br>Realiza tu Check-in<br> online</span>
+            <span class="seMuestra">Web Check-in</span><span class="seEscondera" v-html="$t('WebCinBtn')"></span>
         </span>
     </router-link>    
 </template>

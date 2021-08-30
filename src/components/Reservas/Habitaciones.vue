@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 v-if="this.datosHotel" class="mb-5">Elija la habitación que quiera del hotel {{this.datosHotel.name}}</h2>
+                    <h2 v-if="this.datosHotel" class="mb-5">{{$t('SeleccionHab["Titulo"]')}} {{this.datosHotel.name}}</h2>
                 </div>
             </div>            
             <div class="row">
@@ -17,17 +17,21 @@
                                     <img v-else style="height:215px; width:100%" src='@/assets/loading.gif' :alt="habsData.nombre" class="img-fluid">
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6  col-lg-4">
-                                    <div class="hotel-room-body">
+                                    <div v-if="$i18n.locale == 'es'" class="hotel-room-body">
                                         <h3 v-if="habsData" class="heading mb-0">{{habsData.nombre}}</h3>
                                         <p v-if="habsData" style="color: grey; text-aling:center">{{habsData.descripcion}}</p>
+                                    </div>
+                                    <div v-else class="hotel-room-body">
+                                        <h3 v-if="habsData" class="heading mb-0">{{habsData.nombre_en}}</h3>
+                                        <p v-if="habsData" style="color: grey; text-aling:center">{{habsData.descripcion_en}}</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                                     <div class="hotel-room-body">
-                                        <span v-if="habsData" style="font-size:24px; font-weigth:bolder; color:black; text-aling:center" class="mb-3 ">USD {{habsData.precioDol}} ó S/{{habsData.precioPen}} </span>
-                                        <span style="font-size:11px;" class="mb-3 d-block post-date">Incluye impuestos y servicios</span>
-                                        <p style="color: black;font-size:13px;">* Tarifa en base a una persona</p>
-                                        <p style="color: #3ac92a;font-size:16px;">Incluye Desayuno</p>
+                                        <span v-if="habsData" style="font-size:24px; font-weigth:bolder; color:black; text-aling:center" class="mb-3 ">{{$t('SeleccionHab["Usd"]')}} {{habsData.precioDol}} ó S/{{habsData.precioPen}} </span>
+                                        <span style="font-size:11px;" class="mb-3 d-block post-date">{{$t('SeleccionHab["Impuesto"]')}}</span>
+                                        <p style="color: black;font-size:13px;">{{$t('SeleccionHab["Tarifa"]')}}</p>
+                                        <p style="color: #3ac92a;font-size:16px;">{{$t('SeleccionHab["Incluye"]')}}</p>
                                     </div>
                                 </div>
                             </div>

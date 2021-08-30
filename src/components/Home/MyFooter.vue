@@ -11,11 +11,11 @@
                 </div>             
                 <div class="col-md-2">
                     <center>
-                        <h3 class="footer-heading text-white">Menu Rápido</h3><br>
+                        <h3 class="footer-heading text-white">{{$t('Footer["MenuRapido"]["Titulo"]')}}</h3><br>
                         <ul class="list-unstyled"> 
                             <li>
                                 <router-link :to="'/'">
-                                    Inicio
+                                    {{$t('Footer["MenuRapido"]["link1"]')}}
                                 </router-link>
                             </li>                         
                             <li>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-2">
                     <center>
-                        <h3 class="footer-heading mb-4 text-white">Síguenos:</h3>
+                        <h3 class="footer-heading mb-4 text-white">{{$t('Footer["Siguenos"]["Titulo"]')}}:</h3>
                         <p>                            
                             <a title="Facebook" target="_blank" href="https://www.facebook.com/hoteleseltambope" class="pb-2 pr-2 pl-0 ">
                                 <span class="icon-facebook socialLinks"></span>
@@ -114,7 +114,7 @@
             <div class="row pt-5 mt-5 text-center" style="margin-top:15px !important">
                 <div class="col-md-12">
                     <p>
-                        Copyright &copy; 2020 Hotel El Tambo Todos los derechos reservados | Powered by <strong><a href="https://www.chevere.tech" target="_blank">ChevereTech</a></strong>
+                        Copyright &copy; {{$t('Footer["CopyRight"]')}} | Powered by <strong><a href="https://www.chevere.tech" target="_blank">ChevereTech</a></strong>
                         &copy;
                     </p>
                 </div>

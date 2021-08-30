@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2>Nuestras promociones exclusivas web</h2>
+                    <h2>{{$t('HotelesPage["Sections"]["Promociones"]["Titulo"]')}}</h2>
                 </div>
             </div>
             <Carousel v-if="this.todasPromos != null" :autoplay="true"                    
@@ -22,58 +22,42 @@
                         <div class="row align-items-center justify-content-center ">
                             <div class="col-md-12 text-center onTop" data-aos="fade">
                             <h2 class="heading mb-0 tituloPromocion">{{promosData.name}}</h2><br><br>
-                            <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.description">{{promosData.description}}</h5>
-                                <p v-if="promosData.descuento && promosData.descuento > 0" class="mb-3 d-block post-date">
-                                    <center>
-                                        <strong v-if="(promosData.precioDol && promosData.precioDol !== '0') && (promosData.precioPen && promosData.precioPen !== '0')" >Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} ó S/. {{ promosData.precioPen - (promosData.precioPen * (promosData.descuento / 100)) }}</strong>
-
-                                        <strong v-if="(promosData.precioDol && promosData.precioDol!==0) && (!promosData.precioPen || promosData.precioPen===0)">Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} </strong> 
-
-                                         <strong v-if="(!promosData.precioDol || promosData.precioDol===0) && (promosData.precioPen && promosData.precioPen!==0)">Desde S/ {{ promosData.precioPen - (promosData.precioPen * (promosData.descuento / 100)) }} </strong> 
-                                    </center> 
-                                </p>
-                                <p v-if="promosData.descuento && promosData.descuento !== 0" class="mb-3 d-block post-date">
-                                    <center><strong>Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }} ó S/. {{ promosData.precioPen - (promosData.precioPen * (promosData.descuento / 100)) }}</strong></center> 
-                                </p>
-                                <p v-else class="mb-3 d-block post-date">
-                                    <center><strong>Desde USD {{ promosData.precioDol }} ó S/. {{ promosData.precioPen - (promosData.precioPen * (promosData.descuento / 100)) }}</strong></center> 
-                                </p>
-
-                                <center>
-                                    <span v-if="promosData.fechaFin" class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFin}}</span>
-                                    <span v-else class="mb-3 d-block post-date">Por siempre</span>
-                                </center>                               
+                            <h5 class="mb-3 d-block post-date infoPromocion" v-html="promosData.description">{{promosData.description}}</h5>                               
+                                    <p v-if="promosData.descuento && promosData.descuento > 0" class="mb-3 d-block post-date">
+                                        <center>      
+                                                                              
+                                            <strong v-if="(promosData.precioPen && promosData.precioPen !== '0')" >
+                                                 <div  class="price">
+                                                     Desde S/ {{ promosData.precioPen - (promosData.precioPen * (promosData.descuento / 100)) }}
+                                                 </div>
+                                            </strong>
+                                        </center> 
+                                    </p>                               
+                                    <p v-else class="mb-3 d-block post-date">
+                                        <center>
+                                            <strong>
+                                                <div  class="price"> 
+                                                    S/ {{ promosData.precioPen }}
+                                                </div>
+                                            </strong>
+                                        </center> 
+                                    </p>                               
+                                                            
                             </div>                            
                         </div>
-                    </div>                   
+                    </div> 
+                    <div class="innerContainerBottom"><!--vertical-align -->
+                        <div
+                            class="row align-items-center justify-content-center " 
+                        >
+                            <div class="col-md-12 text-center onTop">
+                                <h5 class="mb-3 d-block post-date infoPromocion terminos" v-html="promosData.terminos">{{promosData.terminos}}</h5><br><br>
+                            </div>
+                        </div>
+                    </div>                  
                 </Slide>                       
             </Carousel>
-            <!-- <Carousel :autoplay="true"
-                      :per-page-custom=[[1080,1]]
-                      :loop="true"
-                      :autoplayTimeout="2000"  >
-                <Slide v-for="promosData in todasPromos" :key="promosData.key" class="media-with-text p-md-5 flex-item">                     
-                    <router-link :to="{ name: 'reservas', params: { hotel: hotel, promo: promosData.key } }" >
-                        <div class="img-border-sm mb-12">                        
-                            <div href="#!" class="image-play">
-                                <img :src="promosData.image || '../../../public/assets/images/img_1.jpg'" :alt="promosData.name" class="img-fluid">
-                            </div>                        
-                        </div> 
-                    </router-link>
-                    <center><h2 class="heading mb-0">{{promosData.name}}</h2></center>
-                        
-                    <p v-if="promosData.descuento && promosData.descuento !== 0" class="mb-3 d-block post-date">
-                        <center><strong>Desde USD {{ promosData.precioDol - (promosData.precioDol * (promosData.descuento / 100)) }}</strong></center> 
-                    </p>
-                    <p v-else class="mb-3 d-block post-date">
-                        <center><strong>Desde USD {{ promosData.precioDol }}</strong></center> 
-                    </p>
-
-                    <center><span v-if="promosData.fechaFin" class="mb-3 d-block post-date">Desde {{promosData.fechaInicio}} Hasta {{promosData.fechaFin}}</span>
-                    <span v-else class="mb-3 d-block post-date">Por siempre</span></center>
-                    <center><p>{{promosData.description}}</p></center>
-                </Slide>                       
-            </Carousel>             -->
+            
         </div>
         
     </div>
@@ -106,6 +90,17 @@ export default {
 
 <style scoped>
     
+    .price{
+        background-color: rgb(167, 91, 31);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        margin-left: 30%;
+        margin-right: 30%;
+        border-radius: 20px;
+    }
     .container{
         width:100% !important;
         margin:0 !important;
@@ -132,7 +127,7 @@ export default {
     .innerContainer {
         height: 100%;
         border-radius: 7%;
-        background-color: rgba(253, 249, 222,.8);
+        background-color: rgba(252, 252, 252,.8);
         padding-right:20px;
         padding-bottom:20px;
         padding-top:20px;
@@ -146,12 +141,35 @@ export default {
         transform: translate(-50%, -50%);
         z-index: 99;
     }
+    .terminos{
+        font-size: 12px !important;
+    }
+    .innerContainerBottom {
+        height: 15%;
+        background-color: rgb(252, 252, 252);
+        padding-right:20px;
+        padding-bottom:20px;
+        padding-top:20px;
+        padding-left:10px;
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        bottom: -10%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 99;
+    }
     .tituloPromocion{
         padding-top:10px;
+        font-size: 19px;
         color: rgb(167,91,31) !important;
     }   
+    .infoPromocion{
+        font-size: 16px;
+    } 
     .Carousel {
-        height: 60vh !important;
+        height: 100vh !important;
         position: relative !important;
         margin: 0 !important;
     }
@@ -168,6 +186,10 @@ export default {
             margin:0 !important;
             padding:0 !important;
         }
+        .infoPromocion{
+            padding-top:10px;
+            font-size: 14px ;
+        }
     }
     @media (min-width: 576px){
         .container {
@@ -179,6 +201,17 @@ export default {
     @media only screen and (max-width: 500px) {
         .copyright{  
             background-color: rgba(88, 172, 225, 1)
+        }
+        .infoPromocion{
+            padding-top:10px;
+            font-size: 12px ;
+        }
+        .innerContainerBottom {
+            height: 17%;            
+        }
+        .terminos{
+            font-size: 8px !important;
+            color: black;
         }
     }
     @media only screen and (max-width: 900px) {
@@ -199,7 +232,10 @@ export default {
         }   
         .tituloPromocion, .infoPromocion{
             padding-top:10px;
-            font-size: 16px !important;
+            font-size: 16px ;
+        }
+        .terminos{
+            font-size: 10px !important;
         }
     }
 </style>

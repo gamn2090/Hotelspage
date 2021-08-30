@@ -7,8 +7,14 @@
 </template>
 
 <script>
+
 export default {
-    name: 'App'    
+    name: 'App',
+    mounted(){  
+         
+        this.Lenguaje =  localStorage.getItem("Lang") ? localStorage.getItem("Lang") : navigator.language.substring(0, 2)
+       
+    }
 }
 </script>
 

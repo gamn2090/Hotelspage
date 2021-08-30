@@ -13,30 +13,30 @@
 
         <div class="five-reasons">
             <div class="wow fadeInUp animated" data-wow-delay="1s" data-wow-duration="1.5s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 1s; animation-name: fadeInUp;">
-                <h5 id="titleBanner" class="text-white title">Razones para reservar directamente con nosotros</h5>
+                <h5 id="titleBanner" class="text-white title">{{$t('Banner["IconosBanner"]["mensajeGral"]')}}</h5>
                 <div class="five-items">
                     <ul class="text-white">
                         <li>
                             <font-awesome-icon icon="money-bill" class="text-white iconosBanner"/>
-                            <span class="text-five">Mejor Precio<br> Garantizado</span>
+                            <span class="text-five" v-html="$t('Banner.IconosBanner.Icono1')"></span>
                         </li>                        
                         <li>
                             <font-awesome-icon icon="wifi" class="text-white iconosBanner"/>
-                            <span class="text-five">Wifi gratis</span>
+                            <span class="text-five">{{$t('Banner["IconosBanner"]["Icono2"]')}}</span>
                         </li>
                         <li>
                             <router-link style="color:white" :to="{ path: '/Web-checkin', hash: '#checkin'}">
                                 <font-awesome-icon icon="laptop" class="text-white iconosBanner"/>
-                                <span >Checkin en línea</span>
+                                <span >{{$t('Banner["IconosBanner"]["Icono3"]')}}</span>
                             </router-link>                        
                         </li>
                         <li>
                             <font-awesome-icon icon="virus-slash" class="text-white iconosBanner"/>
-                            <span >Protocolos COVID19</span>
+                            <span >{{$t('Banner["IconosBanner"]["Icono4"]')}}</span>
                         </li>
                         <li>
                             <font-awesome-icon icon="map-marker-alt" class="text-white iconosBanner"/>
-                            <span class="text-five">Mejor Ubicación</span>
+                            <span class="text-five">{{$t('Banner["IconosBanner"]["Icono5"]')}}</span>
                         </li>
                     </ul>
                 </div>

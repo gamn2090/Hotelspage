@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
-                <span class="caption mb-3 sub-heading">¡Reserve ahora!</span>
-                <h1 class="mb-4 sub-heading">Póngase en Contacto</h1>
+                <span class="caption mb-3 sub-heading">{{$t('Reserva["Comentario"]')}}</span>
+                <h1 class="mb-4 sub-heading">{{$t('Reserva["Titulo"]')}}</h1>
             </div>
             </div>
         </div>
@@ -16,15 +16,15 @@
                         <fieldset>
                             <div class="row form-group">
                                 <div class="col-md-12 mb-3 mb-md-0">
-                                    <label class="font-weight-bold" for="fullname">Nombre Completo</label>
-                                    <input v-model="name" type="text" id="fullname" class="form-control" placeholder="Nombre Completo">
+                                    <label class="font-weight-bold" for="fullname">{{$t('Reserva["Labels"]["Nombre"]')}}</label>
+                                    <input v-model="name" type="text" id="fullname" class="form-control" :placeholder="$t('Reserva.Placeholders.Nombre')">
                                 </div>
                                 <div class="col-md-12">
-                                    <label class="font-weight-bold" for="email">Correo Electrónico</label>
-                                    <input v-model="email" type="email" id="email" class="form-control" placeholder="Correo Electrónico">
+                                    <label class="font-weight-bold" for="email">{{$t('Reserva["Labels"]["Correo"]')}}</label>
+                                    <input v-model="email" type="email" id="email" class="form-control" :placeholder="$t('Reserva.Placeholders.Correo')">
                                 </div>
                                 <div class="col-md-12">
-                                    <label class="font-weight-bold">Fecha Llegada</label><br>
+                                    <label class="font-weight-bold">{{$t('Reserva["Labels"]["FechaLlegada"]')}}</label><br>
                                     <el-date-picker @change="calculateDays()"
                                         format="dd-MM-yyyy"
                                         value-format="MM/dd/yyyy"
@@ -33,7 +33,7 @@
                                     </el-date-picker>
                                 </div>
                                 <div class="col-md-12">
-                                    <label class="font-weight-bold">Fecha Salida</label><br>
+                                    <label class="font-weight-bold">{{$t('Reserva["Labels"]["FechaSalida"]')}}</label><br>
                                     <el-date-picker  @change="calculateDays()"
                                         format="dd-MM-yyyy"
                                         value-format="MM/dd/yyyy"
@@ -42,7 +42,7 @@
                                     </el-date-picker>
                                 </div>
                                 <div class="col-md-12 mb-3 mb-md-0">
-                                    <label class="font-weight-bold" for="fullname">Hotel en el que reservará</label>
+                                    <label class="font-weight-bold" for="fullname">{{$t('Reserva["Labels"]["Hotel"]')}}</label>
                                     <el-select disabled class="form-control" @change="onChange($event)" id="hotel" placeholder="Seleccione un hotel" v-model="hotelSelected">
                                         <el-option 
                                             v-for="(hotel, key) in hotelData" 
@@ -54,7 +54,7 @@
                                     </el-select> 
                                 </div>
                                 <div class="col-md-12 mb-3 mb-md-0">
-                                    <label class="font-weight-bold" for="fullname">Tipo de habitacion</label>
+                                    <label class="font-weight-bold" for="fullname">{{$t('Reserva["Labels"]["Habitacion"]')}}</label>
                                     <el-select disabled class="form-control" v-model="habSelected">
                                         <el-option :selected="true" disabled value="">Seleccione un habitación</el-option>
                                         <el-option
@@ -69,27 +69,27 @@
                             </div>                   
                             <div class="row form-group">
                             <div class="col-md-12 mb-3 mb-md-0">
-                                <label class="font-weight-bold" for="phone">Cantidad de habitaciones</label>
-                                <input v-model="cantHabs" type="text" id="cantHabs" class="form-control" placeholder="Cantidad de Habitaciones">
+                                <label class="font-weight-bold" for="phone">{{$t('Reserva["Labels"]["CantidadHab"]')}}</label>
+                                <input v-model="cantHabs" type="text" id="cantHabs" class="form-control" :placeholder="$t('Reserva.Placeholders.CantidadHab')">
                             </div>
                             <div class="col-md-12 mb-3 mb-md-0">
-                                <label class="font-weight-bold" for="phone">Cantidad de adultos</label>
-                                <input v-model="adultos" type="text" id="adultos" class="form-control" placeholder="Cantidad de adultos">
+                                <label class="font-weight-bold" for="phone">{{$t('Reserva["Labels"]["CantidadAdul"]')}}</label>
+                                <input v-model="adultos" type="text" id="adultos" class="form-control" :placeholder="$t('Reserva.Placeholders.Nombre')">
                             </div>
                             <div class="col-md-12 mb-3 mb-md-0">
-                                <label class="font-weight-bold" for="phone">Cantidad de niños</label>
-                                <input v-model="ninios" type="text" id="ninios" class="form-control" placeholder="Cantidad de niños">
+                                <label class="font-weight-bold" for="phone">{{$t('Reserva["Labels"]["CantidadNiñ"]')}}</label>
+                                <input v-model="ninios" type="text" id="ninios" class="form-control" :placeholder="$t('Reserva.Placeholders.CantidadAdul')">
                             </div>
                             </div>
                             <div class="row form-group">
                             <div class="col-md-12">
-                                <label class="font-weight-bold" for="message">Mensaje</label>
-                                <textarea v-model="problem" name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Diganos que necesita"></textarea>
+                                <label class="font-weight-bold" for="message">{{$t('Reserva["Labels"]["Mensaje"]')}}</label>
+                                <textarea v-model="problem" name="message" id="message" cols="30" rows="5" class="form-control" :placeholder="$t('Reserva.Placeholders.Mensaje')"></textarea>
                             </div>
                             </div>
                             <div class="row form-group">
                             <div class="col-md-12">
-                                <input @click="SendMail()" value="Enviar Mensaje" class="btn btn-primary pill px-4 py-2">
+                                <input @click="SendMail()" :value="$t('Reserva.Placeholders.Enviar')" class="btn btn-primary pill px-4 py-2">
                             </div>
                             </div>
                         </fieldset>
@@ -101,16 +101,20 @@
                             <div class="col-lg-12">
                                 <img style="height:215px; width:100%" v-if="this.habsData" :src="habsData.image" alt="Image" class="img-fluid">
                                 <img style="height:215px; width:100%" v-else src='@/assets/loading.gif' alt="Image" class="img-fluid">
-                                <div class="hotel-room-body">
+                                <div v-if="$i18n.locale == 'es'" class="hotel-room-body">
                                     <h3 v-if="this.habsData" class="heading mb-0">{{habsData.nombre}}</h3>
                                     <p v-if="this.habsData" style="color: grey">{{habsData.descripcion}}</p>
-                                </div>                            
+                                </div>      
+                                <div v-else class="hotel-room-body">
+                                    <h3 v-if="this.habsData" class="heading mb-0">{{habsData.nombre_en}}</h3>
+                                    <p v-if="this.habsData" style="color: grey">{{habsData.descripcion_en}}</p>
+                                </div>                      
                                 <div class="hotel-room-body">
-                                    <span v-if="this.fechasini == null || this.fechasfin == null" style="font-size:24px; font-weigth:bolder; color:black" class="mb-3 ">USD {{habsData.precioDol}} ó S/{{habsData.precioPen}} </span>
-                                    <span v-else style="font-size:24px; font-weigth:bolder; color:black" class="mb-3 ">USD {{this.precioTotal}} ó S/{{this.precioTotalSol}} </span>
-                                    <span style="font-size:11px;" class="mb-3 d-block post-date">Incluye impuestos y servicios</span>
-                                    <p style="color: black;font-size:13px;">* Tarifa en base a una persona</p>
-                                    <p style="color: #3ac92a;font-size:16px;">Incluye Desayuno</p>
+                                    <span v-if="this.fechasini == null || this.fechasfin == null" style="font-size:24px; font-weigth:bolder; color:black" class="mb-3 ">USD {{habsData.precioDol}} {{$t('Reserva["o"]')}} S/{{habsData.precioPen}} </span>
+                                    <span v-else style="font-size:24px; font-weigth:bolder; color:black" class="mb-3 ">USD {{this.precioTotal}} {{$t('Reserva["o"]')}} S/{{this.precioTotalSol}} </span>
+                                    <span style="font-size:11px;" class="mb-3 d-block post-date">{{$t('Reserva["Impuestos"]')}}</span>
+                                    <p style="color: black;font-size:13px;">{{$t('Reserva["Tarifa"]')}}</p>
+                                    <p style="color: #3ac92a;font-size:16px;">{{$t('Reserva["Desayuno"]')}}</p>
                                 </div>
                             </div>
                         </div>

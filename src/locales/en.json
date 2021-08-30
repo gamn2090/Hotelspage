@@ -1,0 +1,218 @@
+{
+    "Banner": {
+        "Img1": {
+            "linea1": "Welcome to",
+            "linea2": "Hoteles el Tambo"
+        },
+        "Img2":{
+            "linea1": "Extraordinary",
+            "linea2": "Experience"            
+        }
+        ,
+        "Img3":{
+            "linea1": "Relaxing",
+            "linea2": "Bedrooms"            
+        },
+        "IconosBanner":{
+            "mensajeGral": "Reasons to book directly with us",
+            "Icono1":"Best Price <br> Guaranteed",
+            "Icono2":"Free WIFI",
+            "Icono3":"Online Checkin",
+            "Icono4":"COVID19 protocols",
+            "Icono5":"Best Location"
+        }
+    },
+    "NavBar": {
+        "Inicio":"HOME",      
+        "Hoteles":"HOTELS",
+        "Galeria":"GALLERY",
+        "Contactanos":"CONTACT US",
+        "Reserva":"RESERVE NOW!",
+        "WebCheckin":"WEB-CHECKIN!"        
+    },
+    "Hoteles":{
+        "Titulo":"Our hotels",
+        "VerMas":"See more"
+    },
+    "Nosotros":{
+        "Titulo":"Know us",
+        "Texto":"<p style='text-align:center' class='mb-4'>We are a Peruvian hotel chain with more than 12 years of service.</p><p style='text-align:center' class='mb-4'>We are located in the best commercial and tourist area of ​​Miraflores, we have 147 rooms distributed in 3 fully equipped properties and designed to provide a pleasant stay generating an unforgettable experience for our guests.</p><p style='text-align:center' class='mb-4'>The strategic position in the heart of Miraflores, together with the unique style and hospitality that have always characterized El Tambo Hotels, make our 3 hotels a perfect destination for both business and tourism stays.</p>",
+        "video":"WATCH VIDEO"
+    },
+    "NewsLetter":{
+        "Mensaje":"Be the first to find out about our promotions, leave your contact information!",
+        "NombrePlaceholder":"Your name",
+        "MailPlaceholder":"Your email",
+        "Boton":"Check in"
+    },
+    "Promociones":{
+        "Titulo":"Our exclusive web promotions"
+    },
+    "Ubicanos":{
+        "Titulo":"Locate us",
+        "TodosHoteles":"All hotels"
+    },
+    "Footer":{
+        "MenuRapido":{
+            "Titulo":"Quick Menu",
+            "link1":"Beginning"
+        },
+        "Siguenos":{
+            "Titulo":"Follow us"
+        },
+        "CopyRight":"2020 Hotel El Tambo All rights reserved"        
+    },
+    "HotelesPage":{
+        "Sections":{
+            "Promociones":{
+                "Titulo": "Our exclusive web promotions"
+            },
+            "Habitaciones":{
+                "Tutilo":"Discover our rooms"
+            },
+            "Caracteristicas":{
+                "Titulo": "Characteristics of the Hotels",
+                "Iconos":{
+                    "Bioseguridad":"Biosafety certification",
+                    "Recepcion":"24/7 reception",
+                    "Salidas":"Emergency exits",
+                    "Estacionamiento":"Parking lot",
+                    "Ventanas":"Anti-noise Windows",
+                    "Servicio":"Room service",
+                    "Minibar":"Minibar (upon request)",
+                    "Business":"Business center",
+                    "Wifi":"Free WIFI",
+                    "Bebidas":"National and imported drinks",
+                    "Aire":"Air conditioning",
+                    "Taxy":"Taxi service",
+                    "Informacion":"Tourist information"
+                }                
+            },
+            "Fotos":{
+                "Titulo":"See our establishment",
+                "Ver":"See all photos"
+            }
+        }
+    },
+    "Habitaciones":{
+        "Detalles":"Details",
+        "Precio": "Price: USD",
+        "o":"or",
+        "Descripcion": "Description",
+        "Camas": "It has",
+        "Cantidad":"bed(s)",
+        "Hablenos":"Talk to us",
+        "Contacto":"Get in touch",
+        "Labels":{
+            "Nombre":"Full name",
+            "Correo":"Email",
+            "Telefono":"Telephone",
+            "Mensaje":"Message",
+            "Enviar":"Send Message"
+        },
+        "Placeholders":{
+            "Nombre":"Full name",
+            "Correo":"Email",
+            "Telefono":"Telephone",
+            "Mensaje":"Tell us what you need"
+        },
+        "Informacion":{
+            "Titulo":"Contact information",
+            "Direccion":"Address",
+            "Telefono":"Telephone",
+            "Correo":"Email"
+        }
+    },
+    "Galeria":{
+        "Titulo":"See our establishment"
+    },
+    "SeleccionHab":{
+        "Titulo":"Choose the room you want in the hotel",
+        "Usd":"USD",
+        "Impuesto":"Includes taxes and services",
+        "Tarifa":"* Rate based on one person",
+        "Incluye":"It includes breakfast"
+    },
+    "Reserva":{
+        "Comentario":"Reserve now!",
+        "Titulo":"Get in touch",
+        "Labels":{
+            "Nombre":"Full name",
+            "Correo":"Email",
+            "FechaLlegada":"Arrival date",
+            "FechaSalida":"Departure date",
+            "Hotel":"Hotel in which you will book",
+            "Habitacion":"Type of room",
+            "CantidadHab":"Number of rooms",
+            "CantidadAdul":"Number of Adults",
+            "CantidadNiñ":"Number of Children",
+            "Mensaje":"Message"
+        },
+        "Placeholders":{
+            "Nombre":"Full name",
+            "Correo":"Email",
+            "CantidadHab":"Number of rooms",
+            "CantidadAdul":"Number of Adults",
+            "CantidadNiñ":"Number of Children",
+            "Mensaje":"Message",
+            "Enviar":"Send Message"
+        },
+        "o":"or",
+        "Impuestos":"Includes taxes and services",
+        "Tarifa":"* Rate based on one person",
+        "Desayuno":"It includes breakfast"
+    },
+    "Contacto":{
+        "Comentario":"Talk to us",
+        "Titulo":"Get in touch",
+        "Labels":{
+            "Nombre":"Full name",
+            "Correo":"Email",
+            "Telefono":"Telephone",
+            "Mensaje":"Message",
+            "Enviar":"Send Message"
+        },
+        "Placeholders":{
+            "Nombre":"Full name",
+            "Correo":"Email",
+            "Telefono":"Telephone",
+            "Mensaje":"Tell us what you need"
+        },
+        "Informacion":{
+            "Titulo":"Contact information",
+            "Direccion":"Address",
+            "Telefono":"Telephone",
+            "Correo":"Email"
+        }
+    },
+    "WebCinBtn":"Do you have a reservation?<br>Make your Check-in<br> on-line",
+    "WebCheckin":{
+        "Comentario":"No contacts, faster, more secure",
+        "Titulo":"Web Check-in",
+        "Labels":{
+            "Nombre":"Full name",
+            "Correo":"Email",
+            "Telefono":"Telephone",
+            "Direccion":"Address",
+            "Hotel":"Hotel in which you will book",
+            "Reserva":"Reservation number",
+            "Documento":"Document type",
+            "DocumentoOpc":"Select a document type",
+            "NroDocumento":"Document number",
+            "Firma":"Signature",
+            "Deshacer":"Undo",
+            "Consideracion":"It is recommended to use a touch device to draw your signature.",
+            "Enviar":"Generate Web-checkin"
+        },
+        "Placeholders":{
+            "Nombre":"Full name",
+            "Correo":"Email",
+            "Telefono":"Telephone",
+            "Direccion":"Address",
+            "Hotel":"Hotel in which you will book",
+            "Reserva":"Reservation number",
+            "Documento":"Document type",
+            "NroDocumento":"Document number"
+        }
+    }
+}

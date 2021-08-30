@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                    <h2 class="mb-5">Características de los Hoteles</h2>
+                    <h2 class="mb-5">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Titulo"]')}}</h2>
                 </div>
             </div>
             <Carousel :autoplay="true"                    
@@ -14,7 +14,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="virus-slash" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Certificación de bioseguridad</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Bioseguridad"]')}}</span>
                         </div>
                     </div>
                 </Slide >               
@@ -22,7 +22,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="concierge-bell" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Recepción 24/7</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Recepcion"]')}}</span>
                         </div>
                     </div>
                 </Slide >
@@ -30,7 +30,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="door-open" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Salidas de Emergencia</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Salidas"]')}}</span>
                         </div>
                     </div>
                 </Slide >
@@ -38,7 +38,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="car" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Estacionamiento</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Estacionamiento"]')}}</span>
                         </div>
                     </div>
                 </Slide >                
@@ -46,7 +46,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="volume-mute" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Ventanas Antiruido</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Ventanas"]')}}</span>
                         </div>
                     </div>
                 </Slide >  
@@ -54,7 +54,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="utensils" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Servicio a la habitación</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Servicio"]')}}</span>
                         </div>
                     </div>
                 </Slide >               
@@ -62,7 +62,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="glass-cheers" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Minibar (a solicitud)</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Minibar"]')}}</span>
                         </div>
                     </div>
                 </Slide >
@@ -70,7 +70,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="desktop" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Business center</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Business"]')}}</span>
                         </div>
                     </div>
                 </Slide >
@@ -78,7 +78,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="wifi" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Wifi gratis</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Wifi"]')}}</span>
                         </div>
                     </div>
                 </Slide >
@@ -86,7 +86,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="cocktail" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Bebidas Nacionales e importadas</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Bebidas"]')}}</span>
                         </div>
                     </div>
                 </Slide >
@@ -94,7 +94,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="wind" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Aire acondicionado</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Aire"]')}}</span>
                         </div>
                     </div>
                 </Slide >  
@@ -102,7 +102,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="taxi" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Servicio de taxi</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Taxy"]')}}</span>
                         </div>
                     </div>
                 </Slide >                
@@ -110,7 +110,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="text-center p-4 item">
                             <font-awesome-icon icon="map-marked-alt" class="display-4 mb-3 d-block text-primary"/>
-                            <span class="caract-text">Información turística</span>
+                            <span class="caract-text">{{$t('HotelesPage["Sections"]["Caracteristicas"]["Iconos"]["Informacion"]')}}</span>
                         </div>
                     </div>
                 </Slide >

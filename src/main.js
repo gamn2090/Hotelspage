@@ -5,6 +5,20 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
+import VueI18n from 'vue-i18n'
+Vue.use(VueI18n)
+
+import { languages } from './index.js'
+import { defaultLocale } from './index.js'
+
+const messages = Object.assign(languages)
+
+var i18n = new VueI18n({
+  locale: defaultLocale,
+  fallbackLocale: 'en',
+  messages
+})
+
 import store from "./store";
 
 //importo el modal
@@ -88,17 +102,20 @@ router.beforeEach((to, from, next) => {
 
   }
 });
+let app
 
 store.dispatch("GET_HOTELS")
   .then(() => {
-
     auth.onAuthStateChanged(function(user){
-      new Vue({
-        el: '#app',
-        router,
-        store,
-        render: h => h(App)
-      });
+      if(!app){
+        app = new Vue({
+                el: '#app',
+                router,
+                i18n,
+                store,
+                render: h => h(App)
+              });
+      }      
     });
 
   })
