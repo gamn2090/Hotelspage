@@ -82,7 +82,7 @@
                     <div class="row form-group">
                       
                       <div class="col-md-12 ">
-                        <label class="font-weight-bold" for="signature">{{$t('WebCheckin["Labels"]["Nombre"]')}}</label>
+                        <label class="font-weight-bold" for="signature">{{$t('WebCheckin["Labels"]["Firma"]')}}</label>
                         <VueSignaturePad id="signature" width="this.width" height="200px" ref="signaturePad"
                         :options="{ backgroundColor: 'white', penColor:'red'}" />
                         <div style="margin-top: 15px;">

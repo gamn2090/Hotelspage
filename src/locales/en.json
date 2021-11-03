@@ -195,7 +195,7 @@
             "Telefono":"Telephone",
             "Direccion":"Address",
             "Hotel":"Hotel in which you will book",
-            "Reserva":"Reservation number",
+            "Reserva":"Reservation or Room number",
             "Documento":"Document type",
             "DocumentoOpc":"Select a document type",
             "NroDocumento":"Document number",
@@ -207,6 +207,7 @@
         "Placeholders":{
             "Nombre":"Full name",
             "Correo":"Email",
+            "Firma":"Digital Signature",
             "Telefono":"Telephone",
             "Direccion":"Address",
             "Hotel":"Hotel in which you will book",

@@ -20,6 +20,7 @@ import Wcheckin from '@/components/Home/Wcheckin';
 import Lang from '@/components/Home/Lang';
 import Whatsapp from '@/components/Home/Whatsapp';
 import MyFooter from '@/components/Home/MyFooter';
+
 import Navbar from '@/components/Home/Navbar';
 import Portada from "@/components/Home/Portada";
 import Promociones from "@/components/Home/Promociones";
