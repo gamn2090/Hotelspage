@@ -25,7 +25,7 @@
                     </div>                                        
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <label class="font-weight-bold">Imagen</label><br>
+                            <label class="font-weight-bold">ImaSgen</label><br>
                             <input class="btn btn-primary pill px-4 py-2" type="file" @change="getFiles()" ref="files"><br>
                             <img height="150" :src="this.hotelImage">  
                         </div>
@@ -92,13 +92,13 @@ export default {
                     hotel: this.hotelSelected,                   
                     image: url,
                     createdAt: now.format("DD/MM/YYYY"),
-                    createdAtUnix: now.unix() 
+                    createdAtUnix: now.unix()
                 }
                 await this.picturesRef.child(key).set(update)                               
 
-            } catch (ex) {
-                return console.error(ex)
+            } catch (ex) {                
                 this.failure();
+                return console.error(ex);
             }
             this.success();
         },

@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <img v-if="habsData" style="height:215px; width:100%" :src="habsData.image " :alt="habsData.nombre" class="img-fluid">
-                                    <img v-else style="height:215px; width:100%" src='@/assets/loading.gif' :alt="habsData.nombre" class="img-fluid">
+                                    <img v-else style="height:215px; width:100%" src='~@/assets/loading.gif' :alt="habsData.nombre" class="img-fluid">
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6  col-lg-4">
                                     <div v-if="$i18n.locale == 'es'" class="hotel-room-body">

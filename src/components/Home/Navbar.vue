@@ -67,10 +67,10 @@
                                 <router-link :to="'/'" >
                                 
                                     <img v-if="isDefaultImage" class="iconoInicio"
-                                    src="@/assets/tamboBlanco.png"
+                                    src="~@/assets/tamboBlanco.png"
                                     alt="El Tambo">
                                     <img v-else class="iconoInicio"
-                                    src="@/assets/tamboVerde.png"
+                                    src="~@/assets/tamboVerde.png"
                                     alt="El Tambo">                                
                                 </router-link></h2>
                             </div>
@@ -126,6 +126,12 @@
                                                     {{$t('NavBar["WebCheckin"]')}}
                                                 </router-link>
                                             </li>
+                                            <li style="width: 7% !important; cursor:pointer;">
+                                                <img @click="SetLang('en')" src="~@/assets//eeuu.png" alt="Inglés/English" style="width: 100% !important;">
+                                            </li>
+                                            <li style="width: 7% !important;cursor:pointer;">
+                                                <img @click="SetLang('es')" src="~@/assets//spain.png" alt="Español/Spanish" style="width: 100% !important;">
+                                            </li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -157,7 +163,12 @@ export default {
         hotelsRef: db.child("tambohotels")
       }
     },
-    methods:{        
+    methods:{   
+        SetLang(id){  
+            
+            localStorage.setItem("Lang",id)
+            this.$i18n.locale = id;           
+        },     
         getFiles() {
             this.files = this.$refs.files.files
         },

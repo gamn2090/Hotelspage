@@ -9,7 +9,7 @@
                             <span class="icon-wrap">
                                 <span class="icon icon-play"></span>
                             </span>
-                            <img src='@/assets/TERRAZA_TAMBO.png' alt="video image" class="img-fluid">
+                            <img src='~@/assets/TERRAZA_TAMBO.png' alt="video image" class="img-fluid">
                         </a>
                     </div>                    
                 </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <center><img src="@/assets/logo3.png" alt="adminicon" id="image">
+        <center><img src="~@/assets/logo3.png" alt="adminicon" id="image">
         <br>¡Bievenido al Panel de Administración!</center>
     </div>    
 </template>

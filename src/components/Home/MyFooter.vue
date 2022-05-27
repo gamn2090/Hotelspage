@@ -5,7 +5,7 @@
                 <div class="col-md-2">                    
                     <center>
                         <router-link :to="'/'" >
-                            <img class="imagenFooterHotel" src='@/assets/tamboBlanco.png' alt="El Tambo">                                
+                            <img class="imagenFooterHotel" src='~@/assets/tamboBlanco.png' alt="El Tambo">                                
                         </router-link>
                     </center>                    
                 </div>             

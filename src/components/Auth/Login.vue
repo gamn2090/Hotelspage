@@ -3,7 +3,7 @@
         
         <form class="form" @submit.prevent="login">
             <router-link :to="'/'" >
-                <img class="img-background" src='@/assets/logo3.png' alt="El Tambo">                                
+                <img class="img-background" src='~@/assets/logo3.png' alt="El Tambo">                                
             </router-link>
             <label>Cooreo electrónico del usuario</label>
             <input v-model="usuario" type="text" placeholder="Correo Electrónico">

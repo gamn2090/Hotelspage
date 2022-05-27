@@ -100,7 +100,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <img style="height:215px; width:100%" v-if="this.habsData" :src="habsData.image" alt="Image" class="img-fluid">
-                                <img style="height:215px; width:100%" v-else src='@/assets/loading.gif' alt="Image" class="img-fluid">
+                                <img style="height:215px; width:100%" v-else src='~@/assets/loading.gif' alt="Image" class="img-fluid">
                                 <div v-if="$i18n.locale == 'es'" class="hotel-room-body">
                                     <h3 v-if="this.habsData" class="heading mb-0">{{habsData.nombre}}</h3>
                                     <p v-if="this.habsData" style="color: grey">{{habsData.descripcion}}</p>
